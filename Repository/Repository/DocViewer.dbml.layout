@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 13, 17.5" name="Docviewer">
+  <DataContextMoniker Name="/DocviewerDataContext" />
+  <nestedChildShapes>
+    <classShape Id="86d83fd0-f43c-47eb-a04f-a4788132d43d" absoluteBounds="6.75, 0.75, 2, 2.4612756347656255">
+      <DataClassMoniker Name="/DocviewerDataContext/BASE_ROLE_INFO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="eddca595-0c54-4329-8a96-2a3b3ffe3067" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="700e6230-5d64-4152-97d2-87f1e39e7e7b" absoluteBounds="0.75, 6.75, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/DocviewerDataContext/BASE_ROLEFUNCTIONS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d04746d8-52e4-4b8f-ba56-4d0ad361b4a0" absoluteBounds="0.765, 7.21, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4b22e031-0667-4ace-af2a-da584c8cf59b" absoluteBounds="3.75, 6.75, 2, 4.4940108235677068">
+      <DataClassMoniker Name="/DocviewerDataContext/BASE_USER_INFO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="002f2719-58cf-4dfb-a852-9e0295671a65" absoluteBounds="3.765, 7.21, 1.9700000000000002, 3.934010823567708" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0e46c8a3-11f3-4d29-b49e-9b53eb112fe6" absoluteBounds="8.25, 4.375, 2, 2.2764815266927085">
+      <DataClassMoniker Name="/DocviewerDataContext/BASE_FUNCTIONS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d67178c2-645d-4756-816b-a1027c622801" absoluteBounds="8.265, 4.835, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6f68f1e0-7135-4bc4-94a6-63b8d974126e" absoluteBounds="7.5, 7.75, 2, 2.8308638509114581">
+      <DataClassMoniker Name="/DocviewerDataContext/V_ROLE_FUNCTION" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ae9c4b1e-2825-475d-b8b6-5f062d48c1f7" absoluteBounds="7.515, 8.21, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="31b937d6-a366-4d16-9e21-55c2bc57c244" absoluteBounds="6.5, 3.75, 2, 4.3092167154947916">
+      <DataClassMoniker Name="/DocviewerDataContext/BASE_DEPARTMENT_INFO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8b090e95-9df3-4421-8107-4e5d2f72abd3" absoluteBounds="6.515, 4.21, 1.9700000000000002, 3.749216715494792" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="014077d7-2a41-4f74-a0a4-e0e469e1d818" absoluteBounds="6.125, 1.75, 2, 2.8308638509114581">
+      <DataClassMoniker Name="/DocviewerDataContext/BASE_GEO_INFO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="653b193f-8215-42c6-9dae-ec7181bf19bb" absoluteBounds="6.14, 2.21, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bc854d80-3521-4532-84ce-d7089af08021" absoluteBounds="0.75, 9.75, 2, 4.4940108235677059">
+      <DataClassMoniker Name="/DocviewerDataContext/V_USER_DEPT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ef28d174-2429-4a35-88e6-afab0fa6d0bb" absoluteBounds="0.765, 10.21, 1.9700000000000002, 3.934010823567708" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eb519e96-0101-4b2c-bb54-d9a52b2b2622" absoluteBounds="10.75, 7.75, 2, 4.6788049316406237">
+      <DataClassMoniker Name="/DocviewerDataContext/V_USER_ROLE_DEPT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0bac200a-d0aa-4678-875b-81c7a6fa8dc7" absoluteBounds="10.765, 8.21, 1.9700000000000002, 4.118804931640625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e956a30e-3b59-404b-b3bb-167cd9d5c0d5" absoluteBounds="7.5, 12.375, 2, 4.8635990397135407">
+      <DataClassMoniker Name="/DocviewerDataContext/V_DEPT_DEPT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="445a4654-d552-47f2-911f-a5f99d8d369e" absoluteBounds="7.515, 12.835, 1.9700000000000002, 4.3035990397135411" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5ef08b69-ef7d-493e-a4c6-1cdbdd51c568" absoluteBounds="4.25, 11.875, 2, 1.7220992024739581">
+      <DataClassMoniker Name="/DocviewerDataContext/BASE_SELECTE_VALUE_INFO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="281646e9-3798-4297-b882-bc6c8ddf98fe" absoluteBounds="4.265, 12.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ef8104ed-d507-4ef2-a338-2c8d750e8040" absoluteBounds="3.625, 1, 2, 4.6788049316406246">
+      <DataClassMoniker Name="/DocviewerDataContext/Document" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1e21c2a6-b798-440e-a6b0-8f683d7b2b7c" absoluteBounds="3.6399999999999997, 1.46, 1.9700000000000002, 4.118804931640625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9de286b4-3e70-4f5c-b751-80303e6e0e5b" absoluteBounds="1, 1.625, 2, 3.5700402832031246">
+      <DataClassMoniker Name="/DocviewerDataContext/Space" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b8cf2450-c437-457f-9b0a-9f9d2781c5c4" absoluteBounds="1.0149999999999997, 2.085, 1.9700000000000002, 3.010040283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
