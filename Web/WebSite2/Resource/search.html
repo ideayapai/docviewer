@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>搜索</title>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/zTreeStyle/zTreeStyle.css">
+    </head>
+
+    <body>
+        <div class="tophead">
+            <div class="mtlogo" style="text-align: center">文件管理系统</div>
+            <div class="navbar">
+                <ul class="toolbar">
+                    <li id="search" class="searchbar">
+                        <form action="">
+                            <input type="text" placeholder="搜索文档、图片、工程图、空间、文件">
+                            <input type="submit" value="" class="icon-search" />
+                        </form>
+                    </li>
+                    <li class="userinfo">
+                        <div class="headtumb">
+                            <img src="images/u792.png" alt="wuxiaomeng" class="tumb">
+                        </div>
+                        <div class="username">
+                            <span>wuxiaomeng</span>
+                            <button>
+                                <i class="icon icon-14"></i>
+                            </button>
+                        </div>
+                        <div class="usercontrol"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main">
+            <div class="sidebar">
+                <div class="mainmenu">
+                    <ul class="menu2">
+                        <li class="main_all">
+                            <i class="icon-menu icon-menu-2 micon"></i>
+                            <span>
+                                <a href="index.html">所有空间</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-3 micon"></i>
+                            <span>
+                                <a href="recently.html">最近</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-4 micon"></i>
+                            <span>
+                                <a href="drawings.html">工程图</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-5 micon"></i>
+                            <span>
+                                <a href="file.html">文档</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-6 micon"></i>
+                            <span>
+                                <a href="pictures.html">图片</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-7 micon"></i>
+                            <span>
+                                <a href="recycleBin.html">回收站</a>
+                            </span>
+                        </li>
+                        <li class="sys_toggle">
+                            <i class="icon icon-setting micon"></i>
+                            <span>
+                                <a href="javascript:void(0);">系统设置</a>
+                                <mark class="down">▼</mark>
+                            </span>
+                        </li>
+                        <li class="sys_options" style="display: none">
+                            <ul class="secondMenu">
+                                <li>
+                                    <span>
+                                        ●<a href="setting_basic.html">基本设置</a>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        ●<a href="setting_safe.html">安全设置</a>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        ●<a href="setting_exterior.html">外观设置</a>
+                                    </span>
+                                </li>
+                                <li class="sys_toggle">
+                                    <span>
+                                        ●<a href="javascript:void(0);">基础信息管理</a>
+                                        <mark class="down">▼</mark>
+                                    </span>
+                                </li>
+                                <li class="sys_options" style="display: none">
+                                    <ul class="thirdMenu">
+                                        <li>
+                                            <span>
+                                                <a href="setting_userManagement_area.html">区域管理</a>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <a href="setting_userManagement_purview.html">权限管理</a>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <a href="setting_userManagement_department.html">部门管理</a>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <a href="setting_userManagement_user.html">用户管理</a>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sys_toggle">
+                                    <span>
+                                        ●<a href="javascript:void(0)">日志管理</a>
+                                        <mark class="down">▼</mark>
+                                    </span>
+                                </li>
+                                <li class="sys_options" style="display: none">
+                                    <ul class="thirdMenu">
+                                        <li>
+                                            <span>
+                                                <a href="setting_systemLog.html">系统日志</a>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <a href="setting_userLog.html">用户日志</a>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+		<div class="viewbox">
+			<div class="viewcontent">
+				<div class="content">
+					<div class="breadcrumb">
+						<span class="homeicon"></span>
+						<a href="" class="home">首页</a>
+						<span class="divide">></span>
+						<a href="" class="home">搜索</a>
+                    </div>
+                    <div class="showstyle">
+                        <div class="cla">
+                            <span id="" class="s_button checked">全部类型</span>
+                            <span id="" class="s_button s_nomar">JPG</span>
+                            <span id="" class="s_button s_nomar">CAD</span>
+                            <span id="" class="s_button s_nomar">DOC(X)</span>
+                            <span id="" class="s_button s_nomar">PPT(X)</span>
+                            <span id="" class="s_button s_nomar">XLS(X)</span>
+                        </div>
+
+                        <div class="cla">
+                            <span id="" class="s_button checked">全部时间</span>
+                            <span id="" class="s_button s_nomar">今天</span>
+                            <span id="" class="s_button s_nomar">昨天</span>
+                            <span id="" class="s_button s_nomar">最近7天</span>
+                            <span id="" class="s_button s_nomar">最近30天</span>
+                        </div>
+                    </div>
+                    <div class="search_con">
+                        <div class="article">
+                            <i class="file-small-icon file-small-icon-DOC"></i>
+                            <h3 class="title">基于移动互联网的餐饮业B2C平台建设企划书v2.0.doc</h3>
+                            <span class="time">2015.03.06</span>
+                            <ul class="pic">
+                                <li><img src="images/close.jpg" alt=""/></li>
+                                <li><img src="images/close.jpg" alt=""/></li>
+                                <li><img src="images/close.jpg" alt=""/></li>
+                                <li><img src="images/close.jpg" alt=""/></li>
+                            </ul>
+                            <p class="artiContent">吉林团是习近平在今年两会期间参加审议的最后一个地方代表团，谈及老工业基地的振兴发展时，他打了个比方：“东北等老工业基地振兴发展，不能再唱‘工业一柱擎天，结构单一’的‘二人转’，要做好加减乘除。吉林团是习近平在今年两会期间参加审议的最后一个地方代表团，谈及老工业基地的振兴发展时，他打了个比方：“东北等老工业基地振兴发展，不能再唱‘工业一柱擎天，结构单一’的‘二人转’，要做好加减乘除。”</p>
+                        </div>
+                        <div class="article">
+                            <i class="file-small-icon file-small-icon-DOC"></i>
+                            <h3 class="title">基于移动互联网的餐饮业B2C平台建设企划书v2.0.doc</h3>
+                            <span class="time">2015.03.06</span>
+                            <p class="artiContent">吉林团是习近平在今年两会期间参加审议的最后一个地方代表团，谈及老工业基地的振兴发展时，他打了个比方：“东北等老工业基地振兴发展，不能再唱‘工业一柱擎天，结构单一’的‘二人转’，要做好加减乘除。吉林团是习近平在今年两会期间参加审议的最后一个地方代表团，谈及老工业基地的振兴发展时，他打了个比方：“东北等老工业基地振兴发展，不能再唱‘工业一柱擎天，结构单一’的‘二人转’，要做好加减乘除。”</p>
+                        </div>
+                        <div class="article">
+                            <i class="file-small-icon file-small-icon-DOC"></i>
+                            <h3 class="title">基于移动互联网的餐饮业B2C平台建设企划书v2.0.doc</h3>
+                            <span class="time">2015.03.06</span>
+                            <p class="artiContent">吉林团是习近平在今年两会期间参加审议的最后一个地方代表团，谈及老工业基地的振兴发展时，他打了个比方：“东北等老工业基地振兴发展，不能再唱‘工业一柱擎天，结构单一’的‘二人转’，要做好加减乘除。吉林团是习近平在今年两会期间参加审议的最后一个地方代表团，谈及老工业基地的振兴发展时，他打了个比方：“东北等老工业基地振兴发展，不能再唱‘工业一柱擎天，结构单一’的‘二人转’，要做好加减乘除。”</p>
+                        </div>
+                        <div class="article">
+                            <i class="file-small-icon file-small-icon-DOC"></i>
+                            <h3 class="title">基于移动互联网的餐饮业B2C平台建设企划书v2.0.doc</h3>
+                            <span class="time">2015.03.06</span>
+                            <p class="artiContent">吉林团是习近平在今年两会期间参加审议的最后一个地方代表团，谈及老工业基地的振兴发展时，他打了个比方：“东北等老工业基地振兴发展，不能再唱‘工业一柱擎天，结构单一’的‘二人转’，要做好加减乘除。吉林团是习近平在今年两会期间参加审议的最后一个地方代表团，谈及老工业基地的振兴发展时，他打了个比方：“东北等老工业基地振兴发展，不能再唱‘工业一柱擎天，结构单一’的‘二人转’，要做好加减乘除。”</p>
+                        </div>
+                        <div class="article">
+                            <i class="file-small-icon file-small-icon-DOC"></i>
+                            <h3 class="title">基于移动互联网的餐饮业B2C平台建设企划书v2.0.doc</h3>
+                            <span class="time">2015.03.06</span>
+                            <p class="artiContent">吉林团是习近平在今年两会期间参加审议的最后一个地方代表团，谈及老工业基地的振兴发展时，他打了个比方：“东北等老工业基地振兴发展，不能再唱‘工业一柱擎天，结构单一’的‘二人转’，要做好加减乘除。吉林团是习近平在今年两会期间参加审议的最后一个地方代表团，谈及老工业基地的振兴发展时，他打了个比方：“东北等老工业基地振兴发展，不能再唱‘工业一柱擎天，结构单一’的‘二人转’，要做好加减乘除。”</p>
+                        </div>
+                    </div>
+                    <div class="page">
+                        <a href="#">首页</a>
+                        <span>…</span>
+                        <a href="#">21</a>
+                        <a href="#">22</a>
+                        <a href="#" class="checked">23</a>
+                        <a href="#">24</a>
+                        <a href="#">25</a>
+                        <span>…</span>
+                        <a href="#">尾页</a>
+                        <input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                        <button>跳转</button>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+    <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="js/yapai.documentManagement.js"></script>
+    <script type="text/javascript" src="js/jquery.highlight.js"></script>
+    <script type="text/javascript">
+        $(".search_con").height($(".content").height() - $(".showstyle").height() - $(".page").height() - $(".breadcrumb").height()-30);
+        //关键字高亮    如有多个关键词，或者后台把用户输入的关键词拆分后，实现多个关键词同时搜索，请使用关键词数组
+        $('.search_con').highlight('互联网');
+    </script>
+</html>

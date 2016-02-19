@@ -1,0 +1,105 @@
+﻿@model WebSite2.Models.UserViewModel
+@{
+    ViewBag.Title = "用户管理-创建用户";
+}
+
+@Html.Partial("_QuickMenu", Model.MenuViewModel)
+
+
+<div class="viewbox">
+    <div class="viewcontent">
+       
+        <div class="content">
+            <div class="breadcrumb">
+
+                <span class="homeicon"></span>
+                <a href="/User/Index" class="home">用户管理</a>
+                <span class="divide">></span>
+                <a href="javascript:void(0);" class="home">创建用户</a>
+            </div>
+            <div class="button_bar">
+                <button class="in_btn_white" onclick="subForm();">保存</button>
+                <a href="/User/Index" class="in_btn_white">用户列表</a>
+            </div>
+            <div class="log_con" style="height: 859px;">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                   
+                        <fieldset>
+                            <ul class="addInfo">
+                                <div class="formlabel">
+                                    <label for="name">角色：</label>
+                                    @Html.DropDownListFor(model => model.UserContract.RoleId, ViewData["Roles"] as IEnumerable<SelectListItem>, "---请选择用户角色---", new { @class = "easyui-combobox", @data_options = "editable:false" })
+                                    @Html.ValidationMessageFor(model => model.UserContract.RoleId)
+                                </div>
+
+                                <div class="formlabel">
+                                    <label for="name">登录名：</label>
+                                    @Html.TextBoxFor(model => model.UserContract.UserName, new { @autocomplete = "off" })
+                                    @Html.ValidationMessageFor(model => model.UserContract.UserName)
+                                </div>
+
+                                <div class="formlabel">
+                                    <label for="name">姓名：</label>
+                                    @Html.EditorFor(model => model.UserContract.NickName, new { @autocomplete = "off" })
+                                    @Html.ValidationMessageFor(model => model.UserContract.NickName)
+                                </div>
+
+                                <div class="formlabel">
+                                    <label for="name">部门：</label>
+                                    @Html.DropDownListFor(model => model.UserContract.DepId, ViewData["Departments"] as IEnumerable<SelectListItem>, "---请选择部门---", new { @class = "easyui-combobox", @data_options = "editable:false" })
+                                    @Html.ValidationMessageFor(model => model.UserContract.DepId)
+                                </div>
+
+                                <div class="formlabel">
+                                    <label for="name">密码：</label>
+                                    @Html.PasswordFor(model => model.UserContract.Password, new { @autocomplete = "off" })
+                                    @Html.ValidationMessageFor(model => model.UserContract.Password)
+                                </div>
+
+                                <div class="formlabel">
+                                    <label for="name">联系电话：</label>
+                                    @Html.EditorFor(model => model.UserContract.UserInfoTel, new { @autocomplete = "off" })
+                                    @Html.ValidationMessageFor(model => model.UserContract.UserInfoTel)
+                                </div>
+
+                                <div class="formlabel">
+                                    <label for="name">邮箱：</label>
+                                    @Html.EditorFor(model => model.UserContract.UserInfoEmail, new { @autocomplete = "off" })
+                                    @Html.ValidationMessageFor(model => model.UserContract.UserInfoEmail)
+                                </div>
+
+                                <p>
+                                    @Html.HiddenFor(p => p.UserContract.CreatedBy)
+                                    @Html.HiddenFor(p => p.UserContract.Id)
+                                </p>
+                            </ul>
+
+                        </fieldset>
+                   
+                }
+            </div>
+            <div class="button_bar">
+                <button class="in_btn_white" onclick="subForm();">保存</button>
+                <a href="/User/Index" class="in_btn_white">信息列表</a>
+            </div>
+        </div>
+       
+    </div>
+</div>
+<script type="text/javascript">
+    function subForm() {
+        $("form").submit();
+    }
+    $(function () {
+
+        @*$('#ParentId').combobox({
+            valueField: 'Id',
+            textField: 'AreaName',
+            data: @Html.Raw(ViewData["Areas"])
+        });*@
+        });
+
+</script>

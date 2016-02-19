@@ -1,0 +1,43 @@
+﻿@model WebSite2.Models.DisplayViewModel
+@{
+    ViewBag.Title = @Model.Document.FileName;
+}
+
+@Html.Partial("_QuickMenu", Model.MenuViewModel)
+
+
+
+<div class="viewbox">
+    <div class="showstyle">
+        <span class="s_button zoom" data-zoom-type="zoomPlus"><i class="ampl"></i> 放大</span>
+        <span class="s_button zoom" data-zoom-type="zoomMinus"><i class="redu"></i> 缩小</span>
+        <span class="s_button zoom" data-zoom-type="zoomOrig"><i class="orig"></i> 原始</span>
+        <a class="download download_file" title="下载" href="@Model.Document.DownloadPath" target="_blank"></a>
+    </div>
+    <div class="breadcrumb">
+        <span class="homeicon"></span>
+        <a href="/" class="home">所有空间</a>
+        <div id="spacemenu">
+            @foreach (var space in Model.ParentSpaces)
+            {
+                <span class="divide"> &gt; </span>
+                <a href="/Home/Space/@space.Id/page" class="home">@space.SpaceName</a>
+            }
+            <span class="divide"> &gt; </span>
+            <a href="/View/Index?Id=@Model.Document.Id">@Model.Document.FileName</a>
+        </div>
+    </div>
+    <div id="htmlContent" class="htmlContent">加载中...</div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $.get("/view/preview?id=@Model.Document.Id", function (res) {
+            $(".htmlContent").remove();
+            $(".viewbox").append(res);
+            $(".htmlIframe").height($(".viewbox").height() - $(".showstyle").height() - $(".breadcrumb").height()).show();
+        }, "html");
+       
+  
+    });
+</script>

@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "我的空间";
+}
+
+<div class="row-fluid">
+    <div class="col-md-12 ">
+
+       @* <ol class="breadcrumb">
+            <li><a href="/">管理后台</a></li>
+            <li class="active">平台概况</li>
+        </ol>*@
+
+        <div class="jumbotron">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h2>创建你的第一个空间</h2>
+            <p>你还没有自己的文档空间，马上行动！</p>
+            <p><a class="btn btn-primary btn-lg" role="button" href="/Space/Add">Go</a></p>
+        </div>
+
+        @*<div class="container">
+            <form class="form-horizontal">
+                @Html.ToHtmlInputItem(new User { UserName = "admin", CreateTime = DateTime.Now, Nick = "taobao", UserPwd = "123456" })
+            </form>
+        </div>*@
+
+    </div>
+</div>

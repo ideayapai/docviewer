@@ -1,0 +1,19 @@
+﻿@{
+    Layout = null;
+}
+@model WebSite2.Models.SpaceViewModel
+<div class="list-group">
+    <a href="#" class="list-group-item active" >@Model.CurrentSpace.SpaceName</a>
+    <a href="/Space/Add?Id=@Model.CurrentSpace.Id" class="list-group-item">
+        <span class="glyphicon glyphicon-plus"></span> 创建空间
+    </a>
+    @for (var i = 0; i < Model.ChildSpaces.Count; i++)
+     {
+        <a href="/Space/detail?id=@Model.ChildSpaces[i].Id" class="list-group-item">
+             @Model.ChildSpaces[i].SpaceName
+        </a>
+     }
+   
+
+</div>
+

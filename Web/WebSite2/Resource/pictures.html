@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>图片</title>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/zTreeStyle/zTreeStyle.css">
+    </head>
+    
+    <body>
+        <div class="tophead">
+            <div class="mtlogo" style="text-align: center">文件管理系统</div>
+            <div class="navbar">
+                <ul class="toolbar">
+                    <li id="search" class="searchbar">
+                        <form action="">
+                            <input type="text" placeholder="搜索文档、图片、工程图、空间、文件">
+                            <input type="submit" value="" class="icon-search" />
+                        </form>
+                    </li>
+                    <li class="userinfo">
+                        <div class="headtumb">
+                            <img src="images/u792.png" alt="wuxiaomeng" class="tumb">
+                        </div>
+                        <div class="username">
+                            <span>wuxiaomeng</span>
+                            <button>
+                                <i class="icon icon-14"></i>
+                            </button>
+                        </div>
+                        <div class="usercontrol"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main">
+            <div class="sidebar">
+                <div class="mainmenu">
+                    <ul class="menu2">
+                        <li class="main_all">
+                            <i class="icon-menu icon-menu-2 micon"></i>
+                            <span>
+                                <a href="index.html">所有空间</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-3 micon"></i>
+                            <span>
+                                <a href="recently.html">最近</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-4 micon"></i>
+                            <span>
+                                <a href="drawings.html">工程图</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-5 micon"></i>
+                            <span>
+                                <a href="file.html">文档</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-6 micon"></i>
+                            <span class="checked">
+                                <a href="pictures.html">图片</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-7 micon"></i>
+                            <span>
+                                <a href="recycleBin.html">回收站</a>
+                            </span>
+                        </li>
+                        <li class="sys_toggle">
+                            <i class="icon icon-setting micon"></i>
+                            <span>
+                                <a href="javascript:void(0);">系统设置</a>
+                                <mark class="down">▼</mark>
+                            </span>
+                        </li>
+                        <li class="sys_options" style="display: none">
+                            <ul class="secondMenu">
+                                <li>
+                                    <span>
+                                        ●<a href="setting_basic.html">基本设置</a>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        ●<a href="setting_safe.html">安全设置</a>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        ●<a href="setting_exterior.html">外观设置</a>
+                                    </span>
+                                </li>
+                                <li class="sys_toggle">
+                                    <span>
+                                        ●<a href="javascript:void(0);">基础信息管理</a>
+                                        <mark class="down">▼</mark>
+                                    </span>
+                                </li>
+                                <li class="sys_options" style="display: none">
+                                    <ul class="thirdMenu">
+                                        <li>
+                                            <span>
+                                                <a href="setting_userManagement_area.html">区域管理</a>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <a href="setting_userManagement_purview.html">权限管理</a>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <a href="setting_userManagement_department.html">部门管理</a>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <a href="setting_userManagement_user.html">用户管理</a>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sys_toggle">
+                                    <span>
+                                        ●<a href="javascript:void(0)">日志管理</a>
+                                        <mark class="down">▼</mark>
+                                    </span>
+                                </li>
+                                <li class="sys_options" style="display: none">
+                                    <ul class="thirdMenu">
+                                        <li>
+                                            <span>
+                                                <a href="setting_systemLog.html">系统日志</a>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <a href="setting_userLog.html">用户日志</a>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="viewbox">
+                <div class="viewcontent">
+                    <div class="showstyle">
+                        <span id="delFiles" class="s_button"><i class="remove"></i> 删 除</span>
+                        <i id="showtoggle" class="showtoggle" data-showfont="pic" title="显示为缩略图"></i>
+                    </div>
+                    <div class="content">
+                        <div class="con_list">
+                            <div class="breadcrumb">
+                                <input id="chk-all" class="chk-all" type="checkbox"/>
+                                <span class="homeicon"></span>
+                                <a class="home">图片</a>
+                            </div>
+                            <ul class="file-list">
+                                <li class="row-fluid file-list-title">
+                                    <div class="span8">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        文件名
+                                    </div>
+                                    <div class="span2">文件大小</div>
+                                    <div class="span2">上传时间</div>
+                                </li>
+
+
+                                <!-- PS:  data-id保存的是该条数据的id，请填充数据的时候务必填上。页面上暂且使用的是模拟数字 -->
+                                <li class="row-fluid" data-id="11">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-JPG"><img src="images/u29.png" alt=""/></i>
+                                        <span title="JPG文件">JPG文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="12">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-JPEG"><img src="images/u792.png" alt=""/></i>
+                                        <span title="JPEG文件">JPEG文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="13">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-PNG"><img src="images/u12.png" alt=""/></i>
+                                        <span title="PNG文件">PNG文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="14">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-GIF"><img src="images/u14.png" alt=""/></i>
+                                        <span title="GIF文件">GIF文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="15">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-BMP"><img src="images/bg.jpg" alt=""/></i>
+                                        <span title="BMP文件">BMP文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="51">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-DAMAGE"></i>
+                                        <span title="文件已损坏或加载失败">文件已损坏或加载失败</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                            </ul>
+                            <ul class="file-pic">
+                                <li data-id="11">
+                                    <i class="file-icon file-icon-JPG"><img src="images/u29.png" alt=""/></i>
+                                    <p title="JPG文件">JPG文件</p>
+                                </li>
+                                <li data-id="12">
+                                    <i class="file-icon file-icon-JPEG"><img src="images/u792.png" alt=""/></i>
+                                    <p title="JPEG文件">JPEG文件</p>
+                                </li>
+                                <li data-id="13">
+                                    <i class="file-icon file-icon-PNG"><img src="images/u12.png" alt=""/></i>
+                                    <p title="PNG文件">PNG文件</p>
+                                </li>
+                                <li data-id="14">
+                                    <i class="file-icon file-icon-GIF"><img src="images/u14.png" alt=""/></i>
+                                    <p title="GIF文件">GIF文件</p>
+                                </li>
+                                <li data-id="15">
+                                    <i class="file-icon file-icon-BMP"><img src="images/bg.jpg" alt=""/></i>
+                                    <p title="BMP文件">BMP文件</p>
+                                </li>
+                                <li data-id="51">
+                                    <i class="file-icon file-icon-DAMAGE"></i>
+                                    <p title="文件已损坏或加载失败">文件已损坏或加载失败</p>
+                                </li>
+                            </ul>
+                            <div class="page">
+                                <a href="#">首页</a>
+                                <span>…</span>
+                                <a href="#">21</a>
+                                <a href="#">22</a>
+                                <a href="#" class="checked">23</a>
+                                <a href="#">24</a>
+                                <a href="#">25</a>
+                                <span>…</span>
+                                <a href="#">尾页</a>
+                                <input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                                <button>跳转</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="upload-box">
+            <div>
+                <div class="box-head">
+                    <strong>上传文件</strong>
+                    <i class="close_upload" title="关闭" onclick="cancle_upload()"></i>
+                    <div class="box-content">
+                        <div class="space-choose">
+                            <input type="text" value="文档" />
+                            <button class="uploadaddr">选择目录</button>
+                        </div>
+                        <div class="other_tree">
+                            上传到：
+                            <ul id="uploadTree" class="ztree"></ul>
+                        </div>
+                        <div class="file-choose">
+                            <button id="file_upload">附件上传</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ztree.core-3.4.min.js"></script>
+    <script type="text/javascript" src="js/yapai.documentManagement.js"></script>
+    <script type="text/javascript">
+        $(".content").height($(".viewcontent").height() - $(".showstyle").height());
+        $(".con_list ul").height($(".con_list").height() - 100);
+        $("input[type=checkbox]").attr("checked", false);
+    </script>
+
+</html>

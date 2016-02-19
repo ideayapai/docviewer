@@ -1,0 +1,18 @@
+﻿@using WebSite2.Controls
+@model WebSite2.Models.DisplayViewModel
+@{
+    ViewBag.Title = @Model.Document.FileName;
+    Layout = null;
+}
+
+<div class="dlp">
+    @Html.Icon(Model.Document)
+
+    <p>
+        @Html.Raw(Model.Document.FileName)
+    </p>
+    <p>
+        <a class="btn" href="@Model.Document.DownloadPath">下 载</a>
+    </p>
+</div>
+

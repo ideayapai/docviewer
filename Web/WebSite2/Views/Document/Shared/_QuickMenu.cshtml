@@ -1,0 +1,20 @@
+﻿@{
+    Layout = null;
+}
+@using WebSite2.Models
+@model WebSite2.Models.DocumentMenu
+
+<div class="list-group">
+    @if (Model == DocumentMenu.All)
+    {
+        <a href="/Document/Index" class="list-group-item active" >所有文档</a>
+        <a href="/Document/Mine" class="list-group-item">我的文档</a>
+    }
+     @if (Model == DocumentMenu.Mine)
+    {
+        <a href="/Document/Index" class="list-group-item" >所有文档</a>
+        <a href="/Document/Mine" class="list-group-item active">我的文档</a>
+    }
+
+</div>
+

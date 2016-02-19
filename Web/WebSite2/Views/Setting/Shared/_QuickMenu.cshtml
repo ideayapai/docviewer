@@ -1,0 +1,82 @@
+﻿@{
+    Layout = null;
+}
+@model WebSite2.Models.MenuViewModel
+
+<div class="sidebar">
+    <div class="menusearch">
+        <input type="text">
+        <button><i class="icon icon-search"></i></button>
+    </div>
+    <div class="mainmenu">
+        <ul>
+            @foreach (var menu in Model.Menus)
+            {
+                if (menu.ChildMenus.Count > 0)
+                {
+                    <li class="sys_toggle">
+                        <i class="icon icon-setting micon"></i>
+                        <span class="">
+                            <a href="javascript:void(0);">@menu.Name</a>
+                            <mark class="down">▼</mark>
+                        </span>
+                    </li>
+                    <li class="sys_options">
+                        <ul class="secondMenu">
+                            @foreach (var childMenu in menu.ChildMenus)
+                            {
+
+                                if (childMenu.IsActive)
+                                {
+                                    <li>
+                                        <span class="checked">
+                                            <a href="@menu.Url">@menu.Name</a>
+                                        </span>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li>
+                                        <span class="">
+                                            <a href="@menu.Url">@menu.Name</a>
+                                        </span>
+                                    </li>
+                                }
+                            
+                            }
+                        </ul>
+                    </li>
+                }
+                else
+                {
+                    if (menu.IsActive)
+                    {
+
+                        <li>
+                            <i class="icon icon-2 micon"></i>
+                            <span><a href="@menu.Url">@menu.Name</a></span>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <i class="icon icon-3 micon"></i>
+                            <span><a href="@menu.Url">@menu.Name</a></span>
+                        </li>
+                    }
+                }
+            }
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+<div class="list-group">
+    <a href="/Setting/Search" class="list-group-item active">搜索</a>
+    <a href="/Setting/Account" class="list-group-item">账户</a>
+    <a href="/Setting/Mail" class="list-group-item">邮箱</a>
+</div>
+

@@ -1,0 +1,267 @@
+﻿@using Documents
+
+@model WebSite2.Models.HomeViewModel
+
+<ul class="file-list" id="dragUploadField">
+    <li class="row-fluid file-list-title">
+        <div class="span6">文件名</div>
+        <div class="span2"></div>
+        <div class="span2">文件大小</div>
+        <div class="span2">上传时间</div>
+    </li>
+    @{
+        foreach (var space in Model.ChildSpaces)
+        {
+            <li class="row-fluid" data-id="@space.Id" data-folder="true">
+                <div class="span8">
+                    <input type="checkbox" />
+                    <i class="file-small-icon file-small-icon-folders"></i>
+                    <span data-url="/Home/Space/@space.Id/page">@space.SpaceName</span>
+                </div>
+            </li>
+        }
+    }
+    @foreach (var document in Model.Documents)
+    {
+        <li class="row-fluid" data-id="@document.Id" data-file="true">
+            <div class="span8">
+                <input type="checkbox" />
+                @switch (document.DocumentType)
+                {
+                    case DocumentType.BMP:
+                        <i class="file-small-icon file-small-icon-BMP">
+                            <img src="@document.ThumbUrl" alt="@document.FileName" data-displaypath="@document.DisplayPath">
+                        </i>
+                        break;
+                    case DocumentType.JPG:
+                        <i class="file-small-icon file-small-icon-JPG">
+                            <img src="@document.ThumbUrl" alt="@document.FileName" data-displaypath="@document.DisplayPath">
+                        </i>
+                        break;
+                    case DocumentType.PNG:
+                        <i class="file-small-icon file-small-icon-PNG">
+                            <img src="@document.ThumbUrl" alt="@document.FileName" data-displaypath="@document.DisplayPath">
+                        </i>
+                        break;
+                    case DocumentType.GIF:
+                        <i class="file-small-icon file-small-icon-GIF">
+                            <img src="@document.ThumbUrl" alt="@document.FileName" data-displaypath="@document.DisplayPath">
+                        </i>
+                        break;
+                    case DocumentType.PSD:
+                        <i class="file-small-icon file-small-icon-PSD"></i>
+                        break;
+                    case DocumentType.TXT:
+                        <i class="file-small-icon file-small-icon-TXT"></i>
+                        break;
+                    case DocumentType.Word:
+                        <i class="file-small-icon file-small-icon-DOC"></i>
+                        break;
+                    case DocumentType.Excel:
+                        <i class="file-small-icon file-small-icon-XLS"></i>
+                        break;
+                    case DocumentType.PPT:
+                        <i class="file-small-icon file-small-icon-PPT"></i>
+                        break;
+                    case DocumentType.PDF:
+                        <i class="file-small-icon file-small-icon-PDF"></i>
+                        break;
+                    case DocumentType.Folder:
+                        <i class="file-small-icon file-small-icon-folders"></i>
+                        break;
+                    case DocumentType.CAD:
+                        <i class="file-small-icon file-small-icon file-small-icon-CAD">
+                            <img src="@document.ThumbUrl" alt="@document.FileName" data-displaypath="@document.DisplayPath">
+                        </i>
+                        break;
+                    case DocumentType.OBJ:
+                        <i class="file-small-icon file-small-icon-FILE"></i>
+                        break;
+                    default:
+                        <i class="file-small-icon file-small-icon-FILE"></i>
+                        break;
+                }
+                <span data-url="@document.DownloadPath">@document.FileName</span>
+            </div>
+            <div class="span2">@document.DisplayFileSize</div>
+            <div class="span2">@document.UpdateTime.ToShortDateString()</div>
+        </li>
+    }
+</ul>
+
+<ul class="file-pic" style="display: none;">
+    @foreach (var space in Model.ChildSpaces)
+    {
+        <li data-id="@space.Id" data-folder="true">
+            <i class="file-icon file-icon-folders"></i>
+            <p title="@space.SpaceName">
+                <span data-url="/Home/Space/@space.Id/page">@space.SpaceName</span>
+            </p>
+        </li>
+    }
+    @foreach (var document in Model.Documents)
+    {
+        <li data-id="@document.Id" data-file="true">
+            @switch (document.DocumentType)
+            {
+                case DocumentType.BMP:
+                    <i class="file-icon file-icon-BMP">
+                        <img src="@document.ThumbUrl" alt="@document.FileName" data-displaypath="@document.DisplayPath">
+                    </i>
+                    break;
+                case DocumentType.JPG:
+                    <i class="file-icon file-icon-JPG">
+                        <img src="@document.ThumbUrl" alt="@document.FileName" data-displaypath="@document.DisplayPath">
+                    </i>
+                    break;
+                case DocumentType.PNG:
+                    <i class="file-icon file-icon-PNG">
+                        <img src="@document.ThumbUrl" alt="@document.FileName" data-displaypath="@document.DisplayPath">
+                    </i>
+                    break;
+                case DocumentType.GIF:
+                    <i class="file-icon file-icon-GIF">
+                        <img src="@document.ThumbUrl" alt="@document.FileName" data-displaypath="@document.DisplayPath">
+                    </i>
+                    break;
+                case DocumentType.PSD:
+                    <i class="file-icon file-icon-PSD"></i>
+                    break;
+                case DocumentType.TXT:
+                    <i class="file-icon file-icon-TXT"></i>
+                    break;
+                case DocumentType.CAD:
+                    <i class="file-icon file-icon-CAD">
+                        <img src="@document.ThumbUrl" alt="@document.FileName" data-displaypath="@document.DisplayPath">
+                    </i>
+                    break;
+                case DocumentType.Word:
+                    <i class="file-icon file-icon-DOC"></i>
+                    break;   
+                case DocumentType.Excel:
+                    <i class="file-icon file-icon-XLS"></i>
+                    break;
+                case DocumentType.PDF:
+                    <i class="file-icon file-icon-PDF"></i>
+                    break;
+                case DocumentType.Folder:
+                    <i class="file-icon file-icon-folders"></i>
+                    break;
+                case DocumentType.PPT:
+                    <i class="file-icon file-icon-PPT"></i>
+                    break;
+                case DocumentType.OBJ:
+                case DocumentType.Unknow:
+                default:
+                    <i class="file-icon file-icon-FILE"></i>
+                    break;
+            }
+            <p title="@document.FileName">
+                <span data-url="@document.DownloadPath">@document.FileName</span>
+            </p>
+        </li>
+    }
+</ul>
+
+<script type="text/javascript">
+    function deletedoc(id) {
+        $.ajax({
+            dataType: "json", //返回json格式的数据
+            url: "/Document/Delete", //要访问的后台地址
+            data: "id=" + id, //要发送的数据
+            complete: function () {
+                window.location.reload(true);
+            }
+        });
+    }
+
+
+    (function () {
+        $('body').on({
+            dragleave: function (e) {    //拖离 
+                e.preventDefault();
+            },
+            drop: function (e) {  //拖后放 
+                e.preventDefault();
+            },
+            dragenter: function (e) {    //拖进
+                e.preventDefault();
+                $("#drapwrap").fadeIn(10, function () {
+                    $(this).height($(window).height()-8).width($(window).width()-8);
+                });
+            },
+            dragover: function (e) {    //拖来拖去 
+                e.preventDefault();
+            }
+        });
+        var _drop = $("#drapwrap");
+        _drop.on({
+            dragleave: function (e) {
+                e.preventDefault();
+                $("#drapwrap").hide();
+            },
+            drop: function (e) {
+                e.preventDefault();
+            }
+        });
+        
+        _drop[0].addEventListener('drop', function (e) {
+            e.preventDefault();
+            var o = 0;
+            var _data = {
+                userId: $("#currentUserId").val(),
+                userName: $("#currentUserNickName").val(),
+                spaceId: $("#uploadSpaceId").val()
+            };
+            var filesList = e.dataTransfer.files;
+
+            console.log(filesList);
+            return 
+
+
+            if (filesList.length == 0) {
+                return false;
+            } else {
+                
+                //上传 
+                xhr = new XMLHttpRequest();
+                
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        //alert(xhr.responseText);
+                        _drop.find("p").text('上传成功');
+                        _drop.remove('progress');
+                        _drop.fadeOut();
+                        location.reload();
+                    }
+                }
+
+                xhr.upload.onprogress = function (e) {
+                    var loaded = e.loaded;
+                    var tot = e.total;
+                    var per = Math.floor(100 * loaded / tot);  //已经上传的百分比
+                    $("progress").css({
+                        height: 10
+                    }).val(per);
+                }
+
+                xhr.open("post", "/document/add", true);
+                xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+
+                var fd = new FormData();
+                $.each(filesList, function (k, file) {
+                    $('<progress value="0" max="100"><span id="objprogress">0</span></progress>').appendTo('#drapwrap');
+                    fd.append('Files', filesList[0]);
+                })
+                
+                for (d in _data) {
+                    fd.append(d, _data[d]);
+                }
+                xhr.send(fd);
+            }
+        });
+    })();
+
+
+       
+</script>

@@ -1,0 +1,125 @@
+﻿@model WebSite2.Models.LoginModel
+
+@{
+    ViewBag.Title = "文档管理系统 -- 登录";
+}
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="/Resource/css/reset.css">
+    <link rel="stylesheet" href="/Resource/fontaswesome/css/font-awesome.min.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/Resource/fontaswesome/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <link rel="stylesheet" href="/Resource/css/style.css">
+
+
+</head>
+<body class="ui-login">
+    <div class="login-header">
+        <h1 class="ui-title">昆明市城市道路桥梁管理信息系统-文档管理</h1>
+    </div>
+    <div class="l-bgimg">
+        <img src="/Images/login-bg-01.jpg" style="width:100%;height:100%;" />
+    </div>
+    <div class="ui-wrap-from">
+        <div class="from-header">
+            <strong>用户登录</strong>
+        </div>
+        <div class="from-body">
+
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+                {
+
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+
+                    <div class="ui-form-item">
+                            <label class="uname" for="UserName"></label>
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control input-lg", placeholder = "邮箱/用户名/手机号" })
+                            @Html.ValidationMessageFor(m => m.UserName)
+                    </div>
+                    <div class="ui-form-item">
+                        <label class="upass" for="Password"></label>
+                        @Html.Password("Password", @Model.Password, new { @class = "form-control input-lg", placeholder = "密码" })
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </div>
+                    <div class="ui-checkbox-wrap">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                        
+                        @Html.CheckBoxFor(m => m.AutoLogin)
+                        @Html.LabelFor(m => m.AutoLogin, new { @class = "checkbox" })
+                    </div>
+                    <button type="submit" class="ui-submit-login" style="margin: 0 0 0 5px;">登录</button>
+                    <div class="form-group" style="margin-top: 20px;">
+                        <span>用户账号和密码与路桥隧管理信息系统一致。</span>
+                    </div>
+                }
+        </div>
+    </div>
+    <div class="footer-links">
+        <ul>
+            <li><a href="http://www.rbtms.com/" target="_blank"><span class="footer-link-icons icon-briefcases"></span><b class="footer-link-spet"></b><span>管理信息系统<br />昆明城市道路,桥梁,隧道,涵洞信息</span></a></li>
+            <li><a href="http://bridge.rbtms.com/" target="_blank"><span class="footer-link-icons icon-demonstration-board"></span><b class="footer-link-spet"></b><span>桥梁健康监测系统<br />圆通，金星，呈黄，朱家村，虹桥立交</span></a></li>
+            <li><a href="http://www.rbtms.com/App/Intro"><span class="footer-link-icons icon-app"></span><b class="footer-link-spet"></b><span>路桥巡检APP<br />路桥巡检效率利器</span></a></li>
+        </ul>
+    </div>
+    <div class="login-footer">
+        <p class="copyright">
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            copyright©昆明市城市管理综合行政执法局&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            技术支持电话：xxxx-xxxxxxx
+        </p>
+    </div>
+    <div class=""></div>
+    <script src="/Resource/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            initHeight();
+            $(window).resize(function () {
+                initHeight();
+            });
+        });
+
+
+        function initHeight() {
+            var wHeight = $(window).height();
+            var wWidth = $(window).width();
+            var imgScale = 1920 / 1200;
+            if (wWidth < 1024) {
+                $("body").css({
+                    overflow: "auto",
+                    width: 1024,
+                    height: 748
+                });
+                $(".ui-wrap-from").css({
+                    right: 50
+                });
+                $(".login-header,.login-footer").width(1024);
+                $('.l-bgimg').width(1024).height(1024/imgScale).height(wHeight);
+            } else {
+                $(".login-header,.login-footer").removeAttr("style");
+                $('.l-bgimg').width(wWidth).height(wHeight).children().height(wHeight);
+                $(".ui-wrap-from").removeAttr("style");
+            }
+
+            if (wHeight < 728) {
+                $(".ui-wrap-from").css({
+                    top: 120,
+                    right:160
+                });
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
+

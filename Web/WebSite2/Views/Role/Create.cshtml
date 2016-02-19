@@ -1,0 +1,72 @@
+﻿@model WebSite2.Models.RoleViewModel
+@{
+    ViewBag.Title = "角色管理-创建角色";
+}
+
+@Html.Partial("_QuickMenu", Model.MenuViewModel)
+
+
+<div class="viewbox">
+    <div class="viewcontent">
+       
+        <div class="content">
+            <div class="breadcrumb">
+
+                <span class="homeicon"></span>
+                <a href="/Role/Index" class="home">角色管理</a>
+                <span class="divide">></span>
+                <a href="javascript:void(0);" class="home">创建角色</a>
+            </div>
+            <div class="button_bar">
+                <button class="in_btn_white" onclick="subForm();">保存</button>
+                <a href="/Role/Index" class="in_btn_white">角色列表</a>
+            </div>
+            <div class="log_con" style="height: 859px;">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                   
+                        <fieldset>
+                            <ul class="addInfo">
+                                @Html.HiddenFor(p => p.RoleContract.ApplicationId)
+                                <div class="formlabel">
+                                    <label for="name">角色名称：</label>
+                                    @Html.EditorFor(model => model.RoleContract.Name)
+                                    @Html.ValidationMessageFor(model => model.RoleContract.Name)
+                                </div>
+
+                                <div class="formlabel">
+                                    <label for="name">备注：</label>
+                                    @Html.EditorFor(model => model.RoleContract.Remark)
+                                    @Html.ValidationMessageFor(model => model.RoleContract.Remark)
+                                </div>
+                                @Html.HiddenFor(p => p.RoleContract.Id)
+                            </ul>
+
+                        </fieldset>
+                   
+                }
+            </div>
+            <div class="button_bar">
+                <button class="in_btn_white" onclick="subForm();">保存</button>
+                <a href="/Role/Index" class="in_btn_white">信息列表</a>
+            </div>
+        </div>
+       
+    </div>
+</div>
+<script type="text/javascript">
+    function subForm() {
+        $("form").submit();
+    }
+    $(function () {
+
+        @*$('#ParentId').combobox({
+            valueField: 'Id',
+            textField: 'AreaName',
+            data: @Html.Raw(ViewData["Areas"])
+        });*@
+        });
+
+</script>

@@ -1,0 +1,21 @@
+﻿@model WebSite2.Models.DisplayViewModel
+
+
+@Html.Partial("_QuickMenu", Model.MenuViewModel)
+
+
+
+<div class="viewbox">
+    <div class="breadcrumb">
+        <span class="homeicon"></span>
+        <a href="/" class="home">所有空间</a>
+      
+           
+    </div>
+    <div class="content">
+            
+        <div id="documentViewer" class="flexpaper_viewer" style="height: 800px">
+            <h3 class="notFounfProm">该文档不存在</h3>
+        </div>
+    </div>
+</div>

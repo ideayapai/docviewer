@@ -1,0 +1,67 @@
+﻿@model Services.Contracts.DocumentObject
+
+<div class="viewbox">
+    <div class="viewcontent">
+        <div class="breadcrumb">
+            <span class="homeicon"></span>
+            <a href="/" class="home">所有空间</a>
+            <span class="divide">></span>
+            <a href="/Document/Office" class="home">文档</a>
+        </div>
+        <div class="content">
+            <div class="doc_name"><span>@Model.FileName</span> <a class="download doc_download" title="下载" href="@Model.DownloadPath" target="_blank">下载</a></div>
+            <div id="documentViewer" class="flexpaper_viewer" style="height: 800px"></div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/flexpaper")
+    <script type="text/javascript">
+        $(".content").height($(".viewcontent").height() - $(".breadcrumb").height());
+        $(".flexpaper_viewer").height($(".content").height() - $(".doc_name").height() - 16);
+
+        var startDocument = "Paper";
+
+        $('#documentViewer').FlexPaperViewer(
+            {
+                config: {
+                    SWFFile: '@Model.DisplayPath',
+
+                    Scale: 1,
+                    ZoomTransition: 'easeOut',
+                    ZoomTime: 0.5,
+                    ZoomInterval: 0.2,
+                    FitPageOnLoad: true,
+                    FitWidthOnLoad: true,
+                    FullScreenAsMaxWindow: false,
+                    ProgressiveLoading: false,
+                    MinZoomSize: 0.2,
+                    MaxZoomSize: 1,
+                    SearchMatchAll: false,
+                    InitViewMode: 'Portrait',
+                    RenderingOrder: 'flash',
+                    StartAtPage: '',
+                    jsDirectory: '/js/',
+                    ViewModeToolsVisible: true,
+                    ZoomToolsVisible: true,
+                    NavToolsVisible: true,
+                    CursorToolsVisible: true,
+                    SearchToolsVisible: true,
+                    WMode: 'window',
+                    localeChain: 'en_US'
+                }
+            }
+        );
+
+        var url = window.location.href.toString();
+
+        if (location.length == 0) {
+            url = document.URL.toString();
+        }
+
+        if (url.indexOf("file:") >= 0) {
+            jQuery('#documentViewer').html("<div style='position:relative;background-color:#ffffff;width:420px;font-family:Verdana;font-size:10pt;left:22%;top:20%;padding: 10px 10px 10px 10px;border-style:solid;border-width:5px;'><img src='http://flexpaper.devaldi.com/resources/warning_icon.gif'>&nbsp;<b>You are trying to use FlexPaper from a local directory.</b><br/><br/> FlexPaper needs to be copied to a web server before the viewer can display its document properlty.<br/><br/>Please copy the FlexPaper files to a web server and access the viewer through a http:// url.</div>");
+        }
+    </script>
+}

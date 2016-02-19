@@ -1,0 +1,259 @@
+﻿<div class="row">
+    <p></p>
+    <p class="lead">UploadFileApi使用</p>
+    <p class="lead">1:API使用先决条件:必须先引用<span style="color:green"> jquery.js</span>;</p>
+    <p></p>
+    <p class="lead">2:引入YapaiUploadApi.js并加上ID:ypUpload<code style="font-size:12px;">
+                                             &lt;script type="text/javascript" id="ypUpload" src="@ViewData["ImageUpload_API"]/Scripts/api/YapaiUploadApi.js"&gt;
+                                             &lt;/script&gt;
+        </code></p>
+    <p class="lead">2.1设置插件基础调用URL 
+       //默认不需要，若有特殊要求可以重新的定义
+    </p>
+    <p></p>
+    <p class="lead">3:定义上传按钮(页面任意位置);</p>
+    <code>
+        <p> 一：定义上传按钮：&lt;input type="file" id="xxxx" value="" /&gt; // ID自定</p>
+        <p>...//其他的自定义</p>
+    </code>
+    <br />
+    <p class="lead">4:配置调用参数:页面使用之前先配置调用参数;</p>
+    <div class="text-warning">最简模式：直接使用API的默认参数</div>
+    <code>
+        <pre class="brush:js;toolbar:false">
+        &lt;script type=&quot;text/javascript&quot;&gt;
+            ypUpload.setUp(&quot;xxxx&quot;);//定义控件
+            ypUpload.make();//实例化控件
+        &lt;/script&gt;
+       </pre>
+    </code>
+    <p class="lead">5:参数设置</p>
+    <div class="text-warning">设置默认参数，所有的上传控件将都是采用这个设置</div>
+    <code>
+        <pre class="brush:js;toolbar:false">
+        &lt;script type=&quot;text/javascript&quot;&gt;
+               ypUpload.defaults = {
+                auto: true,<span style="color:green">//是否自动上传 true||false</span>
+                buttonText: '选择文件', <span style="color:green">//按钮文字 string</span>
+                swf: '/Resource/uploadfy/uploadify.swf',<span style="color:green">//uploadfy flash组件地址</span>
+                height: 30,<span style="color:green">//按钮的高</span>
+                width: 120,<span style="color:green">//按钮的宽</span>
+                uploader: '/Document/Add',<span style="color:green">//上传请求的地址</span>
+                formData: {<span style="color:green">//请求参数</span>
+                    userId: '',<span style="color:green">//这个玩意不解释了 用户ID</span>
+                    userName: '',<span style="color:green">//这个玩意不解释了 用户名</span>
+                    spaceId:''<span style="color:green">//这个玩意不解释了 上传空间ID</span>
+                    depId:'',<span style="color:green">//这个玩意不解释了 部门ID</span>
+                    visible:'',<span style="color:green">//这个玩意不解释了 设置文件是否可见</span>
+                    path:''<span style="color:green">   //path数据结构
+                            /// 001_西山区|4567_虹桥立交|8889_日常巡检 解析为三个文件夹
+                            /// 西山区(001)
+                            ///   |
+                            ///   |---虹桥立交(4567)
+                            ///         |
+                            ///         |----日常巡检(8889)</span>
+                },
+                onUploadSuccess: function (file, data, response) {
+<span style="color:green">
+                         //上传成功的回调
+                         //file object 上传的文件信息<br />
+                        //data string 返回的结果json格式<br />
+                        //response boolen 返回true || false<br />
+                    </span>
+                },
+                onUploadComplete: function () {
+<span style="color:green">
+                         //上传完成的回调
+                    </span>
+                }
+            };//定义控件
+
+            ypUpload.setUp(&quot;YourID1&quot;);//定义控件
+            ypUpload.make();//实例化控件
+        &lt;/script&gt;
+       </pre>
+    </code>
+
+    <div class="text-warning">为单个按钮设置参数,这个上传控件将使用自定义设置</div>
+    <code>
+        <pre class="brush:js;toolbar:false">
+        &lt;script type=&quot;text/javascript&quot;&gt;
+            ypUpload.setUp(&quot;xxxx&quot;,{
+                auto: true,<span style="color:green">//是否自动上传 true||false</span>
+                buttonText: '选择文件', <span style="color:green">//按钮文字 string</span>
+                swf: '/Resource/uploadfy/uploadify.swf',<span style="color:green">//uploadfy flash组件地址</span>
+                height: 30,<span style="color:green">//按钮的高</span>
+                width: 120,<span style="color:green">//按钮的宽</span>
+                uploader: '/Document/Add',<span style="color:green">//上传请求的地址</span>
+                formData: {
+                    <span style="color:green">//你的请求参数</span>
+                   
+                },
+                onUploadComplete: function () {
+<span style="color:green">
+                         //上传完成的回调
+                    </span>
+                }
+            });//定义控件
+            ypUpload.make();//实例化控件
+        &lt;/script&gt;
+       </pre>
+    </code>
+
+    <div class="text-warning">全部设置（待补充）</div>
+    <code>
+        <pre class="brush:js;toolbar:false">
+        <span style="color:green">//回调方法</span>
+            //TO BE RESLOVE
+            {
+                onCancel: function(file) {
+                    <span style="color:green">//上传被取消的回调</span>
+                    alert('被取消的文件名是' + file.name);
+                },
+                onClearQueue: function(file) {
+                    <span style="color:green">//上传</span>
+                    alert('被取消的文件名是' + file.name);
+                }
+                onDestroy
+                onDialogClose
+                onDialogOpen
+                onDisable
+                onEnable
+                onFallback
+                onInit
+                onQueueComplete
+                onSelect
+                onSelectError
+                onSWFReady
+                onUploadComplete
+                onUploadError
+                onUploadProgress
+                onUploadStart
+                onUploadSuccess
+            }
+        </pre>
+    </code>  
+
+    <p class="lead">5:上传返回结果</p>
+    <code>
+        <pre class="brush:js;toolbar:false">
+        {
+        "Id": "f42d3985-9cbe-4e8e-b6d1-771912200ddd",
+        "FileName": "20150622200950_47177 (3).doc",
+        "DisplayPath": "",
+        "DownloadPath": "http://localhost:18888/Docs/20150622200950_47177 (3).doc",
+        "CreateTime": "2015-08-26T20:40:55.7690354+08:00",
+        "Content": null,
+        "FileSize": 2112558,
+        "UpdateTime": "2015-08-26T20:40:55.7690354+08:00",
+        "SpaceId": "12778d65-049c-4d68-b7ec-9b298fda0791",
+        "SpaceName": "所有空间",
+        "CreateUserId": "10001",
+        "CreateUserName": "测试用户",
+        "UpdateUserId": "10001",
+        "UpdateUserName": "测试用户",
+        "ThumbUrl": null,
+        "IsDelete": false,
+        "ErrorCode": 0,
+        "ErrorMessage": null
+        }
+        </pre>
+    </code>
+    <br />
+
+    <p class="lead">5:调用测试</p>
+    <div class="text-warning">1.基础调用</div>
+    <input type="file" id="YourID" />
+    <strong>返回结果</strong>
+    <pre id="resultBox1" style="display:none" class="brush:js;toolbar:false"></pre>
+
+    <div style="visibility:hidden;height:10px;"></div>
+
+    <div class="text-warning">2.静态传参</div>
+    <input type="file" id="YourID2" />
+    <strong>返回结果</strong>
+    <pre id="resultBox2" style="display:none" class="brush:js;toolbar:false"></pre>
+
+    <div style="visibility:hidden;height:10px;"></div>
+
+    <div class="text-warning">3.动态传参(未测试，必须传入真实参数)</div>
+    <input type="file" id="YourID3"/>
+    用户ID：<input type="text" name="userId" value=" " />
+    用户名：<input type="text" name="userName" value=" " />
+    空间ID：<input type="text" name="spaceId" value=" " />
+    <br />
+    <strong>返回结果</strong>
+    <pre id="resultBox3" style="display:none" class="brush:js;toolbar:false"></pre>
+    <div class="text-warning">4.HTML5拖拽实例(拖拽只有部分浏览器支持)</div>
+    <code>
+        <pre class="brush:js;toolbar:false">
+        settings:
+        {
+          draguplod:true,//默认关闭了。手动打开  
+        }
+        </pre>
+    </code>
+    <input type="file" id="YourID4" />
+    <br />
+    <strong>返回结果</strong>
+    <pre id="resultBox3" style="display:none" class="brush:js;toolbar:false"></pre>
+    <br /> 
+    @section Scripts{
+    <script type="text/javascript" id="ypUpload" src="@ViewData["ImageUpload_API"]/Scripts/api/YapaiUploadApi.js"> </script>
+    <script type="text/javascript">
+        ypUpload.setUp("YourID", {
+            formData: {
+                userId: '10002',
+                userName: '测试用户',
+                spaceId: ''
+            },
+            onUploadSuccess: function (file, data, response) {
+                alert(data);
+                console.log(data);
+                $("#resultBox1").fadeIn().append(data);
+            }
+        });
+        ypUpload.make();//实例化控件
+        
+        ypUpload.setUp("YourID2", {
+            formData: {
+                userId: '10001',
+                userName: '测试用户',
+                spaceId: ''
+            },
+            onUploadSuccess: function (file, data, response) {
+                $("#resultBox2").fadeIn().append(data);
+            }
+        });
+        ypUpload.setUp("YourID3", {
+            onUploadStart: function () {
+                return {
+                    userId:$("input[name=userId]").val(),
+                    userName:$("input[name=userName]").val(),
+                    spaceId: $("input[name=spaceId]").val()
+                }
+               // $("#YourID3").uploadify("settings", "formData",formData);
+            },
+            onUploadSuccess: function (file, data, response) {
+                console.log(data);
+                $("#resultBox3").fadeIn().append(data);
+            }
+        });
+
+        ypUpload.setUp("YourID4", {
+            onUploadStart: function () {
+                return {
+                    userId: $("input[name=userId]").val(),
+                    userName: $("input[name=userName]").val(),
+                    spaceId: $("input[name=spaceId]").val()
+                }
+                //$("#YourID3").uploadify("settings", "formData", formData);
+            },
+            onUploadSuccess: function (file, data, response) {
+                $("#resultBox3").fadeIn().append(data);
+            }
+        });
+       
+    </script>
+    }
+</div>

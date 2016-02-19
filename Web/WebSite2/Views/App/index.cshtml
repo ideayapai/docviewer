@@ -1,0 +1,126 @@
+﻿@model WebSite2.Models.LoginModel
+
+@{
+    ViewBag.Title = "APP下载";
+}
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="/Resource/css/reset.css">
+    <link rel="stylesheet" href="/Resource/fontaswesome/css/font-awesome.min.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/Resource/fontaswesome/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <link rel="stylesheet" href="/Resource/css/style.css">
+
+
+</head>
+<body class="ui-login">
+    <div class="login-header">
+        <h1 class="ui-title">App下载</h1>
+    </div>
+    <div class="l-bgimg">
+        <img src="/Images/login-bg-02.jpg" style="width:100%;height:100%;" />
+    </div>
+    <div class="app-ad">
+        <img src="/Images/app-ad-img.png" />
+    </div>
+    <div class="ui-wrap-from">
+        <div class="from-header">
+            <strong>App</strong>
+        </div>
+        <div class="from-body">
+
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+                {
+
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+
+                    <div class="ui-form-item">
+                            <label class="uname" for="UserName"></label>
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control input-lg", placeholder = "邮箱" })
+                            @Html.ValidationMessageFor(m => m.UserName)
+                    </div>
+                    <div class="ui-form-item">
+                        <label class="upass" for="Password"></label>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control input-lg", placeholder = "密码" })
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </div>
+                    <div class="ui-checkbox-wrap">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                    </div>
+                    <button type="submit" class="ui-submit-login" style="margin: 0 0 0 5px;">登录</button>
+                    <div class="form-group" style="margin-top: 20px;">
+
+                        <span>我还没有账户，@Html.ActionLink("马上注册", "Register") 。</span>
+                    </div>
+                }
+        </div>
+    </div>
+    <div class="footer-links">
+        <ul>
+            <li><a href="#"><span class="footer-link-icons icon-briefcases"></span><b class="footer-link-spet"></b><span>管理信息系统<br />昆明城市道路,桥梁,隧道,涵洞信息</span></a></li>
+            <li><a href="#"><span class="footer-link-icons icon-demonstration-board"></span><b class="footer-link-spet"></b><span>管理信息系统<br />昆明城市道路,桥梁,隧道,涵洞信息</span></a></li>
+            <li><a href="#"><span class="footer-link-icons icon-app"></span><b class="footer-link-spet"></b><span>管理信息系统<br />昆明城市道路,桥梁,隧道,涵洞信息</span></a></li>
+        </ul>
+    </div>
+    <div class="login-footer">
+        <p class="copyright">
+            联系电话：08888888 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            copyright©昆明市政&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            技术支持电话：023-86788127
+        </p>
+    </div>
+    <div class=""></div>
+    <script src="/Resource/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            initHeight();
+            $(window).resize(function () {
+                initHeight();
+            });
+        });
+
+
+        function initHeight() {
+            var wHeight = $(window).height();
+            var wWidth = $(window).width();
+            var imgScale = 1920 / 1200;
+            if (wWidth < 1024) {
+                $("body").css({
+                    overflow: "auto",
+                    width: 1024,
+                    height: 748
+                });
+                $(".ui-wrap-from").css({
+                    right: 50
+                });
+                $(".login-header,.login-footer").width(1024);
+                $('.l-bgimg').width(1024).height(1024/imgScale).height(wHeight);
+            } else {
+                $(".login-header,.login-footer").removeAttr("style");
+                $('.l-bgimg').width(wWidth).height(wHeight).children().height(wHeight);
+                $(".ui-wrap-from").removeAttr("style");
+            }
+
+            if (wHeight < 728) {
+                $(".ui-wrap-from").css({
+                    top: 120,
+                    right:160
+                });
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
+

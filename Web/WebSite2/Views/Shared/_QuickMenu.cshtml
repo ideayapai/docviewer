@@ -1,0 +1,70 @@
+﻿@{
+    Layout = null;
+}
+@model WebSite2.Models.MenuViewModel    
+
+<div class="sidebar">
+    <div class="btn-upload">
+        <a data-showfont="pic" href="javascript:show_upload_box()">上传文件</a>
+    </div>
+    <ul class="mainmenu">
+        @foreach (var menu in Model.Menus)
+        {
+            if (menu.ChildMenus.Count > 0)
+            {
+                <li class="sys_toggle">
+                    <a href="javascript:void(0);">
+                        <i class="icon icon-setting micon"></i>
+                        <span class="menu-title">@menu.Name</span>
+                    </a>
+                </li>
+                <li class="sys_options">
+                    <ul class="secondMenu">
+                        @foreach (var childMenu in menu.ChildMenus)
+                        {
+
+                            if (childMenu.IsActive)
+                            {
+                                <li class ="checked">
+                                    <a href="@childMenu.Url">
+                                        <span>@childMenu.Name</span>
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a href="@childMenu.Url">
+                                        <span>@childMenu.Name</span>
+                                    </a>
+                                </li>
+                            }
+                            
+                        }
+                    </ul>
+                </li>
+            }
+            else
+            {
+                if (menu.IsActive)
+                {
+                    <li class="main_all checked">
+                        <a href="@menu.Url">
+                            <i class="@menu.Icon"></i>
+                            <span id="menu_@menu.MenuType">@menu.Name</span>
+                        </a>
+                    </li>
+                }
+                else 
+                {
+                    <li class="main_all">
+                        <a href="@menu.Url">
+                            <i class="@menu.Icon"></i>
+                            <span id="menu_@menu.MenuType">@menu.Name</span>
+                        </a>
+                    </li>
+                }
+            }  
+        }
+    </ul>
+</div>
