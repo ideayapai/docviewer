@@ -1,0 +1,106 @@
+﻿@using Documents
+@using Documents.Enums
+@model WebSite2.Models.SearchViewModel
+@{
+    ViewBag.Title = @Model.SearchQueryViewModel.QueryString +"__搜索";
+}
+
+@Html.Partial("_QuickMenu", Model.MenuViewModel)
+
+
+<div class="viewbox" style="background: #ffffff">
+    <div class="breadcrumb">
+        <span class="homeicon"></span>
+        <a href="javascript:void(0);" class="home">搜索</a>
+        <span class="divide">></span>
+        <a href="javascript:void(0);" class="home">@Model.SearchQueryViewModel.QueryString</a>
+        <span class="divide"> 找到相关结果 @Model.SearchResultViewModel.Count 个.耗时 @Model.ElapseTime 毫秒</span>
+               
+    </div>
+            
+    <!--类别选择-->
+    <div class="showstyle">
+        <form id="searchAgain" action="/Search/Index" method="post">
+            <div class="cla">
+                @foreach (var item in Model.SearchQueryViewModel.DocumentTypes)
+                {
+                    if (item.Selected)
+                    {
+                        <a class="s_button checked" data-text="@item.Value">@item.Text</a>
+                    }
+                    else
+                    {
+                        <a class="s_button s_nomar" data-text="@item.Value">@item.Text</a>
+                    }
+                }
+            </div>
+            <input id="QueryString" name="QueryString" type="hidden" value="@Model.SearchQueryViewModel.QueryString" />
+            <input id="documentType" name="documentType" type="hidden" value="全部" />
+            <input id="count" name="count" type="hidden" value="@Model.SearchQueryViewModel.Count" />
+        </form>
+    </div>
+            
+    <!--搜索结果-->
+    <div class="search_result_con">
+                
+        @foreach (var item in Model.SearchResultViewModel)
+        {
+            <div class="article" data-id="@item.SearchResult.Id">
+                @switch (item.DocumentType)
+                {
+                    case DocumentType.BMP:
+                        <i class="file-small-icon file-small-icon-BMP"><img src="@item.SearchResult.ThumbUrl" alt="@item.SearchResult.Name" data-displaypath="@item.SearchResult.DisplayPath"></i>
+                        break;
+                    case DocumentType.JPG:
+                        <i class="file-small-icon file-small-icon-JPG"><img src="@item.SearchResult.ThumbUrl" alt="@item.SearchResult.Name" data-displaypath="@item.SearchResult.DisplayPath"></i>
+                        break;
+                    case DocumentType.PNG:
+                        <i class="file-small-icon file-small-icon-PNG"><img src="@item.SearchResult.ThumbUrl" alt="@item.SearchResult.Name" data-displaypath="@item.SearchResult.DisplayPath"></i>
+                        break;
+                    case DocumentType.PSD:
+                        <i class="file-small-icon file-small-icon-PSD"></i>
+                        break;
+                    case DocumentType.TXT:
+                        <i class="file-small-icon file-small-icon-TXT"></i>
+                        break;
+                    case DocumentType.Word:
+                        <i class="file-small-icon file-small-icon-DOC"></i>
+                        break;
+                    case DocumentType.Excel:
+                        <i class="file-small-icon file-small-icon-XLS"></i>
+                        break;
+                    case DocumentType.PPT:
+                        <i class="file-small-icon file-small-icon-PPT"></i>
+                        break;
+                    case DocumentType.PDF:
+                        <i class="file-small-icon file-small-icon-PDF"></i>
+                        break;
+                    case DocumentType.Folder:
+                        <i class="file-small-icon file-small-icon-folders"></i>
+                        break;
+                    case DocumentType.CAD:
+                    case DocumentType.OBJ:
+                        <i class="file-small-icon file-small-icon-CAD"><img src="@item.SearchResult.ThumbUrl" alt="@item.SearchResult.Name" data-displaypath="@item.SearchResult.DisplayPath"></i>
+                        break;
+                    default:
+                        <i class="file-small-icon file-small-icon-FILE"></i>
+                        break;
+                }
+
+                <h3 class="title"><span class="name" data-url="@item.SearchResult.DownloadPath">@Html.Raw(item.SearchResult.Name)</span></h3>
+                <p class="time">@item.SearchResult.UpdateTime</p>
+                @*<ul class="pic">
+                    <li><img src="images/close.jpg" alt="" /></li>
+                    <li><img src="images/close.jpg" alt="" /></li>
+                    <li><img src="images/close.jpg" alt="" /></li>
+                    <li><img src="images/close.jpg" alt="" /></li>
+                </ul>*@
+                <p class="artiContent">@Html.Raw(item.SearchResult.Content)</p>
+            </div>
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(".search_result_con").height($(window).height() - $(".search_result_con").position().top);
+</script>

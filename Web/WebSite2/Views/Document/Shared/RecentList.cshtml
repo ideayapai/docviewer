@@ -1,0 +1,161 @@
+﻿@using Documents
+@using WebSite2.Controls
+@model WebSite2.Models.DocumentViewModelCollection
+
+<ul class="file-list">
+    <li class="row-fluid file-list-title">
+        <div class="span8">文件名</div>
+        <div class="span2">文件大小</div>
+        <div class="span2">上传时间</div>
+    </li>
+    
+    @{
+        var documents = Model.FindAll(f => f.DocumentObject.CreateTime >= DateTime.Now.Date).OrderByDescending(f => f.DocumentObject.UpdateTime).ToList();
+        if (documents.Count > 0)
+        {
+            <li class="recently_name"><i></i>今天</li>
+            foreach (var document in documents)
+            {
+                <li class="row-fluid" data-id="@document.DocumentObject.Id" data-visibility="@document.CanEdit" data-file="true">
+                    <div class="span8">
+                        <input type="checkbox" />
+                        @Html.Thumb(@document.DocumentObject)
+                        <span class="name" data-url="@document.DocumentObject.DownloadPath" title="@document.DocumentObject.FileName">@document.DocumentObject.FileName</span>
+                    </div>
+                    <div class="span2">@document.DocumentObject.DisplayFileSize</div>
+                    <div class="span2">@document.DocumentObject.UpdateTime.ToShortDateString()</div>
+                </li>
+            }
+        }
+    }
+    
+    @{
+        var tomorrows = Model.FindAll(f => f.DocumentObject.CreateTime < DateTime.Now.Date && f.DocumentObject.CreateTime > DateTime.Now.AddDays(-1).Date).OrderByDescending(f => f.DocumentObject.UpdateTime).ToList();
+        if (tomorrows.Count > 0)
+        {
+            <li class="recently_name"><i></i>昨天</li>
+            foreach (var document in tomorrows)
+            {
+                <li class="row-fluid" data-id="@document.DocumentObject.Id" data-visibility="@document.CanEdit" data-file="true">
+                    <div class="span8">
+                        <input type="checkbox" />
+                        @Html.Thumb(@document.DocumentObject)
+                        <span class="name" data-url="@document.DocumentObject.DownloadPath" title="@document.DocumentObject.FileName">@document.DocumentObject.FileName</span>
+                    </div>
+                    <div class="span2">@document.DocumentObject.DisplayFileSize</div>
+                    <div class="span2">@document.DocumentObject.UpdateTime.ToShortDateString()</div>
+                </li>
+            }
+        }
+    }
+    
+    @{
+        var weeks = Model.FindAll(f => f.DocumentObject.CreateTime < DateTime.Now.AddDays(-1).Date && f.DocumentObject.CreateTime > DateTime.Now.AddDays(-6).Date);
+        if (weeks.Count > 0)
+        {
+            <li class="recently_name"><i></i>最近7天</li>
+            foreach (var document in weeks)
+            {
+                <li class="row-fluid" data-id="@document.DocumentObject.Id" data-visibility="@document.CanEdit" data-file="true">
+                    <div class="span8">
+                        <input type="checkbox" />
+                        @Html.Thumb(@document.DocumentObject)
+                        <span class="name" data-url="@document.DocumentObject.DownloadPath" title="@document.DocumentObject.FileName">@document.DocumentObject.FileName</span>
+                    </div>
+                    <div class="span2">@document.DocumentObject.DisplayFileSize</div>
+                    <div class="span2">@document.DocumentObject.UpdateTime.ToShortDateString()</div>
+                </li>
+            }
+        }
+
+}
+    
+    @{
+        var months = Model.FindAll(f => f.DocumentObject.CreateTime < DateTime.Now.AddDays(-6).Date && f.DocumentObject.CreateTime > DateTime.Now.AddDays(-30).Date);
+        if (months.Count > 0)
+        {
+            <li class="recently_name"><i></i>最近30天</li>
+            foreach (var document in months)
+            {
+                <li class="row-fluid" data-id="@document.DocumentObject.Id" data-visibility="@document.CanEdit" data-file="true">
+                    <div class="span8">
+                        <input type="checkbox" />
+                        @Html.Thumb(@document.DocumentObject)
+                        <span class="name" data-url="@document.DocumentObject.DownloadPath" title="@document.DocumentObject.FileName">@document.DocumentObject.FileName</span>
+                    </div>
+                    <div class="span2">@document.DocumentObject.DisplayFileSize</div>
+                    <div class="span2">@document.DocumentObject.UpdateTime.ToShortDateString()</div>
+                </li>
+            }
+        }
+}
+</ul>
+
+<ul class="file-pic" style="display: none;">
+    
+    @{
+        if (documents.Count > 0)
+        {
+            <li class="recently_name"><i></i>今天</li>
+            foreach (var document in documents)
+            {
+                <li data-id="@document.DocumentObject.Id" data-visibility="@document.CanEdit" data-file="true">
+                    @Html.Icon(document.DocumentObject)
+                    <p title="@document.DocumentObject.FileName">
+                        <span data-url="@document.DocumentObject.DownloadPath">@document.DocumentObject.FileName</span>
+                    </p>
+                </li>
+            }
+        }
+}
+    
+    @{
+        if (tomorrows.Count > 0)
+        {
+            <li class="recently_name"><i></i>昨天</li>
+            foreach (var document in tomorrows)
+            {
+                <li data-id="@document.DocumentObject.Id" data-visibility="@document.CanEdit" data-file="true">
+                    @Html.Icon(document.DocumentObject)
+                    <p title="@document.DocumentObject.FileName">
+                        <span data-url="@document.DocumentObject.DownloadPath">@document.DocumentObject.FileName</span>
+                    </p>
+                </li>
+            }
+        }
+
+}
+
+    
+    @{
+        if (weeks.Count > 0)
+        {
+            <li class="recently_name"><i></i>最近7天</li>
+            foreach (var document in weeks)
+            {
+                <li data-id="@document.DocumentObject.Id" data-visibility="@document.CanEdit" data-file="true">
+                    @Html.Icon(document.DocumentObject)
+                    <p title="@document.DocumentObject.FileName">
+                        <span data-url="@document.DocumentObject.DownloadPath">@document.DocumentObject.FileName</span>
+                    </p>
+                </li>
+            }
+        }
+}
+    
+    @{
+        if (months.Count > 0)
+        {
+            <li class="recently_name"><i></i>最近30天</li>
+            foreach (var document in months)
+            {
+                <li data-id="@document.DocumentObject.Id" data-visibility="@document.CanEdit" data-file="true">
+                    @Html.Icon(document.DocumentObject)
+                    <p title="@document.DocumentObject.FileName">
+                        <span data-url="@document.DocumentObject.DownloadPath">@document.DocumentObject.FileName</span>
+                    </p>
+                </li>
+            }
+        }
+}
+</ul>

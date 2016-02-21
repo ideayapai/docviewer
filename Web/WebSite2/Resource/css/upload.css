@@ -1,0 +1,165 @@
+﻿.su-slickupload {
+    width: 400px;
+}
+
+.su-slickupload .su-fileselector {
+    display: block;
+    width: 100px;
+    height: 20px;
+    color: #ffffff;
+    background-color: #428bca;
+    border-color: #357ebd;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.su-slickupload .su-fileselector input{
+    cursor: pointer;
+}
+
+
+.su-filelist {
+  margin: 5px 0;
+  font-size: 12px;
+}
+
+.su-filelist .su-filelistitem {
+    background: #f1f1f1;
+    margin-bottom: 1px;
+    overflow: hidden;
+    line-height: 25px;
+    padding:2px 5px;
+}
+
+.su-filelist .su-filelistitem .filedata {
+    float: left;
+}
+
+.filedata .su-filename {
+    float: left;
+    width: 280px;
+    height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.filedata .su-filesize {
+    float: left;
+}
+
+.su-filelist .su-removecommand {
+    float: right;
+    width: 15px;
+    height: 15px;
+    background: url('../images/u847.png');
+    text-indent: -9999px;
+    margin: 2px 0 0 0;
+    cursor: pointer;
+}
+
+
+.su-slickupload .button {
+    display: inline-block;
+    width: 60px;
+    height: 28px;
+    color: #ffffff;
+    background-color: #428bca;
+    border-color: #357ebd;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    margin-right: 10px;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.su-slickupload .startupload {
+    background: #008000;
+}
+
+.su-slickupload .cancelupload {
+    background: #696969;
+}
+
+.su-uploadprogress {
+    padding: 5px;
+}
+
+.su-uploadprogressdisplay {
+    width: 400px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: #fff;
+    border: 1px #A5A5A5 solid;
+    text-shadow: 0 0 3px #ffffff;
+    z-index: 9999;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px #f5f5dc;
+    font-size:14px;
+    display: none;
+}
+
+.uploadhead {
+    height: 30px;
+    line-height: 30px;
+    background: #f1f1f1;
+    border-bottom: 1px #a5a5a5 solid;
+    text-indent: 10px;
+    color: #333333;
+}
+
+.su-uploadprogressdisplay .progressBarContainer {
+    height: 25px;
+    background: #DDEAF5;
+    border: 1px #CCDAE6 solid;
+}
+
+.progressBarContainer .su-progressbar {
+    background: #357ebd;
+    display: block;
+    height: 25px;
+    width: 0;
+}
+
+.uoloadBody {
+    padding: 8px;
+    line-height: 160%;
+    color: #666666;
+}
+
+.progressBarContainer .progressBarText {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    /* margin: auto; */
+    display: block;
+    width: 100px;
+    margin-left: -50px;
+}

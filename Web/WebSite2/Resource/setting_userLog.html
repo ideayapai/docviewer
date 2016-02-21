@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>系统设置 用户日志</title>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/zTreeStyle/zTreeStyle.css">
+    </head>
+
+    <body>
+        <div class="tophead">
+            <div class="mtlogo" style="text-align: center">文件管理系统</div>
+            <div class="navbar">
+                <ul class="toolbar">
+                    <li id="search" class="searchbar">
+                        <form action="">
+                            <input type="text" placeholder="搜索文档、图片、工程图、空间、文件">
+                            <input type="submit" value="" class="icon-search" />
+                        </form>
+                    </li>
+                    <li class="userinfo">
+                        <div class="headtumb">
+                            <img src="images/u792.png" alt="wuxiaomeng" class="tumb">
+                        </div>
+                        <div class="username">
+                            <span>wuxiaomeng</span>
+                            <button>
+                                <i class="icon icon-14"></i>
+                            </button>
+                        </div>
+                        <div class="usercontrol"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main">
+            <div class="sidebar">
+                <div class="mainmenu">
+                    <ul class="menu2">
+                        <li class="main_all">
+                            <i class="icon-menu icon-menu-2 micon"></i>
+                            <span>
+                                <a href="index.html">所有空间</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-3 micon"></i>
+                            <span>
+                                <a href="recently.html">最近</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-4 micon"></i>
+                            <span>
+                                <a href="drawings.html">工程图</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-5 micon"></i>
+                            <span>
+                                <a href="file.html">文档</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-6 micon"></i>
+                            <span>
+                                <a href="pictures.html">图片</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-7 micon"></i>
+                            <span>
+                                <a href="recycleBin.html">回收站</a>
+                            </span>
+                        </li>
+                        <li class="sys_toggle">
+                            <i class="icon icon-setting micon"></i>
+                            <span>
+                                <a href="javascript:void(0);">系统设置</a>
+                                <mark class="down">▼</mark>
+                            </span>
+                        </li>
+                        <li class="sys_options">
+                            <ul class="secondMenu">
+                                <li>
+                                    <span>
+                                        ●<a href="setting_basic.html">基本设置</a>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        ●<a href="setting_safe.html">安全设置</a>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        ●<a href="setting_exterior.html">外观设置</a>
+                                    </span>
+                                </li>
+                                <li class="sys_toggle">
+                                    <span>
+                                        ●<a href="javascript:void(0);">基础信息管理</a>
+                                        <mark class="down">▼</mark>
+                                    </span>
+                                </li>
+                                <li class="sys_options" style="display: none">
+                                    <ul class="thirdMenu">
+                                        <li>
+                                            <span>
+                                                <a href="setting_userManagement_area.html">区域管理</a>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <a href="setting_userManagement_purview.html">权限管理</a>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <a href="setting_userManagement_department.html">部门管理</a>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <a href="setting_userManagement_user.html">用户管理</a>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sys_toggle">
+                                    <span>
+                                        ●<a href="javascript:void(0)">日志管理</a>
+                                        <mark class="down">▼</mark>
+                                    </span>
+                                </li>
+                                <li class="sys_options">
+                                    <ul class="thirdMenu">
+                                        <li>
+                                            <span>
+                                                <a href="setting_systemLog.html">系统日志</a>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="checked">
+                                                <a href="setting_userLog.html">用户日志</a>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+		<div class="viewbox">
+			<div class="viewcontent">
+				
+				<div class="breadcrumb">
+					<span class="homeicon"></span>
+					<a href="" class="home">首页</a>
+                    <span class="divide"> > </span>
+                    <a href="" class="home">系统设置</a>
+                    <span class="divide"> > </span>
+                    <a href="" class="home">日志管理</a>
+                    <span class="divide"> > </span>
+                    <a href="" class="home">用户日志</a>
+				  </div>
+				<div class="content">
+					<div class="button_bar">
+                        <button class="in_btn_white">导入</button>
+                        <button class="in_btn_white">打印</button>
+
+                        <input class="ope_bar" type="text" placeholder="日志内容/账号/操作IP"/>
+                        <button class="ope_btn"></button>
+					</div>
+                    <div class="log_con">
+                        <div class="log_t">
+                            <table  border="0" cellpadding="0" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <td>编号</td>
+                                        <td>账号</td>
+                                        <td>操作描述</td>
+                                        <td>操作IP</td>
+                                        <td>操作时间</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>105</td>
+                                        <td>admin</td>
+                                        <td>系统左侧菜单查询</td>
+                                        <td>192.168.1.102</td>
+                                        <td>2015-07-22 10:21:49</td>
+                                    </tr>
+                                    <tr>
+                                        <td>104</td>
+                                        <td>admin</td>
+                                        <td>地图查询</td>
+                                        <td>192.168.1.102</td>
+                                        <td>2015-07-22 10:21:49</td>
+                                    </tr>
+                                    <tr>
+                                        <td>22</td>
+                                        <td>admin</td>
+                                        <td>用户登录</td>
+                                        <td>192.168.1.102</td>
+                                        <td>2015-07-22 10:21:49</td>
+                                    </tr>
+                                    <tr>
+                                        <td>311</td>
+                                        <td>admin</td>
+                                        <td>填写道路日常检查报表</td>
+                                        <td>192.168.1.102</td>
+                                        <td>2015-07-22 10:21:49</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page page2">
+                            <div class="page_btn">
+                                <a href="#">首页</a>
+                                <span>…</span>
+                                <a href="#">21</a>
+                                <a href="#">22</a>
+                                <a href="#" class="checked">23</a>
+                                <a href="#">24</a>
+                                <a href="#">25</a>
+                                <span>…</span>
+                                <a href="#">尾页</a>
+                                <input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                                <button>跳转</button>
+                            </div>
+                            <div class="page_prom">
+                                当前显示 1 - 7 条记录 共7条记录
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button_bar">
+                        <button class="in_btn_white">导入</button>
+                        <button class="in_btn_white">打印</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="js/yapai.documentManagement.js"></script>
+<script type="text/javascript">
+	
+
+	$('.mainmenu li span,.expand').hover(function(){
+		$(this).addClass('hover');
+	},function(){
+		$(this).removeClass('hover');
+	}).click(function(){
+		$(this).nextAll('ul').toggle();
+	});
+
+    $(".log_con").height($(".content").height() - $(".button_bar").height() * 2 - 100);
+    $(".log_t").height($(".log_con").height() - $(".log_con .page").height() - 20);
+
+</script>
+</html>

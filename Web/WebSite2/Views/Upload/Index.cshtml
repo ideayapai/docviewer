@@ -1,0 +1,30 @@
+﻿@using Krystalware.SlickUpload;
+@using Krystalware.SlickUpload.Web;
+@using Krystalware.SlickUpload.Web.Mvc;
+
+@{
+    Layout = null;
+    ViewBag.Title = "Ajax";
+}
+
+
+<div id="uploadPanel">
+    @Html.Partial("Upload")
+        <a id="uploadButton" href="javascript:;" onclick="startUpload()" class="button disabled">
+            <span><b class="icon upload"></b> Create</span>
+        </a>
+
+        <a id="cancelButton" href="javascript:;" onclick="cancelUpload()" style="display:none" class="button">
+            <span><b class="icon cancel"></b> Cancel</span>
+        </a>
+</div>
+
+
+
+
+
+
+
+
+
+

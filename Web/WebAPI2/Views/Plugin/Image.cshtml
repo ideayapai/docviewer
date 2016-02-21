@@ -1,0 +1,18 @@
+﻿@model Services.Contracts.DocumentObject
+
+<div class="viewbox">
+    <div class="viewcontent">
+        <div class="breadcrumb">
+            <span class="homeicon"></span>
+            <a href="/" class="home">所有空间</a>
+            <span class="divide">></span>
+            <a href="/Document/Office" class="home">图片</a>
+           
+        </div>
+        <div class="content">
+            <div id="documentViewer">
+                <img src=@Model.DownloadPath />
+            </div>
+        </div>
+    </div>
+</div>

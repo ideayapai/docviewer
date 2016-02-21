@@ -1,0 +1,172 @@
+﻿@using System.Configuration
+@using Services.Context
+@using String = System.String
+<!DOCTYPE html>
+<html xmlns ="http://www.w3.org/1999/xhtml" lang="zh-cn">
+    <head>
+        <!--[if lte IE 7]><script>window.location.href='http://cdn.dmeng.net/upgrade-your-browser.html?referrer='+location.href;</script><![endif]-->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>@ViewBag.Title</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link href="~/Resource/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Styles.Render("~/Content/base")
+        @Styles.Render("~/Content/tree")
+    </head>
+    <body>
+        <input id="currentUserId" value="@ContextService.Current.UserId" type="hidden">
+        <input id="currentUserNickName" value="@ContextService.Current.NickName" type="hidden">
+        <input id="spaceNodeCode" value="@ContextService.Current.SpaceTreeHtml" type="hidden" />
+        <input id="uploadSpaceId" value="@ContextService.Current.DefaultSpaceId" type="hidden" />
+        <input id="showtype" value="pic" type="hidden" />
+
+        <div class="tophead">
+            <div class="mtlogo"><a href="/">昆明市城市道路桥梁管理信息系统</a></div>
+            <div class="navbar">
+                @if (ContextService.Current.CurrentSpace != null)
+                {
+                    <ul class="toolbar">
+                        <li id="search">
+                            <form action="/Search/Index" method="POST" class="searchbar">
+                                <input class="search_con" name="QueryString" type="text" placeholder="快速搜索内容" onfocus="this.style.background = '#ffffff'" onblur="this.style.background = '#ededed'">
+                                <input type="submit" class="search_icon" value="" />
+                            </form>
+                        </li>
+                        <li>
+                            <span class="ui-username">@ContextService.Current.NickName</span>
+                            <div class="ui-userFace">
+                                @if (!string.IsNullOrEmpty(ContextService.Current.UserPhoto))
+                                {
+                                    <img id="UserInfoPhoto" src="@ContextService.Current.UserPhoto" />
+                                }
+                                else
+                                {
+                                    <img src="/Resource/images/u792.png" class="tumb" />
+                                }
+                            </div>
+                            <a class="ui-logout" href="/Account/LogOut">注销</a>
+                        </li>
+                    </ul>
+                }
+
+            </div>
+        </div>
+        <div class="main">
+            @RenderBody()
+        </div>
+
+        @if (ContextService.Current.CurrentSpace != null)
+        {
+            <!--上传框-->
+            <div id="upload-box" class="upload-box">
+                <div>
+                    <div class="box-head">
+                        <strong>上传文件</strong>
+                        <i class="close_upload" title="关闭" onclick="cancle_upload()"></i>
+                        <div class="box-content">
+                            <div class="space-choose" style="display: none">
+                                上传到：<input id="directory" type="text" value="文件管理系统" disabled />
+                            </div>
+                            <div class="other_tree">
+                                <ul id="uploadTree" class="ztree"></ul>
+                            </div>
+                            <div class="file-choose">
+                                <div id="file_upload"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/jquerytree")
+        @Scripts.Render("~/bundles/yapai")
+
+        @RenderSection("scripts", required: false)
+        @if (ContextService.Current.CurrentSpace != null)
+        {
+            <script type="text/javascript" id="ypUpload" src="/Scripts/YapaiUploadApi.js"></script>
+            <script type="text/javascript">
+                /**
+                * 目录树参数配置，更多参数请参阅zTree API http://www.ztree.me/v3/api.php
+                */
+                var setting = {
+                    data: {
+                        simpleData: {
+                            enable: true
+                        },
+                        keep: {
+                            parent: true  //设置一直保持父节点（防止父节点下所有子节点被删除后，父节点自动转换为子节点）
+                        }
+                    },
+                    callback: {
+                        onClick: this.onNodeClick
+                    },
+                    view: {
+                        selectedMulti: false   //设置是否可以按住ctrl+鼠标右键多选
+                    }
+                };
+
+                /**
+                * 目录树数据配置
+                */
+                var nodes = @Html.Raw(ContextService.Current.SpaceTreeHtml)
+
+                /**
+                 * 目录树初始化
+                 */
+                $.fn.zTree.init($("#tree"), setting, nodes);//文件结构目录树初始化
+                $.fn.zTree.init($("#uploadTree"), setting, nodes);//上传文件对话框目录树初始化
+
+                /**
+                    * 上传初始化
+                    */
+                //设置API参数
+                //var uploadapiconfig = {
+                //     fileapiuserid: $("#currentUserId").val(), //用户Id,不能为空
+                //     fileapiusername: $("#currentUserNickName").val(), //用户名,不能为空
+                //     fileapispaceid: $("#uploadSpaceId").val()
+                //}
+
+                //ypUpload.default.uploader = 'http://localhost:2000/Document/Add',
+
+
+
+                ypUpload.setUp("file_upload", {
+                    onUploadStart: function () {
+                        return {
+                            userId: $("#currentUserId").val(),
+                            userName: $("#currentUserNickName").val(),
+                            spaceId: $("#uploadSpaceId").val()
+                        };
+                    },
+                    onUploadSuccess: function (file, data, response) {
+                        //file object 上传的文件
+                        //data String 返回的结果
+                        //response boolen 反馈状态
+
+                        location.reload();
+
+
+                    },
+                    onUploadComplete: function () {
+
+                    }
+                });
+
+                ypUpload.make();//实例化控件
+
+                //把上传树状菜单定位到当前页面
+                $("#directory").val('@ContextService.Current.CurrentSpace.SpaceName');
+                $("#uploadSpaceId").val('@ContextService.Current.CurrentSpace.Id');
+
+            </script>
+        }
+    </body>
+    </html>

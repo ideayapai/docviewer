@@ -1,0 +1,78 @@
+﻿@model WebSite2.Models.AreaViewModel
+@{
+    ViewBag.Title = "区域管理-创建区域";
+}
+
+@Html.Partial("_QuickMenu", Model.MenuViewModel)
+
+
+<div class="viewbox">
+    <div class="viewcontent">
+       
+        <div class="content">
+            <div class="breadcrumb">
+              
+                <span class="homeicon"></span>
+                <a href="/Area/Index" class="home">区域管理</a>
+                <span class="divide">></span>
+                <a href="javascript:void(0);" class="home">创建区域</a>
+            </div>
+            <div class="button_bar">
+                <button class="in_btn_white" onclick="subForm();">保存</button>
+                <a href="/Area/Index" class="in_btn_white">区域列表</a>
+            </div>
+            <div class="log_con" style="height: 859px;">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <fieldset>
+                        <ul class="addInfo">
+                            <li>
+                                <label for="name">区域编号：</label>
+                                @Html.EditorFor(model => model.AreaContract.AreaNo)
+                                @Html.ValidationMessageFor(model => model.AreaContract.AreaNo)
+                            </li>
+                            <li>
+                                <label for="name">区域名称：</label>
+                                @Html.EditorFor(model => model.AreaContract.AreaName)
+                                @Html.ValidationMessageFor(model => model.AreaContract.AreaName)
+                            </li>
+                            <li>
+                                <label for="">上级部门：</label>
+                                @Html.DropDownListFor(model => Model.AreaContract.ParentId, ViewData["Areas"] as IEnumerable<SelectListItem>, "---请选择上级部门---")
+                                @Html.ValidationMessageFor(model => model.AreaContract.ParentId)
+                            </li>
+                            <li>
+                                <label for="">次序：</label>
+                                @Html.EditorFor(model => model.AreaContract.OrderBy)
+                                @Html.ValidationMessageFor(model => model.AreaContract.OrderBy)
+                            </li>
+                            @Html.HiddenFor(p => p.AreaContract.Id)
+
+                            @Html.ValidationSummary(true)
+                        </ul>
+                    </fieldset>
+                }
+            </div>
+            <div class="button_bar">
+                <button class="in_btn_white" onclick="subForm();">保存</button>
+                <a href="/Area/Index" class="in_btn_white">信息列表</a>
+            </div>
+        </div>
+       
+    </div>
+</div>
+<script type="text/javascript">
+    function subForm() {
+        $("form").submit();
+    }
+    $(function () {
+
+        @*$('#ParentId').combobox({
+            valueField: 'Id',
+            textField: 'AreaName',
+            data: @Html.Raw(ViewData["Areas"])
+        });*@
+        });
+
+</script>

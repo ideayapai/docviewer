@@ -1,0 +1,106 @@
+﻿@model WebSite2.Models.HomeViewModel
+@{
+    ViewBag.Title = "文档管理系统";
+}
+@Html.Partial("_QuickMenu", Model.MenuViewModel)
+<div id="drapwrap" style="height: 500px; position: absolute; z-index: 100000; left: 0; top:0; background: rgba(255,255,255,.8); border: 4px #808080 dotted; font-size:30px;text-align:center;line-height:500px;font-family:'微软雅黑';color:#808080;display:none"><p>拖拽到此上传</p></div>
+<div class="viewbox">
+    <div class="viewcontent">
+        <div class="showstyle">
+            <span id="delFiles" class="s_button"><i class="remove"></i> 删 除</span>
+            <span id="newFolders" class="s_button" style="width: 120px"><i class="newfloder"></i> 创建文件夹</span>
+            <span id="reName" class="s_button" style="width: 90px;display: none"><i class="reName"></i> 重命名</span>
+            <i id="showtoggle" class="showtoggle" data-showfont="pic" title="显示为缩略图"></i>
+            <i id="showtree" class="showtoggle" data-show="hide" title="显示目录树"></i>
+        </div>
+        <div class="content" >
+            <div class="tree-wrap">
+                <ul id="tree" class="ztree">
+                    <li id="tree_1" class="level0" tabindex="0" hidefocus="true" treenode="">
+                        <span id="tree_1_switch" title="" class="button level0 switch roots_close" treenode_switch=""></span>
+                        <a id="tree_1_a" class="level0" treenode_a="" onclick="" target="_blank" style="" title="随意勾选 1">
+                            <span id="tree_1_ico" title="" treenode_ico="" class="button ico_close" style=""></span>
+                            <span id="tree_1_span">随意勾选 1</span>
+                        </a>
+                    </li>
+                    <li id="tree_12" class="level0" tabindex="0" hidefocus="true" treenode="">
+                        
+                        <span id="tree_12_switch" title="" class="button level0 switch bottom_close" treenode_switch=""></span>
+                        <a id="tree_12_a" class="level0" treenode_a="" onclick="" target="_blank" style="" title="随意勾选 2">
+                            <span id="tree_12_ico" title="" treenode_ico="" class="button ico_close" style=""></span>
+                            <span id="tree_12_span">随意勾选 2</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="con_list">
+                <div class="breadcrumb">
+                    <input id="chk-all" class="chk-all" type="checkbox">
+                    <span class="homeicon"></span>
+                 
+                    <div id="spacemenu">
+                        @foreach (var space in Model.ParentSpaces)
+                        {
+                            if (space.SpaceObject.SpaceName != "所有空间")
+                            {
+                                <span class="divide"> &gt; </span>
+                            }
+                            <a href="/Home/Space/@space.SpaceObject.Id/page" class="home">@space.SpaceObject.SpaceName</a>
+                        }
+                    </div>
+                </div>
+                @Html.Partial("Shared/HomeList", Model)
+                @Html.Raw(Model.PageCode)
+
+                <div class="moreCon">
+                    <ul>
+                        <li data-para="0">所有人可见</li>
+                        <li data-para="1">仅部门可见</li>
+                        <li data-para="2">仅自己可见</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#uploadSpaceId").val('@Model.CurrentSpace.SpaceObject.Id');
+        var zTree = $.fn.zTree.getZTreeObj("tree");
+        var node = zTree.getNodeByParam('xid', '@Model.CurrentSpace.SpaceObject.Id', null);
+        if (node != null) {
+            zTree.selectNode(node);
+            zTree.expandNode(node, true, true, true);
+        }
+
+        var uploadTree = $.fn.zTree.getZTreeObj("uploadTree");
+        var uploadNode = uploadTree.getNodeByParam('xid', '@Model.CurrentSpace.SpaceObject.Id', null);
+        if (uploadNode != null) {
+            uploadTree.selectNode(uploadNode);
+            uploadTree.expandNode(uploadNode, true, true, true);
+        }
+
+
+
+
+        //var newHtml = "";
+        //var selectedLastNode = zTree.getSelectedNodes()[0];
+
+        //var allObject = [];
+        //while (selectedLastNode != null) {
+        //    var newGroup = {};
+        //    newGroup.id = selectedLastNode.xid;
+        //    newGroup.name = selectedLastNode.name;
+        //    allObject.push(newGroup);
+        //    selectedLastNode = selectedLastNode.getParentNode();
+        //}
+        //allObject.reverse();
+        //for (var i = 0; i < allObject.length; i++) {
+        //    newHtml += "<span class=\"divide\"> &gt; </span><a href=\"/Home/Space/" + allObject[i].id + "/page\" class=\"home\">" + allObject[i].name + "</a>";
+        //}
+        //$("#spacemenu").append(newHtml);
+    });
+
+</script>

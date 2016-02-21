@@ -1,0 +1,76 @@
+﻿@using WebAPI2.Common
+@section css{
+    @Styles.Render("~/Content/uploadify")
+}
+<div class="row">
+    <h2 class="text-warring">新upload控件地址: <a href="/Plugin/Upload2">传送门</a></h2>
+    <p></p>
+    <p class="lead">UploadFileApi使用</p>
+    <p class="lead">1:API使用先决条件:必须先引用<span style="color:green"> jquery.js</span>;</p>
+    <p></p>
+    <p class="lead">2:定义页面中要加载上传按钮的位置(页面任意位置);</p>
+    <code>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="<span><b>file_upload1</b></span>" &gt;&lt;/div&gt;<span>//定义页面中要使用上传组件的位置div,定义上传组ID[file_upload1]</span><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="<span><b>file_upload2</b></span>" &gt;&lt;/div&gt;<span>//定义页面中要使用上传组件的位置div,定义上传组ID[file_upload2]</span><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;<span>//Id为自定义,但一定要和加载上传按钮时的Id一致!</span><br />
+    </code>
+    <br />
+    <p class="lead">3:配置调用参数:页面使用之前先配置调用参数;</p>
+    <code>
+        &lt;script type="text/javascript"&gt;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;var fileapiurl = '<span>http://192.168.1.29:2001/</span>';<span>//设置UploadApi接口地址</span><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;<span>//设置API参数</span><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;var uploadapiconfig = {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uploadtype: '10001',<span>//用户Id,不能为空</span><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileapiuserid: '10001',<span>//用户Id,不能为空</span><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileapiusername: '测试用户',<span>//用户名,不能为空</span><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileapispaceid: ''<span>//空间Id,可空,为空时则为默认空间</span><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;<span>//导入APIJS文件</span><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;var prettify = document.createElement('script');<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;prettify.src = fileapiurl + '/Scripts/UploadApi.js';<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;document.getElementsByTagName('head')[0].appendChild(prettify);<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;<span>//加载上传按钮</span><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;function SetUploadObject(config) {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;installUploadObject(<span style="">"<b>上传组ID:file_upload1</b>"</span>, config.fileapiuserid, config.fileapiusername, config.fileapispaceid);<span>//<b>file_upload1</b> : 要加载上传按钮的div的Id</span><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;installUploadObject(<span>"<b>上传组ID:file_upload2</b>"</span>, config.fileapiuserid, config.fileapiusername, config.fileapispaceid);<span>//<b>file_upload2</b> : 要加载上传按钮的div的Id</span><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+        &lt;/script&gt;<br />
+    </code>
+
+    <p class="lead">4:上传返回结果</p>
+    <code>
+        &nbsp;&nbsp;&nbsp;&nbsp;1:自动创建上传按钮时会自动创建该<span style=""><b>上传组ID</b></span>的<span style=""><b>结果集DIV</b></span>,会自动创建改组的上传结果DIV,如下图<br />
+        <img src="/content/images/result1.png" width="540" /><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;2:上传完成后,在该组的<span style=""><b>结果集DIV</b></span>中会保存有上传的结果集合,如下图<br />
+        <img src="/content/images/result2.png" width="1100" /><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;3:结果集DIV中保存上传文件的文件信息,结果集的控件Id格式为:&nbsp;&nbsp;[file_+<span>上传组ID</span>+<span>_uploadresult_</span>+<span>本组文件序号(0开始)</span>]<br />
+
+    </code>
+    <br />
+    
+    <p class="lead">5:调用测试</p>
+    <div id="file_upload1"></div>
+    <div id="file_upload2"></div>
+    <script type="text/javascript">
+        var fileapiurl = '@ApiSettings.GetCurrentUrl';
+        var uploadapiconfig = {
+            fileapiuserid: '10001',
+            fileapiusername: '测试用户',
+            fileapispaceid: ''
+        }
+
+        var prettify = document.createElement('script');
+        prettify.src = fileapiurl + '/Scripts/UploadApi.js';
+        document.getElementsByTagName('head')[0].appendChild(prettify);
+
+        function SetUploadObject(config) {
+            installUploadObject("file_upload1", config.fileapiuserid, config.fileapiusername, config.fileapispaceid);
+            installUploadObject("file_upload2", config.fileapiuserid, config.fileapiusername, config.fileapispaceid);
+        }
+    </script>
+
+
+
+
+</div>

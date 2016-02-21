@@ -1,0 +1,66 @@
+﻿@model WebSite2.Models.SettingViewModel
+@{
+    ViewBag.Title = "文档管理系统-设置";
+}
+@Html.Partial("_QuickMenu", Model.MenuViewModel)
+
+<div class="viewbox">
+    <div class="viewcontent">
+
+        <div class="breadcrumb">
+            <span class="homeicon"></span>
+            <span class="divide"> &gt; </span>
+            <a href="" class="home">系统配置</a>
+        </div>
+        <div class="content" style="height: 1023px;">
+            
+            <div class="indexNumber">
+                <h2>系统配置存储在Web.Config中，不提供修改功能，需要管理员修改后重启Web服务生效!</h2>
+                <div class="sys">
+                    <label class="_label">Mongo DB连接地址</label>
+                    <label class="_labelcontent">@Model.MongoConnection</label>
+                </div>
+
+                <div class="sys">
+                    <label class="_label">Mongo DB数据库地址</label>
+                    <label class="_labelcontent">@Model.MongoDatabase</label>
+                </div>
+
+                <div class="sys">
+                    <label class="_label">消息队列地址</label>
+                    <label class="_labelcontent">@Model.Msmq</label>
+                </div>
+
+
+                <div class="sys">
+                    <label class="_label">索引存储地址</label>
+                    <label class="_labelcontent">@Model.SegmentPath</label>
+                </div>
+
+                <div class="sys">
+                    <label class="_label">DownloadUrl下载地址</label>
+                    <label class="_labelcontent">@Model.DownloadUrl</label>
+                </div>
+
+                <div class="sys">
+                    <label class="_label">DisplayDir预览物理存储路径</label>
+                    <label class="_labelcontent">@Model.DisplayDir</label>
+                </div>
+
+                <div class="sys">
+                    <label class="_label">图片压缩物理存储路径</label>
+                    <label class="_labelcontent">@Model.CompressImageDir</label>
+                </div>
+
+                <div class="sys">
+                    <label class="_label">缩略图物理存储路径</label>
+                    <label class="_labelcontent">@Model.ThumbImageDir</label>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $("#menu_AccountSetting").addClass("checked");
+</script>

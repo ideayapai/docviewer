@@ -1,0 +1,114 @@
+﻿@model WebSite2.Models.AuthViewModel
+@{
+    ViewBag.Title = "角色管理";
+}
+
+@Html.Partial("_QuickMenu", Model.MenuViewModel)
+
+
+<div class="viewbox">
+    <div class="viewcontent">
+
+        <div class="content">
+            <div class="con_list">
+                <div class="breadcrumb">
+
+                    <span class="homeicon"></span>
+                    <a href="/" class="home">首页</a>
+                    <span class="divide">></span>
+                    <a href="/Role/Index" class="home">角色管理</a>
+                </div>
+                <div class="indexNumber">
+                    <h2 class="title">权限分配管理</h2>
+                    <div class="sys">
+                        <label class="_label" for="user">角色：</label>
+                        @Html.DropDownList("RoleId", ViewData["Roles"] as IEnumerable<SelectListItem>, "----请选择角色----", new { @data_options = "editable:false", @style = "width: 160px" })
+                        &nbsp;&nbsp;<button class="in_btn reset_sys_name" onclick="post();">保存</button>
+                
+                    </div>
+                    <div>
+                        <ul id="auth-tree"></ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        
+        var setting = {
+            check: {
+                enable: true,
+                chkStyle: "checkbox"
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                },
+                keep: {
+                    parent: true
+                }
+            },
+            callback: {
+                onClick: this.onNodeClick
+            },
+            view: {
+                selectedMulti: false
+            }
+        };
+
+        var bind = false;
+
+        $(function () {
+            //初始化树
+        
+
+        $(function () {
+
+            $("#RoleId").change(function (r) {
+                if (!bind) {
+                    $.ajax({
+                        url: "/Auth/List",
+      
+                        success: function (e) {
+                            $.fn.zTree.init($("#auth-tree"), setting, <%=nodes%>);
+                        },
+                        error: function (e) {
+                            console.log("deleteUploadedFile:(2/2):删除文件失败,消息:[" + $.parseJSON(e) + "]");
+                        }
+                    });
+
+                   
+                }
+            });
+
+        });
+
+
+        function getcheckednodes() {
+            var nodes = $('#easyui-tree').tree('getChecked');
+            var ids = {};
+            $.each(nodes, function (i) {
+                log(nodes[i].Id);
+                ids[i] = nodes[i].Id;
+            });
+            return ids;
+        }
+
+        function post() {
+            $.ajax({
+                url: '/Auth/post',
+                data: { "roleId": $("#RoleId").val(), "ids": getcheckednodes() },
+                type: "POST",
+                success: function (rs) {
+                    $.messager.alert('提示', rs ? '操作成功!权限会在60分钟后生效' : '操作失败', 'info');
+                },
+                error: function (rs) {
+                    $.messager.alert('提示', '处理出错了!', 'error');
+                }
+            });
+        }
+    </script>
+}

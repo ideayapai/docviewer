@@ -1,0 +1,32 @@
+﻿@model WebSite2.Models.TrashViewModel
+@{
+    ViewBag.Title = "回收站";
+}
+
+@Html.Partial("_QuickMenu", Model.MenuViewModel)
+
+<div class="viewbox">
+    <div class="showstyle">
+        <span id="redFiles" class="s_button"><i class="reduction"></i> 还原</span>
+        <span id="delSelected" class="s_button"><i class="remove"></i> 删除</span>
+        <span id="delAll" class="s_button" style="width: 100px"><i class="removeAll"></i> 清空回收站</span>
+        <i id="showtoggle" class="showtoggle" data-showfont="pic" title="显示为缩略图"></i>
+    </div>
+    <div class="content">
+        <div class="con_list con_trash">
+            <div class="breadcrumb">
+                <input id="chk-all-trash" class="chk-all" type="checkbox">
+                <span class="homeicon"></span>
+                <a href="/" class="home">所有空间</a>
+                <span class="divide">></span>
+                <a href="/Document/Trash" class="home">回收站</a>
+            </div>
+            @Html.Partial("Shared/TrashList", Model)
+            @Html.Raw(Model.PageCode)
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $("#menu_Trash").addClass("checked");
+    $("li").css("cursor", "default");
+</script>

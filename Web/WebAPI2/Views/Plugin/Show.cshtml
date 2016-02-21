@@ -1,0 +1,79 @@
+﻿<div>
+    @if (Model == null)
+    {
+        <span>获取错误</span>
+    }
+    else
+    {
+        <script type="text/javascript" src="/Scripts/jquery-1.10.2.js"></script>
+
+        <link href="/Content/flexpaper.css" rel="stylesheet"/>
+        <script type="text/javascript" src="/Scripts/swfobject.js"></script>
+        <script type="text/javascript" src="/Scripts/flexpaper.js"></script>
+        <script type="text/javascript" src="/Scripts/flexpaper_handlers.js"></script>
+        
+        <div class="show">
+            <div class="showtitle">
+                <h1>文档名称:<b>@Model.FileName</b></h1>
+            </div>
+            <div class="showcategory">
+                <span>文档ID:</span>
+                <p>@Model.Id</p>
+            </div>
+            <div class="showcategory">
+                <span>上传人:</span>
+                <p>@Model.CreateUserName</p>
+            </div>
+            <div class="showcategory">
+                <span>所属空间:</span>
+                <p>@Model.SpaceName</p>
+            </div>
+            <div class="showcategory">
+                <span>上传时间:</span>
+                <p>@Model.CreateTime</p>
+            </div>
+            <div class="showcategory">
+                <span>修改时间:</span>
+                <p>@Model.UpdateTime</p>
+            </div>
+            <div class="showcategory">
+                <span>下载地址:</span>
+                <p><a href="@Model.DownloadPath" target="_blank">@Model.DownloadPath</a></p>
+            </div>
+            <div class="showinfo">
+                <div id="documentViewer" class="flexpaper_viewer" style="height: 600px"></div>
+            </div>
+        </div>
+        <script type="text/javascript">
+    $('#documentViewer').FlexPaperViewer(
+        {
+            config: {
+                SWFFile: '@Model.DisplayPath',
+                Scale: 1,
+                ZoomTransition: 'easeOut',
+                ZoomTime: 0.5,
+                ZoomInterval: 0.2,
+                FitPageOnLoad: true,
+                FitWidthOnLoad: true,
+                FullScreenAsMaxWindow: false,
+                ProgressiveLoading: false,
+                MinZoomSize: 0.2,
+                MaxZoomSize: 1,
+                SearchMatchAll: false,
+                InitViewMode: 'Portrait',
+                RenderingOrder: 'flash',
+                StartAtPage: '',
+                jsDirectory: '/Scripts/',
+                ViewModeToolsVisible: true,
+                ZoomToolsVisible: true,
+                NavToolsVisible: true,
+                CursorToolsVisible: true,
+                SearchToolsVisible: true,
+                WMode: 'window',
+                localeChain: 'en_US'
+            }
+        }
+    );
+    </script>
+    }
+</div>

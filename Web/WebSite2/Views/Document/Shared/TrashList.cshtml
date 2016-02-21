@@ -1,0 +1,61 @@
+﻿@using Documents
+@using WebSite2.Controls
+@model WebSite2.Models.TrashViewModel
+
+<ul class="file-list">
+    <li class="row-fluid file-list-title">
+        <div class="span8">文件名称</div>
+        <div class="span2">文件大小</div>
+        <div class="span2">上传时间</div>
+    </li>
+
+    @{
+        foreach (var space in Model.SpaceModels)
+        {
+            <li class="row-fluid trash" data-id="@space.Id" data-folder="true">
+                <div class="span8">
+                    <input type="checkbox" />
+                    <i class="file-small-icon file-small-icon-folders"></i>
+                    <span class="name" title="@space.SpaceName">@space.SpaceName</span>
+                </div>
+            </li>
+        }
+    }
+
+    @foreach (var document in Model.DocumentModels.Documents)
+    {
+        <li class="row-fluid trash" data-id="@document.Id" data-file="true">
+            <div class="span8">
+                <input type="checkbox" />
+                @Html.Thumb(document)
+                <span class="name" title="@document.FileName">@document.FileName</span>
+            </div>
+            <div class="span2">@document.DisplayFileSize</div>
+            <div class="span2">@document.UpdateTime.ToShortDateString()</div>
+        </li>
+    }
+</ul>
+<ul class="file-pic" style="display: none;">
+    @foreach (var space in Model.SpaceModels)
+    {
+        <li class="trash" data-id="@space.Id" data-folder="true">
+            <input type="checkbox" />
+            <i class="file-icon file-icon-folders"></i>
+            <p title="@space.SpaceName">
+                <span>@space.SpaceName</span>
+            </p>
+        </li>
+    }
+
+    @foreach (var document in Model.DocumentModels.Documents)
+    {
+        <li class="trash" data-id="@document.Id" data-file="true">
+            @Html.Icon(document)
+            <p title="@document.FileName">
+                <span>@document.FileName</span>
+            </p>
+        </li>
+    }
+</ul>
+
+

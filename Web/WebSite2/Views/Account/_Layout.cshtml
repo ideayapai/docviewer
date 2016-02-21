@@ -1,0 +1,21 @@
+﻿
+<html lang="zh">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width, " />
+        @Styles.Render("~/Content/base")
+        
+    </head>
+<body>
+     @RenderBody()
+    <div class="footer login-footer text-muted">
+      
+    </div>
+        @Scripts.Render("~/bundles/jquery")  
+        @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿
+
+@model WebSite2.Models.SettingViewModel
+@{
+    ViewBag.Title = "搜索设置";
+}
+
+@Html.Partial("_QuickMenu", Model.MenuViewModel)
+
+<div class="viewbox">
+    <div class="viewcontent">
+
+        <div class="breadcrumb">
+            <span class="homeicon"></span>
+            <a href="" class="home">设置</a>
+            <span class="divide">></span>
+            <a href="" class="home">索引</a>
+        </div>
+        
+        <div class="content">
+
+            <div class="indexNumber">
+                <h2 class="title">搜索索引</h2>
+                <p class="des">重新创建索引可能会花费几分钟或更长的时间，所有的文档那个标题和内容都会重新创建。</p>
+                <button class="restall"><a href="/Setting/WriteIndex">重新创建</a></button>
+            </div>
+        </div>
+    </div>
+</div>
