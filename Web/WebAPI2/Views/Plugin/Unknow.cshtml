@@ -1,0 +1,27 @@
+﻿@model Services.Contracts.DocumentObject
+
+
+<div class="row-fluid">
+
+    @*<div class="col-md-3">
+
+        @Html.Partial("Shared/_QuickMenu")
+
+    </div>*@
+    
+    <div class="col-md-12 ">
+
+        <ol class="breadcrumb">
+            <li class="active">@Model.FileName</li>
+            <li class="pull-right no-text-shadow">
+					<span><a class="button" href="@Model.DownloadPath">下载</a></span>
+			</li>
+        </ol>
+      
+
+       <div id="documentViewer">
+            <a href="@Model.DownloadPath" class="btn">下载</a>
+       </div>
+
+    </div>
+</div>

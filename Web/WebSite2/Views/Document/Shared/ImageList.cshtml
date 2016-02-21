@@ -1,0 +1,48 @@
+﻿@using Documents
+@using Documents.Enums
+@using WebSite2.Controls
+@model WebSite2.Models.DocumentViewModelCollection
+
+<ul class="file-list">
+    <li class="row-fluid file-list-title">
+        <div class="span8">文件名</div>
+        <div class="span2">文件大小</div>
+        <div class="span2">上传时间</div>
+    </li>
+
+    @foreach (var document in Model)
+    {
+        <li class="row-fluid" data-id="@document.DocumentObject.Id" data-file="true" data-visibility="@document.CanEdit">
+            <div class="span8">
+                <input type="checkbox" />
+                @switch (document.DocumentObject.DocumentType)
+                {
+                    case DocumentType.BMP:
+                        <i class="file-small-icon file-small-icon-BMP"><img src="@document.DocumentObject.ThumbUrl" alt="@document.DocumentObject.FileName" data-displaypath="@document.DocumentObject.DisplayPath"></i>
+                        break;
+                    case DocumentType.JPG:
+                    <i class="file-small-icon file-small-icon-JPG"><img src="@document.DocumentObject.ThumbUrl" alt="@document.DocumentObject.FileName" data-displaypath="@document.DocumentObject.DisplayPath"></i>
+                        break;
+                    case DocumentType.PNG:
+                    <i class="file-small-icon file-small-icon-PNG"><img src="@document.DocumentObject.ThumbUrl" alt="@document.DocumentObject.FileName" data-displaypath="@document.DocumentObject.DisplayPath"></i>
+                        break;
+                }
+                <span class="name" data-url="@document.DocumentObject.DownloadPath" title="@document.DocumentObject.FileName">@document.DocumentObject.FileName</span>
+            </div>
+            <div class="span2">@document.DocumentObject.DisplayFileSize</div>
+            <div class="span2">@document.DocumentObject.UpdateTime.ToShortDateString()</div>
+        </li>
+    }
+</ul>
+
+<ul class="file-pic" style="display: none;">
+    @foreach (var document in Model)
+    {
+        <li data-id="@document.DocumentObject.Id" data-file="true" data-visibility="@document.CanEdit">
+            @Html.Icon(document.DocumentObject)
+            <p title="@document.DocumentObject.FileName">
+                <span data-url="@document.DocumentObject.DownloadPath">@document.DocumentObject.FileName</span>
+            </p>
+        </li>
+    }
+</ul>

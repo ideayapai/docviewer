@@ -1,0 +1,895 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>最近</title>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/zTreeStyle/zTreeStyle.css">
+    </head>
+    
+    <body>
+        <div class="tophead">
+            <div class="mtlogo" style="text-align: center">文件管理系统</div>
+            <div class="navbar">
+                <ul class="toolbar">
+                    <li id="search" class="searchbar">
+                        <form action="">
+                            <input type="text" placeholder="搜索文档、图片、工程图、空间、文件">
+                            <input type="submit" value="" class="icon-search" />
+                        </form>
+                    </li>
+                    <li class="userinfo">
+                        <div class="headtumb">
+                            <img src="images/u792.png" alt="wuxiaomeng" class="tumb">
+                        </div>
+                        <div class="username">
+                            <span>wuxiaomeng</span>
+                            <button>
+                                <i class="icon icon-14"></i>
+                            </button>
+                        </div>
+                        <div class="usercontrol"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main">
+            <div class="sidebar">
+                <div class="mainmenu">
+                    <ul class="menu2">
+                        <li class="main_all">
+                            <i class="icon-menu icon-menu-2 micon"></i>
+                            <span>
+                                <a href="index.html">所有空间</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-3 micon"></i>
+                            <span class="checked">
+                                <a href="recently.html">最近</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-4 micon"></i>
+                            <span>
+                                <a href="drawings.html">工程图</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-5 micon"></i>
+                            <span>
+                                <a href="file.html">文档</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-6 micon"></i>
+                            <span>
+                                <a href="pictures.html">图片</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="icon-menu icon-menu-7 micon"></i>
+                            <span>
+                                <a href="recycleBin.html">回收站</a>
+                            </span>
+                        </li>
+                        <li class="sys_toggle">
+                            <i class="icon icon-setting micon"></i>
+                            <span>
+                                <a href="javascript:void(0);">系统设置</a>
+                                <mark class="down">▼</mark>
+                            </span>
+                        </li>
+                        <li class="sys_options" style="display: none">
+                            <ul class="secondMenu">
+                                <li>
+                                    <span>
+                                        ●<a href="setting_basic.html">基本设置</a>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        ●<a href="setting_safe.html">安全设置</a>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        ●<a href="setting_exterior.html">外观设置</a>
+                                    </span>
+                                </li>
+                                <li class="sys_toggle">
+                                    <span>
+                                        ●<a href="javascript:void(0);">基础信息管理</a>
+                                        <mark class="down">▼</mark>
+                                    </span>
+                                </li>
+                                <li class="sys_options" style="display: none">
+                                    <ul class="thirdMenu">
+                                        <li>
+                                            <span>
+                                                <a href="setting_userManagement_area.html">区域管理</a>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <a href="setting_userManagement_purview.html">权限管理</a>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <a href="setting_userManagement_department.html">部门管理</a>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <a href="setting_userManagement_user.html">用户管理</a>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sys_toggle">
+                                    <span>
+                                        ●<a href="javascript:void(0)">日志管理</a>
+                                        <mark class="down">▼</mark>
+                                    </span>
+                                </li>
+                                <li class="sys_options" style="display: none">
+                                    <ul class="thirdMenu">
+                                        <li>
+                                            <span>
+                                                <a href="setting_systemLog.html">系统日志</a>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <a href="setting_userLog.html">用户日志</a>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="viewbox">
+                <div class="viewcontent">
+                    <div class="showstyle">
+                        <span id="delFiles" class="s_button"><i class="remove"></i> 删 除</span>
+                        <i id="showtoggle" class="showtoggle" data-showfont="pic" title="显示为缩略图"></i>
+                    </div>
+                    <div class="content">
+                        <div class="con_list">
+                            <div class="breadcrumb">
+                                <input id="chk-all" class="chk-all" type="checkbox"/>
+                                <span class="homeicon"></span>
+                                <a class="home">最近添加的文件</a>
+                            </div>
+                            <ul class="file-list">
+                                <li class="row-fluid file-list-title">
+                                    <div class="span8">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        文件名
+                                    </div>
+                                    <div class="span2">文件大小</div>
+                                    <div class="span2">上传时间</div>
+                                </li>
+
+
+                                <li class="recently_name"><i></i>今天</li>
+                                <!-- PS:  data-id保存的是该条数据的id，请填充数据的时候务必填上。页面上暂且使用的是模拟数字 -->
+                                <li class="row-fluid" data-id="2">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-DOC"></i>
+                                        <span title="DOC文件">DOC文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="3">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-DOCX"></i>
+                                        <span title="DOCX文件">DOCX文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="recently_name"><i></i>昨天</li>
+                                <li class="row-fluid" data-id="4">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-WPS"></i>
+                                        <span title="WPS文件">WPS文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="5">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-PPT"></i>
+                                        <span title="PPT文件">PPT文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="6">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-PPTX"></i>
+                                        <span title="PPTX文件">PPTX文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="7">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-XLS"></i>
+                                        <span title="XLS文件">XLS文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="8">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-XLSX"></i>
+                                        <span title="XLSX文件">XLSX文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="recently_name"><i></i>最近7天</li>
+                                <li class="row-fluid" data-id="9">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-PDF"></i>
+                                        <span title="PDF文件">PDF文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="10">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-TXT"></i>
+                                        <span title="TXT文件">TXT文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="11">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-JPG"></i>
+                                        <span title="JPG文件">JPG文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="12">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-JPEG"></i>
+                                        <span title="JPEG文件">JPEG文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="13">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-PNG"></i>
+                                        <span title="PNG文件">PNG文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="14">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-GIF"></i>
+                                        <span title="GIF文件">GIF文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="recently_name"><i></i>最近30天</li>
+                                <li class="row-fluid" data-id="15">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-BMP"></i>
+                                        <span title="BMP文件">BMP文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="16">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-PSD"></i>
+                                        <span title="PSD文件">PSD文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="17">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-AI"></i>
+                                        <span title="AI文件">AI文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="18">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-CAD"></i>
+                                        <span title="CAD文件">CAD文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="19">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-AVI"></i>
+                                        <span title="AVI文件">AVI文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="20">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-ASF"></i>
+                                        <span title="ASF文件">ASF文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="21">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-MP4"></i>
+                                        <span title="MP4文件">MP4文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="22">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-3GP"></i>
+                                        <span title="3GP文件">3GP文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="23">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-RMVB"></i>
+                                        <span title="RMVB文件">RMVB文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="24">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-WMV"></i>
+                                        <span title="WMV文件">WMV文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="25">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-SWF"></i>
+                                        <span title="SWF文件">SWF文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="26">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-MP3"></i>
+                                        <span title="MP3文件">MP3文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="27">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-WMA"></i>
+                                        <span title="WMA文件">WMA文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="28">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-WAV"></i>
+                                        <span title="WAV文件">WAV文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="29">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-IPA"></i>
+                                        <span title="IPA文件">IPA文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="30">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-APK"></i>
+                                        <span title="APK文件">APK文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="31">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-EXE"></i>
+                                        <span title="EXE文件">EXE文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="32">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-HTM"></i>
+                                        <span title="HTM文件">HTM文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="33">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-HTML"></i>
+                                        <span title="HTML文件">HTML文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="34">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-XML"></i>
+                                        <span title="XML文件">XML文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="35">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-ASP"></i>
+                                        <span title="ASP文件">ASP文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="36">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-CHM"></i>
+                                        <span title="CHM文件">CHM文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="37">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-HLP"></i>
+                                        <span title="HLP文件">HLP文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="38">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-TTF"></i>
+                                        <span title="TTF文件">TTF文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="39">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-TTC"></i>
+                                        <span title="TTC文件">TTC文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="40">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-OTF"></i>
+                                        <span title="OTF文件">OTF文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="41">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-FON"></i>
+                                        <span title="FON文件">FON文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="42">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-BAK"></i>
+                                        <span title="BAK文件">BAK文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="43">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-TMP"></i>
+                                        <span title="TMP文件">TMP文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="44">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-OLD"></i>
+                                        <span title="OLD文件">OLD文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="45">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-ZIP"></i>
+                                        <span title="ZIP文件">ZIP文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="46">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-7Z"></i>
+                                        <span title="7Z文件">7Z文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="47">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-RAR"></i>
+                                        <span title="RAR文件">RAR文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="48">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-ISO"></i>
+                                        <span title="ISO文件">ISO文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="49">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-JAR"></i>
+                                        <span title="JAR文件">JAR文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="50">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-FILE"></i>
+                                        <span title="文件">文件</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                                <li class="row-fluid" data-id="51">
+                                    <div class="span8">
+                                        <input type="checkbox"/>
+                                        <i class="file-small-icon file-small-icon-DAMAGE"></i>
+                                        <span title="文件已损坏或加载失败">文件已损坏或加载失败</span>
+                                    </div>
+                                    <div class="span2">121.3kb</div>
+                                    <div class="span2">2014-03-22</div>
+                                </li>
+                            </ul>
+                            <ul class="file-pic">
+                                <li class="recently_name"><i></i>今天</li>
+                                <li data-id="2">
+                                    <i class="file-icon file-icon-DOC"></i>
+                                    <p title="DOC文件">DOC文件</p>
+                                </li>
+                                <li data-id="3">
+                                    <i class="file-icon file-icon-DOCX"></i>
+                                    <p title="DOCX文件">DOCX文件</p>
+                                </li>
+                                <li class="recently_name"><i></i>昨天</li>
+                                <li data-id="4">
+                                    <i class="file-icon file-icon-WPS"></i>
+                                    <p title="WPS文件">WPS文件</p>
+                                </li>
+                                <li data-id="5">
+                                    <i class="file-icon file-icon-PPT"></i>
+                                    <p title="PPT文件">PPT文件</p>
+                                </li>
+                                <li data-id="6">
+                                    <i class="file-icon file-icon-PPTX"></i>
+                                    <p title="PPTX文件">PPTX文件</p>
+                                </li>
+                                <li data-id="7">
+                                    <i class="file-icon file-icon-XLS"></i>
+                                    <p title="XLS文件">XLS文件</p>
+                                </li>
+                                <li data-id="8">
+                                    <i class="file-icon file-icon-XLSX"></i>
+                                    <p title="XLSX文件">XLSX文件</p>
+                                </li>
+                                <li class="recently_name"><i></i>最近7天</li>
+                                <li data-id="9">
+                                    <i class="file-icon file-icon-PDF"></i>
+                                    <p title="PDF文件">PDF文件</p>
+                                </li>
+                                <li data-id="10">
+                                    <i class="file-icon file-icon-TXT"></i>
+                                    <p title="TXT文件">TXT文件</p>
+                                </li>
+                                <li data-id="11">
+                                    <i class="file-icon file-icon-JPG"></i>
+                                    <p title="JPG文件">JPG文件</p>
+                                </li>
+                                <li data-id="12">
+                                    <i class="file-icon file-icon-JPEG"></i>
+                                    <p title="JPEG文件">JPEG文件</p>
+                                </li>
+                                <li data-id="13">
+                                    <i class="file-icon file-icon-PNG"></i>
+                                    <p title="PNG文件">PNG文件</p>
+                                </li>
+                                <li data-id="14">
+                                    <i class="file-icon file-icon-GIF"></i>
+                                    <p title="GIF文件">GIF文件</p>
+                                </li>
+                                <li class="recently_name"><i></i>最近30天</li>
+                                <li data-id="15">
+                                    <i class="file-icon file-icon-BMP"></i>
+                                    <p title="BMP文件">BMP文件</p>
+                                </li>
+                                <li data-id="16">
+                                    <i class="file-icon file-icon-PSD"></i>
+                                    <p title="PSD文件">PSD文件</p>
+                                </li>
+                                <li data-id="17">
+                                    <i class="file-icon file-icon-AI"></i>
+                                    <p title="AI文件">AI文件</p>
+                                </li>
+                                <li data-id="18">
+                                    <i class="file-icon file-icon-CAD"></i>
+                                    <p title="CAD文件">CAD文件</p>
+                                </li>
+                                <li data-id="19">
+                                    <i class="file-icon file-icon-AVI"></i>
+                                    <p title="AVI文件">AVI文件</p>
+                                </li>
+                                <li data-id="20">
+                                    <i class="file-icon file-icon-ASF"></i>
+                                    <p title="ASF文件">ASF文件</p>
+                                </li>
+                                <li data-id="21">
+                                    <i class="file-icon file-icon-MP4"></i>
+                                    <p title="MP4文件">MP4文件</p>
+                                </li>
+                                <li data-id="22">
+                                    <i class="file-icon file-icon-3GP"></i>
+                                    <p title="3GP文件">3GP文件</p>
+                                </li>
+                                <li data-id="23">
+                                    <i class="file-icon file-icon-RMVB"></i>
+                                    <p title="RMVB文件">RMVB文件</p>
+                                </li>
+                                <li data-id="24">
+                                    <i class="file-icon file-icon-WMV"></i>
+                                    <p title="WMV文件">WMV文件</p>
+                                </li>
+                                <li data-id="25">
+                                    <i class="file-icon file-icon-SWF"></i>
+                                    <p title="SWF文件">SWF文件</p>
+                                </li>
+                                <li data-id="26">
+                                    <i class="file-icon file-icon-MP3"></i>
+                                    <p title="MP3文件">MP3文件</p>
+                                </li>
+                                <li data-id="27">
+                                    <i class="file-icon file-icon-WMA"></i>
+                                    <p title="WMA文件">WMA文件</p>
+                                </li>
+                                <li data-id="28">
+                                    <i class="file-icon file-icon-WAV"></i>
+                                    <p title="WAV文件">WAV文件</p>
+                                </li>
+                                <li data-id="29">
+                                    <i class="file-icon file-icon-IPA"></i>
+                                    <p title="IPA文件">IPA文件</p>
+                                </li>
+                                <li data-id="30">
+                                    <i class="file-icon file-icon-APK"></i>
+                                    <p title="APK文件">APK文件</p>
+                                </li>
+                                <li data-id="31">
+                                    <i class="file-icon file-icon-EXE"></i>
+                                    <p title="EXE文件">EXE文件</p>
+                                </li>
+                                <li data-id="32">
+                                    <i class="file-icon file-icon-HTM"></i>
+                                    <p title="HTM文件">HTM文件</p>
+                                </li>
+                                <li data-id="33">
+                                    <i class="file-icon file-icon-HTML"></i>
+                                    <p title="HTML文件">HTML文件</p>
+                                </li>
+                                <li data-id="34">
+                                    <i class="file-icon file-icon-XML"></i>
+                                    <p title="XML文件">XML文件</p>
+                                </li>
+                                <li data-id="35">
+                                    <i class="file-icon file-icon-ASP"></i>
+                                    <p title="ASP文件">ASP文件</p>
+                                </li>
+                                <li data-id="36">
+                                    <i class="file-icon file-icon-CHM"></i>
+                                    <p title="CHM文件">CHM文件</p>
+                                </li>
+                                <li data-id="37">
+                                    <i class="file-icon file-icon-HLP"></i>
+                                    <p title="HLP文件">HLP文件</p>
+                                </li>
+                                <li data-id="38">
+                                    <i class="file-icon file-icon-TTF"></i>
+                                    <p title="TTF文件">TTF文件</p>
+                                </li>
+                                <li data-id="39">
+                                    <i class="file-icon file-icon-TTC"></i>
+                                    <p title="TTC文件">TTC文件</p>
+                                </li>
+                                <li data-id="40">
+                                    <i class="file-icon file-icon-OTF"></i>
+                                    <p title="OTF文件">OTF文件</p>
+                                </li>
+                                <li data-id="41">
+                                    <i class="file-icon file-icon-FON"></i>
+                                    <p title="FON文件">FON文件</p>
+                                </li>
+                                <li data-id="42">
+                                    <i class="file-icon file-icon-BAK"></i>
+                                    <p title="BAK文件">BAK文件</p>
+                                </li>
+                                <li data-id="43">
+                                    <i class="file-icon file-icon-TMP"></i>
+                                    <p title="TMP文件">TMP文件</p>
+                                </li>
+                                <li data-id="44">
+                                    <i class="file-icon file-icon-OLD"></i>
+                                    <p title="OLD文件">OLD文件</p>
+                                </li>
+                                <li data-id="45">
+                                    <i class="file-icon file-icon-ZIP"></i>
+                                    <p title="ZIP文件">ZIP文件</p>
+                                </li>
+                                <li data-id="46">
+                                    <i class="file-icon file-icon-7Z"></i>
+                                    <p title="7Z文件">7Z文件</p>
+                                </li>
+                                <li data-id="47">
+                                    <i class="file-icon file-icon-RAR"></i>
+                                    <p title="RAR文件">RAR文件</p>
+                                </li>
+                                <li data-id="48">
+                                    <i class="file-icon file-icon-ISO"></i>
+                                    <p title="ISO文件">ISO文件</p>
+                                </li>
+                                <li data-id="49">
+                                    <i class="file-icon file-icon-JAR"></i>
+                                    <p title="JAR文件">JAR文件</p>
+                                </li>
+                                <li data-id="50">
+                                    <i class="file-icon file-icon-FILE"></i>
+                                    <p title="文件">文件</p>
+                                </li>
+                                <li data-id="51">
+                                    <i class="file-icon file-icon-DAMAGE"></i>
+                                    <p title="文件已损坏或加载失败">文件已损坏或加载失败</p>
+                                </li>
+                            </ul>
+                            <div class="page">
+                                <a href="#">首页</a>
+                                <span>…</span>
+                                <a href="#">21</a>
+                                <a href="#">22</a>
+                                <a href="#" class="checked">23</a>
+                                <a href="#">24</a>
+                                <a href="#">25</a>
+                                <span>…</span>
+                                <a href="#">尾页</a>
+                                <input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                                <button>跳转</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="upload-box">
+            <div>
+                <div class="box-head">
+                    <strong>上传文件</strong>
+                    <i class="close_upload" title="关闭" onclick="cancle_upload()"></i>
+                    <div class="box-content">
+                        <div class="space-choose">
+                            <input type="text" value="文档" />
+                            <button class="uploadaddr">选择目录</button>
+                        </div>
+                        <div class="other_tree">
+                            上传到：
+                            <ul id="uploadTree" class="ztree"></ul>
+                        </div>
+                        <div class="file-choose">
+                            <button id="file_upload">附件上传</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ztree.core-3.4.min.js"></script>
+    <script type="text/javascript" src="js/yapai.documentManagement.js"></script>
+    <script type="text/javascript">
+        $(".content").height($(".viewcontent").height() - $(".showstyle").height());
+        $(".con_list ul").height($(".con_list").height() - 100);
+        $("input[type=checkbox]").attr("checked", false);
+    </script>
+
+</html>

@@ -1,0 +1,21 @@
+/*
+Uploadify v3.1.0
+Copyright (c) 2012 Reactive Apps, Ronnie Garcia
+Released under the MIT License <http://www.opensource.org/licenses/mit-license.php> 
+*/
+
+.uploadify {position: relative;margin-bottom: 1em;}
+.uploadify-button {color: #ffffff;background-color: #5298d4;border-color: #357ebd;display: inline-block;padding: 2px 8px;margin-bottom: 0;font-size: 14px;font-weight: normal;line-height: 1.428571429;text-align: center;white-space: nowrap;vertical-align: middle;cursor: pointer;border: 1px solid transparent;border-radius: 4px;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;}
+.uploadify:hover .uploadify-button {color: #ffffff;background-color: #357ebd;border-color: #357ebd;display: inline-block;padding: 2px 8px;margin-bottom: 0;font-size: 14px;font-weight: normal;line-height: 1.428571429;text-align: center;white-space: nowrap;vertical-align: middle;cursor: pointer;border: 1px solid transparent;border-radius: 4px;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;}
+.uploadify-button.disabled {background-color: #D0D0D0;color: #808080;}
+.uploadify-queue {margin-bottom: 1em;}
+.uploadify-queue-item {background-color: #F5F5F5;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;font: 11px Verdana, Geneva, sans-serif;margin-top: 4px;max-width: 350px;padding: 5px 10px 0 10px;height: 32px;}
+.uploadify-error {background-color: #FDE5DD !important;}
+.uploadify-queue-item.completed {background-color: #E5E5E5;}
+.uploadify-progress {background-color: #E5E5E5;margin-top: 4px;width: 100%;}
+.uploadify-progress-bar {background-color: #0099FF;height: 3px;width: 1px;}
+
+.uploadify-show_link { width: 16px;height: 16px;background: url(/content/images/q.png) no-repeat !important;float: right;margin: 1px 4px 0 0;}
+.uploadify-delete_link {width: 16px;height: 16px;background: url(/content/images/x.png) no-repeat !important;float: right;}
+
+.uploadloadingimg{margin:10px 0 0 50px}

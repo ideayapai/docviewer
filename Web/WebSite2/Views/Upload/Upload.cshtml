@@ -1,0 +1,221 @@
+﻿@using Krystalware.SlickUpload;
+@using Krystalware.SlickUpload.Web;
+@using Krystalware.SlickUpload.Web.Mvc;
+
+<table class="settings">
+        <tbody>
+            <tr>
+                <td>
+                    <p>
+                        <input type="text" name="spaceId" id="spaceId" value="1231" />
+                    </p>
+                    @Html.KrystalwareRazor(new SlickUpload() {
+                        Id = "slickUpload",
+                        OnClientUploadSessionStarted = "onSessionStarted",
+                        OnClientBeforeSessionEnd = "onBeforeSessionEnd",
+                        OnClientUploadSessionEnded = "onSessionEnd",
+                        OnClientFileAdded = "onFileSelectionChanged",
+                        OnClientFileRemoved = "onFileSelectionChanged",
+                        CompletionContentType = "application/json",
+                        CompletionMethod = "POST",
+                        SelectorTemplate = new Template(@<text><a class='button'><span><b class='icon add'></b> Add files</span></a></text>),
+
+                        ShowDropZoneOnDocumentDragOver = true,
+                        HtmlAttributes = new { @class = "simple", Style = "overflow:hidden;zoom:1"},
+                        FileSelectorHtmlAttributes = new { Style = "float:left"},
+                        FileListHtmlAttributes = new { Style = "clear:both"},
+                        UploadProgressDisplayHtmlAttributes = new { Style = "clear:both"},
+                        UploadProfile = "mongodb",
+                        CompleteHandlerUrl = Url.Action("Add"),
+                        SelectorFolderTemplate = new Template(@<text>
+
+                                                                   <a class="button">
+                                                                       <span><b class="icon add-folder"></b> Add folder</span>
+                                                                   </a>
+
+                                                               </text>),
+                        SelectorDropZoneTemplate = new Template(@<text>
+
+                                                                     <div>Drag and drop files here.</div>
+
+                                                                 </text>),
+                        FileItemTemplate = new Template(@<text>
+
+                                                             <div class="filedata">
+                                                                 @Html.KrystalwareRazor(new FileListElement() { Element = FileListElementType.FileName } )
+                                                                 &ndash;
+                                                                 @Html.KrystalwareRazor(new FileListElement() { Element = FileListElementType.FileSize, Template = new Template("(calculating)") } )
+                                                             </div>
+                                                             @Html.KrystalwareRazor(new FileListRemoveCommand() { Template = new Template("[x]") } )
+                                                             @Html.KrystalwareRazor(new FileListElement() { Element = FileListElementType.ValidationMessage } )
+
+                                                         </text>),
+                        ProgressTemplate = new Template(@<text>
+
+                                                             <div id="duringUpload">
+                                                                 <div>
+                                                                     Uploading @Html.KrystalwareRazor(new UploadProgressElement() { Element = UploadProgressElementType.FileCount } ) file(s),
+                                                                     @Html.KrystalwareRazor(new UploadProgressElement() { Element = UploadProgressElementType.ContentLengthText, Template = new Template("(calculating)") } ).
+                                                                 </div>
+                                                                 <div>
+                                                                     Currently uploading: @Html.KrystalwareRazor(new UploadProgressElement() { Element = UploadProgressElementType.CurrentFileName } )
+                                                                     file @Html.KrystalwareRazor(new UploadProgressElement() { Element = UploadProgressElementType.CurrentFileIndex } )
+                                                                     of @Html.KrystalwareRazor(new UploadProgressElement() { Element = UploadProgressElementType.FileCount } ).
+                                                                 </div>
+                                                                 <div>
+                                                                     Speed: @Html.KrystalwareRazor(new UploadProgressElement() { Element = UploadProgressElementType.SpeedText, Template = new Template("(calculating)") } )
+                                                                 </div>
+                                                                 <div>
+                                                                     @Html.KrystalwareRazor(new UploadProgressElement() { Element = UploadProgressElementType.TimeRemainingText, Template = new Template("(calculating)") } )
+                                                                 </div>
+                                                                 <div class="progressBarContainer">
+                                                                     @Html.KrystalwareRazor(new UploadProgressBar())
+                                                                     <div class="progressBarText">
+                                                                         @Html.KrystalwareRazor(new UploadProgressElement() { Element = UploadProgressElementType.PercentCompleteText, Template = new Template("(calculating)") } )
+                                                                     </div>
+                                                                 </div>
+                                                             </div>
+
+                                                         </text>)
+                    } )
+
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+@Html.KrystalwareRazor(new KrystalwareScriptRenderer())
+
+
+
+
+@*<div id="slickUpload">
+    <input type="text" name="spaceId" id="spaceId" value="1231" />
+    <div id="slickUpload_list"></div>
+    <div id="slickUpload_progress" class="su-uploadprogressdisplay" style="display:none;clear:both">
+        <div id="duringUpload">
+            <div>
+                需要上传 <span class="su-filecount"></span> 个文件,
+                <span class="su-contentlengthtext">(calculating)</span>.
+            </div>
+            <div>
+                当前正在上传的文件: <span class="su-currentfilename"></span>
+                file <span class="su-currentfileindex"></span>
+                of <span class="su-filecount"></span>.
+            </div>
+            <div>
+                Speed: <span class="su-speedtext">(calculating)</span>
+            </div>
+            <div>
+                <span class="su-timeremainingtext">(calculating)</span>
+            </div>
+            <div class="progressBarContainer">
+                <div class="su-progressbar" style="display:none;">
+
+                </div>
+                <div class="progressBarText">
+                    <span class="su-percentcompletetext">(calculating)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="slickUpload_selector">选择文件</a>
+    <div id="slickUpload_selector_dropzone" style="width:300px;height:300px;border:1px #ddd solid">拖到这里</div>
+
+</div>
+
+<div id="slickUpload_list_template">
+    asdasd
+</div>*@
+
+<script type="text/javascript">
+    function startUpload() {
+        var slickUpload = kw("slickUpload");
+
+        if (slickUpload)
+            slickUpload.start();
+    }
+
+    function cancelUpload() {
+        kw("slickUpload").cancel();
+
+        document.getElementById("cancelButton").style.display = "none";
+    }
+
+    function onFileSelectionChanged(data) {
+        document.getElementById("uploadButton").className = "button" + (kw("slickUpload").get_Files().length > 0 ? "" : " disabled");
+    }
+
+    function onSessionStarted(data) {
+
+        document.getElementById("uploadButton").style.display = "none";
+
+        //document.getElementById("cancelButton").style.display = "block";
+    }
+
+    function onBeforeSessionEnd(data) {
+        document.getElementById("uploadButton").style.display = "none";
+
+        var spaceId = document.getElementById("spaceId").value || "null";
+
+        // TODO: use a real stringify
+        kw("slickUpload").set_CompletionBody("{spaceId: \"" + spaceId + "\" }");
+
+        //document.getElementById("cancelButton").style.display = "none";
+    }
+
+    function onSessionEnd(data, responseBody) {
+        // TODO: parse and use
+        alert(responseBody);
+    }
+    //<![CDATA[
+    kw.debug = true;
+    kw._registerInit(function () {
+        var component = new kw.UploadConnector({
+            id: "slickUpload_connector",
+            uploadHandlerUrl: "/SlickUpload.axd",
+            completeHandlerUrl: "/upload/Add",
+            completionMethod: "POST",
+            completionContentType: "application/json",
+            uploadForm: null,
+            confirmNavigateDuringUploadMessage: null,
+            uploadProfile: "mongodb",
+            allowPartialError: true,
+            onUploadSessionStarted: "onSessionStarted",
+            onBeforeSessionEnd: "onBeforeSessionEnd",
+            onUploadSessionEnded: "onSessionEnd"
+        });
+
+        var component = new kw.FileSelector({
+            id: "slickUpload_selector",
+            uploadConnector: "slickUpload_connector",
+            folderElement: null,
+            dropZone: "slickUpload_selector_dropzone",
+            showDropZoneOnDocumentDragOver: true,
+            onFileAdded: "onFileSelectionChanged",
+            onFileRemoved: "onFileSelectionChanged"
+        });
+
+        var component = new kw.UploadProgressDisplay({
+            id: "slickUpload_progress",
+            uploadConnector: "slickUpload_connector"
+        });
+
+        var component = new kw.FileList({
+            id: "slickUpload_list",
+            templateElement: "slickUpload_list_template",
+            fileSelector: "slickUpload_selector"
+        });
+
+        var component = new kw.SlickUpload({
+            id: "slickUpload",
+            fileSelector: "slickUpload_selector",
+            fileList: "slickUpload_list",
+            uploadProgressDisplay: "slickUpload_progress",
+            uploadConnector: "slickUpload_connector"
+        });
+
+    });
+    //]]>
+
+</script>

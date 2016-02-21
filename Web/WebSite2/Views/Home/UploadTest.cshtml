@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "联系方式";
+}
+
+@{
+    Layout = null;
+}
+<script src="/Resource/js/jquery-1.8.3.min.js" id="ypUpload" type="text/javascript"></script>
+<script src="/Scripts/YapaiUploadApi.js"></script>
+<div style="width:100%;height:800px;background:#fff;">
+    <div style="margin:30px;float:left">
+
+        <input type="file" id="testUpload" value="" />
+
+    </div>
+</div>
+<script type="text/javascript">
+    new ypUpload.setUp("testUpload", {
+        onUploadSuccess: function (file, data, response) {
+            var data = $.parseJSON(data);
+            console.log(data);
+            ypUpload.info("上传成功");
+        },
+        onSelect: function () {
+        }
+    });
+
+    ypUpload.make();
+</script>

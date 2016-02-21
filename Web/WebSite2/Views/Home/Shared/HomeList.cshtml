@@ -1,0 +1,175 @@
+﻿@using WebSite2.Controls
+@model WebSite2.Models.HomeViewModel
+
+<ul class="file-list" id="dragUploadField">
+    <li class="row-fluid file-list-title">
+        <div class="span8">文件名</div>
+        <div class="span2">文件大小</div>
+        <div class="span2">上传时间</div>
+    </li>
+    @{
+        foreach (var space in Model.ChildSpaces)
+        {
+            <li class="row-fluid" data-id="@space.SpaceObject.Id" data-folder="true" data-visibility="@space.CanEdit">
+                <div class="span8">
+                    <input type="checkbox" />
+                    <i class="file-small-icon file-small-icon-folders"></i>
+                    <span class="name" data-url="/Home/Space/@space.SpaceObject.Id/page" title="@space.SpaceObject.SpaceName">@space.SpaceObject.SpaceName</span>
+                </div>
+            </li>
+        }
+    }
+
+    @foreach (var document in Model.Documents)
+    {
+        <li class="row-fluid" data-id="@document.DocumentObject.Id" data-file="true" data-filetype="@document.DocumentObject.DocumentType" data-visibility="@document.CanEdit">
+            <div class="span8">
+                <input type="checkbox" />
+                @Html.Thumb(document.DocumentObject)
+                <span class="name" data-url="@document.DocumentObject.DownloadPath" title="@document.DocumentObject.FileName">@document.DocumentObject.FileName</span>
+            </div>
+            <div class="span2">@document.DocumentObject.DisplayFileSize</div>
+            <div class="span2">@document.DocumentObject.UpdateTime.ToShortDateString()</div>
+        </li>
+    }
+</ul>
+
+<ul class="file-pic" style="display: none;">
+    @foreach (var space in Model.ChildSpaces)
+{
+    <li data-id="@space.SpaceObject.Id" data-folder="true" data-visibility="@space.CanEdit">
+        <i class="file-icon file-icon-folders"></i>
+        <p title="@space.SpaceObject.SpaceName">
+            <span data-url="/Home/Space/@space.SpaceObject.Id/page">@space.SpaceObject.SpaceName</span>
+        </p>
+    </li>
+}
+    @foreach (var document in Model.Documents)
+    {
+        <li data-id="@document.DocumentObject.Id" data-file="true" data-visibility="@document.CanEdit">
+            @Html.Icon(document.DocumentObject)
+            <p title="@document.DocumentObject.FileName">
+                <span data-url="@document.DocumentObject.DownloadPath">@document.DocumentObject.FileName</span>
+            </p>
+        </li>
+    }
+</ul>
+<form action="/document/add" class="dropzone" id="drapwrap">
+    <div class="fallback">
+        <input name="file" type="file" multiple />
+    </div>
+</form>
+<script type="text/javascript" src="/Resource/js/dropzone.js"></script>
+<script>Dropzone.autoDiscover = false;</script>
+<script type="text/javascript">
+
+    function deletedoc(id) {
+        $.ajax({
+            dataType: "json", //返回json格式的数据
+            url: "/Document/Delete", //要访问的后台地址
+            data: "id=" + id, //要发送的数据
+            complete: function () {
+                window.location.reload(true);
+            }
+        });
+    }
+
+    $("#drapwrap").dropzone({
+        url: "/document/add",
+        clickable: false,
+        queuecomplete: function () {
+            //location.reload();
+            $("#drapwrap").hide();
+        }
+    });
+
+    (function () {
+        $('body').on({
+            dragleave: function (e) {    //拖离 
+                e.preventDefault();
+            },
+            drop: function (e) {  //拖后放 
+                e.preventDefault();
+            },
+            dragenter: function (e) {    //拖进
+                e.preventDefault();
+                $("#drapwrap").fadeIn(10, function () {
+                    $(this).height($(window).height()-8).width($(window).width()-8);
+                });
+            },
+            dragover: function (e) {    //拖来拖去 
+                e.preventDefault();
+            }
+        });
+        /*var _drop = $("#drapwrap");
+        _drop.on({
+            dragleave: function (e) {
+                e.preventDefault();
+                $("#drapwrap").hide();
+            },
+            drop: function (e) {
+                e.preventDefault();
+            }
+        });
+        
+        _drop[0].addEventListener('drop', function (e) {
+            e.preventDefault();
+            var _data = {
+                userId: $("#currentUserId").val(),
+                userName: $("#currentUserNickName").val(),
+                spaceId: $("#uploadSpaceId").val()
+            };
+            var filesList = e.dataTransfer.files;
+            if (filesList.length == 0) {
+                return false;
+            }
+
+
+            var fileToUploadTpm = '<div class="file-to-upload-list"><label>{{fileName}}</label><progress id="{{progressId}}" value="0" max="100"></progress></div>';
+
+
+
+            
+
+            //上传 
+            xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    //alert(xhr.responseText);
+                    _drop.find("p").text('上传成功');
+                    _drop.remove('progress');
+                    //_drop.fadeOut();
+                    //location.reload();
+                }
+            }
+
+            xhr.upload.onprogress = function (e) {
+                var loaded = e.loaded;
+                var tot = e.total;
+                var per = Math.floor(100 * loaded / tot);  //已经上传的百分比
+                $("progress").css({
+                    height:10
+                }).val(per);
+            }
+
+           xhr.open("post", "/document/add", true);
+           xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+           var fd = new FormData();
+           $.each(filesList, function (k, v) {
+               var uploadFileContent = fileToUploadTpm.replace('{{fileName}}', v.name);
+                   uploadFileContent = uploadFileContent.replace('{{progressId}}', k + 'file');
+                   
+               $('#drapwrap').append($(uploadFileContent));
+               fd.append('Files' + k, v);
+           });
+            
+           for (d in _data) {
+            fd.append(d, _data[d]);
+           }
+           xhr.send(fd);
+        });*/
+    })();
+
+
+       
+</script>

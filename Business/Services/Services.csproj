@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8A66BF41-77AB-4F4D-A4CF-976E02317802}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Services</RootNamespace>
+    <AssemblyName>Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\..\References\CompactFramework\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Log4Net">
+      <HintPath>..\..\References\CompactFramework\Common.Logging.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\References\CompactFramework\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net, Version=2.9.2.1, Culture=neutral, PublicKeyToken=402f1553d5c332e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\References\Lucene\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\..\References\CompactFramework\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Area\AreaService.cs" />
+    <Compile Include="Documents\DocumentBuilder.cs" />
+    <Compile Include="CacheService\BaseCachedService.cs" />
+    <Compile Include="CacheService\DocumentCacheService.cs" />
+    <Compile Include="CacheService\DocumentListCacheService.cs" />
+    <Compile Include="CacheService\MemoryContainer.cs" />
+    <Compile Include="CacheService\SpaceCacheService.cs" />
+    <Compile Include="CacheService\SpaceListCacheService.cs" />
+    <Compile Include="Common\Extentions.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="ContentObject.cs" />
+    <Compile Include="Context\ContextService.cs" />
+    <Compile Include="ContractBase.cs" />
+    <Compile Include="Contracts\AreaContract.cs" />
+    <Compile Include="Contracts\DepartmentContract.cs" />
+    <Compile Include="Contracts\MenuItemContract.cs" />
+    <Compile Include="Contracts\RoleContract.cs" />
+    <Compile Include="Contracts\RoleFunctionContract.cs" />
+    <Compile Include="Contracts\SelectValueContract.cs" />
+    <Compile Include="Contracts\ShortMenuItem.cs" />
+    <Compile Include="Contracts\ShortUserContract.cs" />
+    <Compile Include="Contracts\UserContract.cs" />
+    <Compile Include="Contracts\UserInfoContract.cs" />
+    <Compile Include="Department\DepartmentService.cs" />
+    <Compile Include="Documents\DocumentConvertService.cs" />
+    <Compile Include="Documents\DocumentSettings.cs" />
+    <Compile Include="Documents\PageService.cs" />
+    <Compile Include="Enums\ResultStatus.cs" />
+    <Compile Include="Enums\Visible.cs" />
+    <Compile Include="Exceptions\ItemNotExistException.cs" />
+    <Compile Include="Exceptions\SettingException.cs" />
+    <Compile Include="IDataAuthorizeByDepServiceProvider.cs" />
+    <Compile Include="Ioc\CommonBindingModule.cs" />
+    <Compile Include="Ioc\RepositoryBindingModule.cs" />
+    <Compile Include="Ioc\ServiceActivator.cs" />
+    <Compile Include="Ioc\ServiceBindingModule.cs" />
+    <Compile Include="IServiceProvider.cs" />
+    <Compile Include="Messages\ConvertDocumentMessage.cs" />
+    <Compile Include="Messages\UpdateSpaceMessage.cs" />
+    <Compile Include="Messages\UpdateDocumentMessage.cs" />
+    <Compile Include="Messages\TrashDocsMessage.cs" />
+    <Compile Include="Messages\TrashDocumentMessage.cs" />
+    <Compile Include="Messages\RecoveryDocumentMessage.cs" />
+    <Compile Include="Messages\RecoveryDocsMessage.cs" />
+    <Compile Include="Messages\RecoverySpacesMessage.cs" />
+    <Compile Include="Messages\TrashSpacesMessage.cs" />
+    <Compile Include="Messages\TrashSpaceMessage.cs" />
+    <Compile Include="Messages\RecoverySpaceMessage.cs" />
+    <Compile Include="Messages\CreateSpacesMessage.cs" />
+    <Compile Include="Messages\CreateSpaceMessage.cs" />
+    <Compile Include="Messages\CreateDocsMessage.cs" />
+    <Compile Include="Messages\DeleteSpacesMessage.cs" />
+    <Compile Include="Messages\DeleteSpaceMessage.cs" />
+    <Compile Include="Messages\DeleteDocsMessage.cs" />
+    <Compile Include="Messages\EmptyMessage.cs" />
+    <Compile Include="Messages\ImageProcessMessage.cs" />
+    <Compile Include="Messages\CreateDocumentMessage.cs" />
+    <Compile Include="Messages\DeleteDocumentMessage.cs" />
+    <Compile Include="Models\BaseContract.cs" />
+    <Compile Include="Models\ConvertContract.cs" />
+    <Compile Include="Models\DocumentContract.cs" />
+    <Compile Include="Models\ResponseMessage.cs" />
+    <Compile Include="Models\SearchContract.cs" />
+    <Compile Include="Models\SpaceContract.cs" />
+    <Compile Include="Providers\MongoDBUploadStreamProvider.cs" />
+    <Compile Include="Role\RoleFunctionService.cs" />
+    <Compile Include="Role\RoleService.cs" />
+    <Compile Include="Search\SearchProvider.cs" />
+    <Compile Include="Search\DocumentSearchResult.cs" />
+    <Compile Include="Documents\DocumentService.cs" />
+    <Compile Include="Contracts\DocumentObject.cs" />
+    <Compile Include="Search\FileContentReader.cs" />
+    <Compile Include="Search\SearchService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search\UnitOfWork\RemoveDocumentIndexerUnitOfWork.cs" />
+    <Compile Include="Search\UnitOfWork\AddDocumentIndexerxUnitOfWork.cs" />
+    <Compile Include="Search\UnitOfWork\RemoveSpaceIndexerxUnitOfWork.cs" />
+    <Compile Include="Search\UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="Search\UnitOfWork\AddSpaceIndexerxUnitOfWork.cs" />
+    <Compile Include="Search\UnitOfWork\UnitWorkContainer.cs" />
+    <Compile Include="SelectValueService.cs" />
+    <Compile Include="Spaces\SpaceService.cs" />
+    <Compile Include="Contracts\SpaceObject.cs" />
+    <Compile Include="Spaces\SpaceTreeService.cs" />
+    <Compile Include="User\UserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Components\Documents\Documents\Documents.csproj">
+      <Project>{BE8634BD-4398-47A8-BD99-0A2E6BFCB8C3}</Project>
+      <Name>Documents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Components\ImageStore\ImageStore.Servce\ImageStore.Services.csproj">
+      <Project>{834D093F-C765-4909-8052-F9F84A8708E6}</Project>
+      <Name>ImageStore.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Components\Messages\Messages\Messages.csproj">
+      <Project>{1A8F66A4-67CA-4A50-A47B-039C8EE1E129}</Project>
+      <Name>Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Components\Search\Search\Search.csproj">
+      <Project>{30400859-ab05-4dc3-9016-0bb2b9750914}</Project>
+      <Name>Search</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure\Infrasturcture.csproj">
+      <Project>{83A6138F-A179-4CA8-BD00-B7E312C0FD45}</Project>
+      <Name>Infrasturcture</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure\Krystalware.SlickUpload\Krystalware.SlickUpload.csproj">
+      <Project>{87CB56B1-1FE9-4559-AD57-7DA2D8E8CE4C}</Project>
+      <Name>Krystalware.SlickUpload</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Repository\Repository\Repository.csproj">
+      <Project>{0EBE5B4F-60C8-460F-BF24-4B8642AFE8F3}</Project>
+      <Name>Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Communication\" />
+    <Folder Include="Store\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

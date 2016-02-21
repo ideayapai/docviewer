@@ -1,0 +1,119 @@
+﻿@model WebSite2.Models.DepartmentViewModel
+@{
+    ViewBag.Title = "区域管理-创建区域";
+}
+
+@Html.Partial("_QuickMenu", Model.MenuViewModel)
+
+
+<div class="viewbox">
+    <div class="viewcontent">
+       
+        <div class="content">
+            <div class="breadcrumb">
+
+                <span class="homeicon"></span>
+                <a href="/Department/Index" class="home">部门管理</a>
+                <span class="divide">></span>
+                <a href="javascript:void(0);" class="home">创建部门</a>
+            </div>
+            <div class="button_bar">
+                <button class="in_btn_white" onclick="subForm();">保存</button>
+                <a href="/Department/Index" class="in_btn_white">部门列表</a>
+            </div>
+            <div class="log_con" style="height: 859px;">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <fieldset>
+                        <ul class="addInfo">
+                            <div class="formlabel">
+                                <label for="name">部门编号：</label>
+                                @Html.EditorFor(model => model.DepartmentContract.Code)
+                                @Html.ValidationMessageFor(model => model.DepartmentContract.Code)
+                            </div>
+
+                            <div class="formlabel">
+                                <label for="name">部门名称：</label>
+                                @Html.EditorFor(model => model.DepartmentContract.Name)
+                                @Html.ValidationMessageFor(model => model.DepartmentContract.Name)
+                            </div>
+
+                            <div class="formlabel">
+                                <label for="name">部门地址：</label>
+                                @Html.EditorFor(model => model.DepartmentContract.Address)
+                                @Html.ValidationMessageFor(model => model.DepartmentContract.Address)
+                            </div>
+
+                            <div class="formlabel">
+                                <label for="name">负责人：</label>
+                                @Html.EditorFor(model => model.DepartmentContract.PrincipalMan)
+                                @Html.ValidationMessageFor(model => model.DepartmentContract.PrincipalMan)
+                            </div>
+
+                            <div class="formlabel">
+                                <label for="name">联系电话：</label>
+                                @Html.EditorFor(model => model.DepartmentContract.Tel)
+                                @Html.ValidationMessageFor(model => model.DepartmentContract.Tel)
+                            </div>
+
+                            <div class="formlabel">
+                                <label for="name">传真：</label>
+                                @Html.EditorFor(model => model.DepartmentContract.Fax)
+                                @Html.ValidationMessageFor(model => model.DepartmentContract.Fax)
+                            </div>
+
+                            <div class="formlabel">
+                                <label for="name">邮箱：</label>
+                                @Html.EditorFor(model => model.DepartmentContract.Mail)
+                                @Html.ValidationMessageFor(model => model.DepartmentContract.Mail)
+                            </div>
+
+                            <div class="formlabel">
+                                <label for="name">人数：</label>
+                                @Html.EditorFor(model => model.DepartmentContract.Capacity)
+                                @Html.ValidationMessageFor(model => model.DepartmentContract.Capacity)
+                            </div>
+
+                            <div class="formlabel">
+                                <label for="name">上级部门：</label>
+                                @Html.DropDownListFor(model => model.DepartmentContract.ParentId, ViewData["Departments"] as IEnumerable<SelectListItem>, "---请选择上级部门---", new { @class = "easyui-combobox", @data_options = "editable:false" })
+                                @Html.ValidationMessageFor(model => model.DepartmentContract.ParentId)
+                            </div>
+
+                            <div class="formlabel">
+                                <label for="name">所属区域：</label>
+                                @Html.DropDownListFor(model => model.DepartmentContract.AreaId, ViewData["Areas"] as IEnumerable<SelectListItem>, "---请选择所属区域---", new { @class = "easyui-combobox", @data_options = "editable:false" })
+                                @Html.ValidationMessageFor(model => model.DepartmentContract.AreaId)
+                            </div>
+
+                            <p>
+                                @Html.HiddenFor(p => p.DepartmentContract.CreatedBy)
+                                @Html.HiddenFor(p => p.DepartmentContract.Id)
+                            </p>
+                        </ul>
+                </fieldset>
+                }
+            </div>
+            <div class="button_bar">
+                <button class="in_btn_white" onclick="subForm();">保存</button>
+                <a href="/Department/Index" class="in_btn_white">部门列表</a>
+            </div>
+        </div>
+       
+    </div>
+</div>
+<script type="text/javascript">
+    function subForm() {
+        $("form").submit();
+    }
+    $(function () {
+
+        @*$('#ParentId').combobox({
+            valueField: 'Id',
+            textField: 'AreaName',
+            data: @Html.Raw(ViewData["Areas"])
+        });*@
+        });
+
+</script>

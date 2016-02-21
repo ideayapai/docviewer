@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="docviewer" Class="DocviewerDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=192.168.1.29;Initial Catalog=docviewer;User ID=sa" SettingsObjectName="Repository.Properties.Settings" SettingsPropertyName="docviewerConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.BASE_ROLE_INFO" Member="BASE_ROLE_INFO">
+    <Type Name="BASE_ROLE_INFO">
+      <Column Name="ROLE_INFO_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ROLE_INFO_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ROLE_INFO_CREATEDDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ROLE_INFO_ORDER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ROLE_INFO_TYPE" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="GLOBAL_TYPE_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ROLE_INFO_REMARK" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="IsDel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATEBY" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BASE_ROLEFUNCTIONS" Member="BASE_ROLEFUNCTIONS">
+    <Type Name="BASE_ROLEFUNCTIONS">
+      <Column Name="ROLEFUNCTIONS_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ROLE_INFO_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="FUNCTIONS_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ROLEFUNCTIONS_CREATEDDATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BASE_USER_INFO" Member="BASE_USER_INFO">
+    <Type Name="BASE_USER_INFO">
+      <Column Name="USER_INFO_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ROLE_INFO_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="DEPT_INFO_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="USER_INFO_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="USER_INFO_PWD" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="USER_INFO_ENCRYPT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USER_INFO_NICKNAME" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="USER_INFO_SEX" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="USER_INFO_EMAIL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USER_INFO_TEL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USER_INFO_MOBILE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="USER_INFO_BIRTHDAY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USER_INFO_ADDRESS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USER_INFO_STATE" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="USER_INFO_REMARK" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="USER_INFO_ISDEL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="USER_INFO_CREATEDDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USER_INFO_CREATEDBY" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+      <Column Name="USER_INFO_ISSUP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="USER_INFO_PHOTO" Type="System.String" DbType="NVarChar(305)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BASE_FUNCTIONS" Member="BASE_FUNCTIONS">
+    <Type Name="BASE_FUNCTIONS">
+      <Column Name="FUNCTIONS_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FUNCTIONS_CATEGORY" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="FUNCTIONS_ATTRIBUTES" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="FUNCTIONS_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FUNCTIONS_ACTION" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="FUNCTIONS_PARENTID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="FUNCTIONS_ORDERBY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GLOBAL_TYPE_ID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ROLE_FUNCTION" Member="V_ROLE_FUNCTION">
+    <Type Name="V_ROLE_FUNCTION">
+      <Column Name="ROLE_INFO_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="FUNCTIONS_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="FUNCTIONS_CATEGORY" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="FUNCTIONS_ATTRIBUTES" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="FUNCTIONS_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FUNCTIONS_ACTION" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="FUNCTIONS_PARENTID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="FUNCTIONS_ORDERBY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GLOBAL_TYPE_ID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ROLE_INFO_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsDel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BASE_DEPARTMENT_INFO" Member="BASE_DEPARTMENT_INFO">
+    <Type Name="BASE_DEPARTMENT_INFO">
+      <Column Name="DEPT_INFO_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DEPT_INFO_CODE" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="DEPT_INFO_NAME" Type="System.String" DbType="NVarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="DEPT_INFO_ADDRESS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DEPT_INFO_PRINCIPALMAN" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="DEPT_INFO_TEL" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="DEPT_INFO_FAX" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="DEPT_INFO_MAIL" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="GEO_INFO_ID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="PARENT_ID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="DEPT_INFO_CAPACITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPT_INFO_CREATEDDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DEPT_INFO_CREATEDBY" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+      <Column Name="DEPT_INFO_ISDEL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPT_INFO_ISSUP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SUP_XZ" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SUP_ADD_ZC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SUP_ZJ" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="SUP_PROJECT" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BASE_GEO_INFO" Member="BASE_GEO_INFO">
+    <Type Name="BASE_GEO_INFO">
+      <Column Name="GEO_INFO_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GEO_INFO_PARENT" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="GEO_INFO_LEVEL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GEO_INFO_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GEO_INFO_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IS_DIRECTORY" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="GEO_INFO_ORDER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GEO_INFO_STATE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="GEO_INFO_REMARK" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="GEO_INFO_SUBGEO" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="GEO_INFO_ISDEL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_USER_DEPT" Member="V_USER_DEPT">
+    <Type Name="V_USER_DEPT">
+      <Column Name="USER_INFO_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="USER_INFO_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="USER_INFO_NICKNAME" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DEPT_INFO_CODE" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="DEPT_INFO_NAME" Type="System.String" DbType="NVarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="DEPT_INFO_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="PARENT_ID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="USER_INFO_CREATEDBY" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+      <Column Name="USER_INFO_CREATEDDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USER_INFO_ISDEL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPT_INFO_ISDEL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GEO_INFO_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GEO_INFO_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ROLE_INFO_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="USER_INFO_ISSUP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPT_INFO_ISSUP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="USER_INFO_EMAIL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USER_INFO_TEL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USER_INFO_PHOTO" Type="System.String" DbType="NVarChar(305)" CanBeNull="true" />
+      <Column Name="USER_INFO_STATE" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_USER_ROLE_DEPT" Member="V_USER_ROLE_DEPT">
+    <Type Name="V_USER_ROLE_DEPT">
+      <Column Name="USER_INFO_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ROLE_INFO_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="USER_INFO_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="USER_INFO_NICKNAME" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DEPT_INFO_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="DEPT_INFO_NAME" Type="System.String" DbType="NVarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="USER_INFO_PWD" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="USER_INFO_CREATEDDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ROLE_INFO_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ROLE_INFO_TYPE" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="USER_INFO_CREATEDBY" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+      <Column Name="USER_INFO_ISDEL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPT_INFO_ISDEL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="USER_INFO_TEL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USER_INFO_MOBILE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="GEO_INFO_ID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="USER_INFO_ISSUP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPT_INFO_ISSUP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="USER_INFO_PHOTO" Type="System.String" DbType="NVarChar(305)" CanBeNull="true" />
+      <Column Name="USER_INFO_EMAIL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USER_INFO_STATE" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_DEPT_DEPT" Member="V_DEPT_DEPT">
+    <Type Name="V_DEPT_DEPT">
+      <Column Name="DEPT_INFO_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="DEPT_INFO_CODE" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="DEPT_INFO_NAME" Type="System.String" DbType="NVarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="DEPT_INFO_ADDRESS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DEPT_INFO_PRINCIPALMAN" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="DEPT_INFO_TEL" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="DEPT_INFO_FAX" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="DEPT_INFO_MAIL" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="GEO_INFO_ID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="PARENT_ID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="DEPT_INFO_CAPACITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPT_INFO_CREATEDDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DEPT_INFO_PARENTNAME" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="DEPT_INFO_CREATEDBY" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+      <Column Name="DEPT_INFO_ISDEL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GEO_INFO_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GEO_INFO_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DEPT_INFO_ISSUP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SUP_XZ" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SUP_ZJ" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="SUP_ADD_ZC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SUP_PROJECT" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BASE_SELECTE_VALUE_INFO" Member="BASE_SELECTE_VALUE_INFO">
+    <Type Name="BASE_SELECTE_VALUE_INFO">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Belong" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="SOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Code" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Document" Member="Document">
+    <Type Name="Document">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="DisplayPath" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="StorePath" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="DownloadPath" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="FileSize" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="DocumentType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="SpaceId" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="SpaceName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="SpaceSeqNo" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateUserId" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateUserName" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateUserId" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateUserName" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ThumbUrl" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="IsConvert" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DepId" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="Visible" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Space" Member="Space">
+    <Type Name="Space">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SpaceName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="SpaceSeqNo" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="FileCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ParentId" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="SpaceSize" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreateUserId" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateUserName" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="IsDefault" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ThumbUrl" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="DepId" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="Visible" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

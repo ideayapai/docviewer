@@ -1,0 +1,118 @@
+﻿@model WebSite2.Models.AreaListViewModel
+@{
+    ViewBag.Title = "区域管理";
+}
+
+@Html.Partial("_QuickMenu", Model.MenuViewModel)
+
+
+<div class="viewbox">
+    <div class="viewcontent">
+        <div class="content">
+            <div class="con_list">
+                <div class="breadcrumb">
+                 
+                    <span class="homeicon"></span>
+                    <a href="/" class="home">首页</a>
+                    <span class="divide">></span>
+                    <a href="/Area/Index" class="home">区域管理</a>
+                </div>
+                <div class="button_bar">
+                    <a href="/Area/Create" class="in_btn_white">新建</a>
+                    @*<button class="in_btn_white">导入</button>
+                    <button class="in_btn_white">导出</button>
+                    <button class="in_btn_white">删除</button>
+                    <button class="in_btn_white">打印</button>*@
+                    @*<input class="ope_bar" type="text" placeholder="请输入区域名称/编号" />
+                    <button class="ope_btn"></button>*@
+                </div>
+                <div class="log_con">
+                    <div class="log_t">
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <td>区域编号</td>
+                                    <td>区域名称</td>
+                                    <td>操作</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.AreaContracts.Count; i++)
+                                {
+                                    <tr>
+                                        <td>@i</td>
+                                        <td>@Model.AreaContracts[i].AreaNo</td>
+                                        <td>@Model.AreaContracts[i].AreaName</td>
+                                        <td>
+                                            <a href="/Area/Update?id=@Model.AreaContracts[i].Id">编辑</a>
+                                            <a href="/Area/Delete?id=@Model.AreaContracts[i].Id">删除</a>
+                                        </td>
+                                    </tr>
+                                }
+                                
+                               
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                    @*<div class="page page2">
+                        <div class="page_btn">
+                            <a href="#">首页</a>
+                            <span>…</span>
+                            <a href="#">21</a>
+                            <a href="#">22</a>
+                            <a href="#" class="checked">23</a>
+                            <a href="#">24</a>
+                            <a href="#">25</a>
+                            <span>…</span>
+                            <a href="#">尾页</a>
+                            <input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
+                            <button>跳转</button>
+                        </div>
+                        <div class="page_prom">
+                            当前显示 1 - 7 条记录 共7条记录
+                        </div>
+                    </div>*@
+                </div>
+                <div class="button_bar">
+                    <a href="/Area/Create" class="in_btn_white">新建</a>
+                    @*<button class="in_btn_white">批量</button>
+                    <button class="in_btn_white">导入</button>
+                    <button class="in_btn_white">导出</button>
+                    <button class="in_btn_white">删除</button>
+                    <button class="in_btn_white">打印</button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+     
+        function del(id, name, index) {
+
+            $.messager.confirm("确定", "确定删除 " + name + " 记录?", function (rs) {
+                if (rs) {
+                    $.ajax({
+                        url: "/area/delete",
+                        type: "post",
+                        data: { "id": id },
+                        success: function (data) {
+                            if (data) {
+                                //var index = $(target).closest('tr.datagrid-row').attr('datagrid-row-index');
+                                //$("#easyui-datagrid").datagrid('deleteRow', parseInt(index));
+                                //$('#easyui-datagrid').datagrid('reload');
+                            }
+                        }
+                    });
+                }
+                return false;
+            });
+        }
+
+       
+
+    </script>
+}

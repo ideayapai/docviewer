@@ -1,0 +1,14 @@
+﻿@model HandleErrorInfo
+
+@{
+    ViewBag.Title = "内部错误(500)";
+}
+
+<hgroup class="title">
+    <h2 class="error_">
+        @if (Model != null)
+        {
+            @Model.Exception.Message
+        }         
+    </h2>
+</hgroup>

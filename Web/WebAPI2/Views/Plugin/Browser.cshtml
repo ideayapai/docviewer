@@ -1,0 +1,74 @@
+﻿@section css{
+    @Styles.Render("~/Content/flexpaper")
+}
+<div class="row">
+    <p></p>
+    <p class="lead">1.引用flexpaper 相关css</p>
+    <code>
+        &lt;link href="/Content/flexpaper.css" rel="stylesheet"/&gt;
+    </code>
+    <p class="lead">2.引用flexpaper 相关js</p>
+    <code>
+        &lt;script src="/Scripts/swfobject.js"/&gt;<br />
+        &lt;script src="/Scripts/flexpaper.js"/&gt;<br />
+        &lt;script src="/Scripts/flexpaper_handlers.js"/&gt;
+    </code>
+    <p class="lead">3.添加flexpaper.swf</>
+    <p class="lead">4.定义显示文档的div<p>
+    <code>
+        &lt;div id="documentViewer" class="flexpaper_viewer" style="height: 800px"&gt;
+        &lt;/div&gt;
+    </code>
+    <p class="lead">5.调用javascript代码，显示<p>
+    <pre>
+    </pre>
+</div>
+<div class="row">
+    <div id="documentViewer" class="flexpaper_viewer" style="height: 800px"></div>
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/flexpaper")
+    <script type="text/javascript">
+        var startDocument = "Paper";
+        $('#documentViewer').FlexPaperViewer(
+            {
+                config: {
+                    SWFFile: '/Docs/swffile.swf',
+                    Scale: 1,
+                    ZoomTransition: 'easeOut',
+                    ZoomTime: 0.5,
+                    ZoomInterval: 0.2,
+                    FitPageOnLoad: true,
+                    FitWidthOnLoad: true,
+                    FullScreenAsMaxWindow: false,
+                    ProgressiveLoading: false,
+                    MinZoomSize: 0.2,
+                    MaxZoomSize: 1,
+                    SearchMatchAll: false,
+                    InitViewMode: 'Portrait',
+                    RenderingOrder: 'flash',
+                    StartAtPage: '',
+                    jsDirectory: '/Scripts/',
+                    ViewModeToolsVisible: true,
+                    ZoomToolsVisible: true,
+                    NavToolsVisible: true,
+                    CursorToolsVisible: true,
+                    SearchToolsVisible: true,
+                    WMode: 'window',
+                    localeChain: 'en_US'
+                }
+            }
+        );
+    </script>
+    <script type="text/javascript">
+        //var url = window.location.href.toString();
+
+        //if (location.length == 0) {
+        //    url = document.URL.toString();
+        //}
+
+        //if (url.indexOf("file:") >= 0) {
+        //    jQuery('#documentViewer').html("<div style='position:relative;background-color:#ffffff;width:420px;font-family:Verdana;font-size:10pt;left:22%;top:20%;padding: 10px 10px 10px 10px;border-style:solid;border-width:5px;'><img src='http://flexpaper.devaldi.com/resources/warning_icon.gif'>&nbsp;<b>You are trying to use FlexPaper from a local directory.</b><br/><br/> FlexPaper needs to be copied to a web server before the viewer can display its document properlty.<br/><br/>Please copy the FlexPaper files to a web server and access the viewer through a http:// url.</div>");
+        //}
+    </script>
+}

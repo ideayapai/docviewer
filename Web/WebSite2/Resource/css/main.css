@@ -1,0 +1,49 @@
+@import url('reset.css');
+
+
+.bodybg{
+	background: #f5f6f9;
+}
+
+.topbar {
+	height: 70px;
+	border-bottom: 1px #ddd solid;
+}
+
+.nav_main{
+	width:160px;
+	background: #f1f1f1;
+	height: 717px;
+}
+
+
+.nav_main {
+}
+
+.nav_main li {
+	height: 35px;
+	line-height: 35px;
+}
+
+.nav_main li a {
+	display: block;
+	cursor: pointer;
+}
+
+.nav_main li a:hover{
+	background: #eee;
+}
+
+
+
+/*icon*/
+.icon {
+	display: inline-block;
+	width:32px;
+	height: 32px;
+}
+
+
+.icon_foder {
+	background: url('../images/')
+}

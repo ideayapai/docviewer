@@ -1,0 +1,39 @@
+﻿@model WebSite2.Models.DocumentIndexViewModel
+@{
+    ViewBag.Title = "文档";
+}
+@Html.Partial("_QuickMenu", Model.MenuViewModel)
+
+<div class="viewbox">
+    <div class="viewcontent">
+        <div class="showstyle">
+            <span id="delFiles" class="s_button"><i class="remove"></i> 删 除</span>
+            <span id="reName" class="s_button" style="width: 90px;display: none"><i class="reName"></i> 重命名</span>
+            <i id="showtoggle" class="showtoggle" data-showfont="pic" title="缩略图"></i>
+        </div>
+        <div class="content">
+            <div class="con_list">
+                <div class="breadcrumb">
+                    <input id="chk-all" class="chk-all" type="checkbox">
+                    <span class="homeicon"></span>
+                    <a href="/" class="home">所有空间</a>
+                    <span class="divide">></span>
+                    <a href="/Document/Office" class="home">文档</a>
+                </div>
+                @Html.Partial("Shared/DocumentList", Model.DocumentModels)
+                @Html.Raw(Model.PageCode)
+
+                <div class="moreCon">
+                    <ul>
+                        <li data-para="0">所有人可见</li>
+                        <li data-para="1">仅部门可见</li>
+                        <li data-para="2">仅自己可见</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $("#menu_Office").addClass("checked");
+</script>

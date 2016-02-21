@@ -1,0 +1,51 @@
+﻿@model Services.Contracts.SpaceObject
+
+@{
+    ViewBag.Title = "账户设置";
+}
+
+<div class="row-fluid">
+
+    @*<div class="col-md-3">
+
+        @Html.Partial("_QuickMenu")
+
+    </div>*@
+    <div class="col-md-9 ">
+
+        <ol class="breadcrumb">
+            
+            <li><a href="/Setting/Index">设置</a></li>
+            <li class="active">账户</li>
+        </ol>
+
+        <div class="container">
+
+            @using (Html.BeginForm("Add", "Space", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @Html.Hidden("Id", @Model.Id);
+                @Html.Hidden("ParentId", @Model.ParentId);
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SpaceName, "空间名称", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.SpaceName, new { @class = "form-control", style = "width: 280px" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.ValidationSummary(false)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-primary">创建</button>
+                        <a href="/Space/Index" class="btn btn-default">取消</a>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
