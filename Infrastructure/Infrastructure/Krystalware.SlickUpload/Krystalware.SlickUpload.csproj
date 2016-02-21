@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{87CB56B1-1FE9-4559-AD57-7DA2D8E8CE4C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Krystalware.SlickUpload</RootNamespace>
+    <AssemblyName>Krystalware.SlickUpload</AssemblyName>
+    <TargetFrameworkVersion Condition=" '$(Platform)' == 'NET2' ">v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition=" '$(Platform)' != 'NET2' ">v4.0</TargetFrameworkVersion>
+    <OutputPath>bin\$(Configuration)\$(Platform)\</OutputPath>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants Condition=" '$(Platform)' == 'NET2'">DEBUG;TRACE</DefineConstants>
+    <DefineConstants Condition=" '$(Platform)' != 'NET2'">NET35;DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\AnyCPU\Krystalware.SlickUpload.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants Condition=" '$(Platform)' == 'NET2'">TRACE</DefineConstants>
+    <DefineConstants Condition=" '$(Platform)' != 'NET2'">NET35;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Krystalware.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Mvc.4.0.40804.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Blobify\Abstract\BlobClient.cs" />
+    <Compile Include="Blobify\Abstract\BlobInfo.cs" />
+    <Compile Include="Blobify\Abstract\BlockWriteStreamBase.cs" />
+    <Compile Include="Blobify\Abstract\RestBlobClient.cs" />
+    <Compile Include="Blobify\Abstract\RestBlobInfo.cs" />
+    <Compile Include="Blobify\Abstract\RestBlobPartInfo.cs" />
+    <Compile Include="Blobify\S3\Enums.cs" />
+    <Compile Include="Blobify\S3\S3BlobClient.cs" />
+    <Compile Include="Blobify\S3\S3BlobInfo.cs" />
+    <Compile Include="Blobify\S3\S3BlobPartInfo.cs" />
+    <Compile Include="Blobify\S3\S3Exception.cs" />
+    <Compile Include="Licensing\KrystalwareLicenseProvider.cs" />
+    <Compile Include="Licensing\KrystalwareRuntimeLicense.cs" />
+    <Compile Include="Licensing\LicenseValidator.cs" />
+    <Compile Include="Licensing\RuntimeLicensedProduct.cs" />
+    <Compile Include="Configuration\SessionStorageProviderElement.cs" />
+    <Compile Include="Configuration\TypeElementBase.cs" />
+    <Compile Include="Configuration\UploadFilterElement.cs" />
+    <Compile Include="Configuration\SlickUploadSection.cs" />
+    <Compile Include="Configuration\UploadProfileCollection.cs" />
+    <Compile Include="Configuration\UploadProfileElement.cs" />
+    <Compile Include="Configuration\UploadStreamProviderElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enums.cs" />
+    <Compile Include="ReflectWrapper.cs" />
+    <Compile Include="SerializableDictionary.cs" />
+    <Compile Include="SimpleLogger.cs" />
+    <Compile Include="SlickUploadContext.cs" />
+    <Compile Include="Storage\S3UploadStreamProvider.cs" />
+    <Compile Include="Storage\Enums.cs" />
+    <Compile Include="Storage\MemoryUploadStreamProvider.cs" />
+    <Compile Include="Storage\NullUploadStreamProvider.cs" />
+    <Compile Include="Storage\DatabaseUploadStreamProviderBase.cs" />
+    <Compile Include="Storage\FileUploadStreamProvider.cs" />
+    <Compile Include="Storage\IUploadStreamProvider.cs" />
+    <Compile Include="Storage\SqlClientUploadStreamProvider.cs" />
+    <Compile Include="Storage\Streams\DatabaseStreamBase.cs" />
+    <Compile Include="Storage\Streams\SqlClientWriteStream.cs" />
+    <Compile Include="Storage\Streams\SqlClientReadStream.cs" />
+    <Compile Include="Storage\Streams\SqlFileStreamWriteStream.cs" />
+    <Compile Include="Storage\Streams\SqlFileStreamReadStream.cs" />
+    <Compile Include="Storage\UploadStreamProviderBase.cs" />
+    <Compile Include="TypeFactory.cs" />
+    <Compile Include="UploadedFile.cs" />
+    <Compile Include="IUploadFilter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UploadSession.cs" />
+    <Compile Include="UploadRequest.cs" />
+    <Compile Include="SerializationHelper.cs" />
+    <Compile Include="Web\BrandFilter.cs" />
+    <Compile Include="Web\Controls\Design\SlickUploadDesigner.cs" />
+    <Compile Include="Web\Controls\Design\StringToDictionaryConverter.cs" />
+    <Compile Include="Web\Controls\Design\UploadProgressDisplayDesigner.cs" />
+    <Compile Include="Web\Controls\Design\FileListDesigner.cs" />
+    <Compile Include="Web\Controls\Design\FileSelectorDesigner.cs" />
+    <Compile Include="Web\Controls\KrystalwareScriptRenderer.cs" />
+    <Compile Include="Web\Controls\SlickUpload.cs" />
+    <Compile Include="Web\Controls\UploadProgressDisplay.cs" />
+    <Compile Include="Web\Controls\UploadProgressBar.cs" />
+    <Compile Include="Web\Controls\UploadProgressElement.cs" />
+    <Compile Include="Web\Controls\FileListRemoveCommand.cs" />
+    <Compile Include="Web\Controls\FileListElement.cs" />
+    <Compile Include="Web\Controls\FileList.cs" />
+    <Compile Include="Web\Controls\UploadSessionEventArgs.cs" />
+    <Compile Include="Web\Controls\WebControlBase.cs" />
+    <Compile Include="Web\Controls\MarkerControlBase.cs" />
+    <Compile Include="Web\Handlers\CompletionTrampolineHandler.cs" />
+    <Compile Include="Web\Handlers\CorsOptionsHandler.cs" />
+    <Compile Include="Web\JsonHelper.cs" />
+    <Compile Include="Web\Handlers\BlankHandler.cs" />
+    <Compile Include="Web\Handlers\DiagnosticHandler.cs" />
+    <Compile Include="Web\SessionStorage\AdaptiveSessionStorageProvider.cs" />
+    <Compile Include="Web\SessionStorage\SessionStateSessionStorageProvider.cs" />
+    <Compile Include="Web\SessionStorage\SessionStorageProviderBase.cs" />
+    <Compile Include="Web\UploadCancelledException.cs" />
+    <Compile Include="Web\Enums.cs" />
+    <Compile Include="Web\Internal\ComponentRendererBase.cs" />
+    <Compile Include="Web\Internal\ComponentScript.cs" />
+    <Compile Include="Web\Internal\ComponentHelper.cs" />
+    <Compile Include="Web\Internal\ScriptElement.cs" />
+    <Compile Include="Web\Internal\SlickUploadRenderer.cs" />
+    <Compile Include="Web\Internal\ISlickUpload.cs" />
+    <Compile Include="Web\Internal\UploadProgressDisplayRenderer.cs" />
+    <Compile Include="Web\Internal\IUploadProgressDisplay.cs" />
+    <Compile Include="Web\Internal\MarkerRenderer.cs" />
+    <Compile Include="Web\Internal\FileListRenderer.cs" />
+    <Compile Include="Web\Internal\IFileList.cs" />
+    <Compile Include="Web\Internal\IMarkerComponent.cs" />
+    <Compile Include="Web\Internal\LiteralString.cs" />
+    <Compile Include="Web\Internal\UploadConnectorRenderer.cs" />
+    <Compile Include="Web\Internal\IUploadConnector.cs" />
+    <Compile Include="Web\Internal\IComponentRenderer.cs" />
+    <Compile Include="Web\Internal\IRenderableComponent.cs" />
+    <Compile Include="Web\Internal\RendererFactory.cs" />
+    <Compile Include="Web\Controls\UploadConnector.cs" />
+    <Compile Include="Web\Internal\FileSelectorRenderer.cs" />
+    <Compile Include="Web\Internal\IFileSelector.cs" />
+    <Compile Include="Web\Mvc\SlickUpload.cs" />
+    <Compile Include="Web\Mvc\UploadProgressBar.cs" />
+    <Compile Include="Web\Mvc\UploadProgressElement.cs" />
+    <Compile Include="Web\Mvc\FileListRemoveCommand.cs" />
+    <Compile Include="Web\Mvc\FileListElement.cs" />
+    <Compile Include="Web\Mvc\MarkerComponentBase.cs" />
+    <Compile Include="Web\Mvc\UploadProgressDisplay.cs" />
+    <Compile Include="Web\Mvc\FileList.cs" />
+    <Compile Include="Web\Mvc\FileSelector.cs" />
+    <Compile Include="Web\Mvc\MvcComponentBase.cs" />
+    <Compile Include="Web\Mvc\KrystalwareScriptRenderer.cs" />
+    <Compile Include="Web\Mvc\UploadConnector.cs" />
+    <Compile Include="Web\Mvc\KrystalwareHtmlExtensions.cs" />
+    <Compile Include="Web\Mvc\Template.cs" />
+    <Compile Include="Web\Mvc\UploadSessionModelBinder.cs" />
+    <Compile Include="Web\SessionStorage\DatabaseSessionStorageProviderBase.cs" />
+    <Compile Include="Web\SessionStorage\SqlClientSessionStorageProvider.cs" />
+    <Compile Include="Web\SingleFilePushReader.cs" />
+    <Compile Include="Web\PushReaderBase.cs" />
+    <Compile Include="Web\IMimePushHandler.cs" />
+    <Compile Include="Web\MimeHeaderReader.cs" />
+    <Compile Include="Web\MimeHelper.cs" />
+    <Compile Include="Web\MimePushReader.cs" />
+    <Compile Include="Web\MimeUploadHandler.cs" />
+    <Compile Include="Web\RequestStream.cs" />
+    <Compile Include="Web\SessionStorage\InProcSessionStorageProvider.cs" />
+    <Compile Include="Web\SlickUploadHandlerFactory.cs" />
+    <Compile Include="Web\SlickUploadModule.cs" />
+    <Compile Include="Web\Handlers\ProgressHandler.cs" />
+    <Compile Include="Web\Handlers\SessionHandler.cs" />
+    <Compile Include="Web\Handlers\UploadHandler.cs" />
+    <Compile Include="Web\SessionStorage\ISessionStorageProvider.cs" />
+    <Compile Include="Web\UploadDisconnectedException.cs" />
+    <Compile Include="Web\UploadHttpRequest.cs" />
+    <Compile Include="Web\Controls\FileSelector.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Krystalware.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\SlickUpload.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Web\Controls\FileList.png" />
+    <EmbeddedResource Include="Web\Controls\FileSelector.png" />
+    <EmbeddedResource Include="Web\Controls\SlickUpload.png" />
+    <EmbeddedResource Include="Web\Controls\UploadConnector.png" />
+    <EmbeddedResource Include="Web\Controls\UploadProgressDisplay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Web\Controls\FileListElement.png" />
+    <EmbeddedResource Include="Web\Controls\FileListRemoveCommand.png" />
+    <EmbeddedResource Include="Web\Controls\UploadProgressBar.png" />
+    <EmbeddedResource Include="Web\Controls\UploadProgressElement.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\PoweredBy.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

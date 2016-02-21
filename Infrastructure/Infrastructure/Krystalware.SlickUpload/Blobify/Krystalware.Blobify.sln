@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krystalware.Blobify", "Krystalware.Blobify.csproj", "{240D48AA-1597-4B32-9AFD-0C298AD3B2A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krystalware.Blobify.Test", "..\Krystalware.Blobify.Test\Krystalware.Blobify.Test.csproj", "{DEABD018-7530-4029-846C-0C1ED1CB83CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{240D48AA-1597-4B32-9AFD-0C298AD3B2A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{240D48AA-1597-4B32-9AFD-0C298AD3B2A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{240D48AA-1597-4B32-9AFD-0C298AD3B2A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{240D48AA-1597-4B32-9AFD-0C298AD3B2A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEABD018-7530-4029-846C-0C1ED1CB83CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEABD018-7530-4029-846C-0C1ED1CB83CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEABD018-7530-4029-846C-0C1ED1CB83CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEABD018-7530-4029-846C-0C1ED1CB83CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
