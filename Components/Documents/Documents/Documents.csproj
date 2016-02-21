@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BE8634BD-4398-47A8-BD99-0A2E6BFCB8C3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Documents</RootNamespace>
+    <AssemblyName>Documents</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells, Version=8.0.0.0, Culture=neutral, PublicKeyToken=00725b1ceb58d0a9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\References\Aspose.NET\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Imaging, Version=2.3.0.0, Culture=neutral, PublicKeyToken=00725b1ceb58d0a9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\References\Aspose.NET\Aspose.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Note">
+      <HintPath>..\..\..\References\Aspose.NET\Aspose.Note.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.OCR">
+      <HintPath>..\..\..\References\Aspose.NET\Aspose.OCR.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Pdf">
+      <HintPath>..\..\..\References\Aspose.NET\Aspose.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Slides">
+      <HintPath>..\..\..\References\Aspose.NET\Aspose.Slides.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Words">
+      <HintPath>..\..\..\References\Aspose.NET\Aspose.Words.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\ImageStore\ImageStore.UploadAPI\Bin\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="commons-logging, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\References\PDFBox\commons-logging.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=22aa93b221fe46e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\References\PDFBox\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\References\CompactFramework\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>..\..\..\References\CompactFramework\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Converter\Imp\PPTToSwfConverter.cs" />
+    <Compile Include="Converter\IConverter.cs" />
+    <Compile Include="Converter\Imp\ExcelToFormatHtmlConverter.cs" />
+    <Compile Include="Converter\Imp\TextToSwfConverter.cs" />
+    <Compile Include="Converter\Imp\TextToHtmlConverter.cs" />
+    <Compile Include="Converter\ConverterContainerExtension.cs" />
+    <Compile Include="Converter\ConverterContainer.cs" />
+    <Compile Include="Enums\ConvertFileType.cs" />
+    <Compile Include="Converter\ConvertResult.cs" />
+    <Compile Include="Converter\DocumenConverter.cs" />
+    <Compile Include="Converter\Imp\DwgConverter.cs" />
+    <Compile Include="Converter\Imp\ExcelToHtmlConverter.cs" />
+    <Compile Include="Converter\Imp\ExcelToPdfConverter.cs" />
+    <Compile Include="Converter\Imp\WordToFormatHtmlConverter.cs" />
+    <Compile Include="Converter\Imp\PPTToHtmlConverter.cs" />
+    <Compile Include="Converter\Imp\PPTToPDFConverter.cs" />
+    <Compile Include="Converter\Imp\TextToPdfConverter.cs" />
+    <Compile Include="Converter\Imp\WordToHtmlConverter.cs" />
+    <Compile Include="Converter\Imp\PdfToHtmlConverter.cs" />
+    <Compile Include="Converter\Imp\WordToPDFConverter.cs" />
+    <Compile Include="Enums\ConvertFileTypeExtension.cs" />
+    <Compile Include="Enums\DocumentCategory.cs" />
+    <Compile Include="Enums\DocumentType.cs" />
+    <Compile Include="Exceptions\ConverterException.cs" />
+    <Compile Include="Exceptions\ReadException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reader\ReaderContainer.cs" />
+    <Compile Include="Reader\ReaderContainerExtension.cs" />
+    <Compile Include="Reader\Imp\DefaultReader.cs" />
+    <Compile Include="Reader\IReader.cs" />
+    <Compile Include="Reader\DocumentReader.cs" />
+    <Compile Include="Reader\Imp\ExcelReader.cs" />
+    <Compile Include="Reader\Imp\PDFReader.cs" />
+    <Compile Include="Reader\Imp\PPTReader.cs" />
+    <Compile Include="Reader\Imp\WordReader.cs" />
+    <Compile Include="Reader\Imp\TextReader.cs" />
+    <Compile Include="Utils\EncodingUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Tools\Dwg\Common.Logging.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Dwg\Common.Logging.Log4Net.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Dwg\DwgConverter.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Dwg\DwgConverter.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Dwg\DwgConverter.vshost.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Dwg\ICSharpCode.SharpZipLib.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Dwg\log4net.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Dwg\WW.Cad.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Dwg\WW.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Dwg\WW.GL.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Dwg\WW.License.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Dwg\WW.Pdf.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\data\base.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\data\base.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\data\compatibility.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\data\fancy.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\data\fancy.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\data\pdf2htmlEX-64x64.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\data\pdf2htmlEX.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\data\pdf2htmlEX.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\pdf2htmlEX.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\basic_text\basic_text.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\fontfile3_opentype\bg1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\fontfile3_opentype\fontfile3_opentype.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\geneve_1564\bg1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\geneve_1564\geneve_1564.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\invalid_unicode_issue477\bg1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\invalid_unicode_issue477\invalid_unicode_issue477.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\svg_background_with_page_rotation_issue402\bg1.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\svg_background_with_page_rotation_issue402\svg_background_with_page_rotation_issue402.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\text_visibility\bg1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\text_visibility\text_visibility.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\with_form\bg1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\with_form\with_form.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\Pdf\pdf2htmlEX\test\fancy.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Tools\Pdf\pdf2htmlEX\AUTHORS">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\ChangeLog">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\data\base.css.in">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\data\build_css.sh">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\data\build_js.sh">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\data\fancy.css.in">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\data\LICENSE">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\data\manifest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\data\pdf2htmlEX.js.in">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\LICENSE">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\LICENSE_GPLv3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\README.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\.gitattributes">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\basic_text.pdf" />
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\basic_text.tex" />
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\basic_text\f1.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\basic_text\f2.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\fontfile3_opentype.pdf" />
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\fontfile3_opentype\f1.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\fontfile3_opentype\f2.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\fontfile3_opentype\f3.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\geneve_1564.pdf" />
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\geneve_1564\f1.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\geneve_1564\f2.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\invalid_unicode_issue477.pdf" />
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\invalid_unicode_issue477\f1.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\invalid_unicode_issue477\f2.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\invalid_unicode_issue477\f3.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\invalid_unicode_issue477\f4.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\svg_background_with_page_rotation_issue402.pdf" />
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\svg_background_with_page_rotation_issue402\f1.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\svg_background_with_page_rotation_issue402\f2.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\svg_background_with_page_rotation_issue402\f3.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\test_fail.pdf" />
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\test_fail.tex" />
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\test_fail\THIS_FOLDER_SHOULD_BE_EMPTY">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\text_visibility.pdf" />
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\text_visibility\f1.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\text_visibility\f2.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\with_form.pdf" />
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\with_form\f1.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\with_form\f2.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\with_form\f3.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\with_form\f4.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\with_form\f5.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\browser_tests\with_form\f6.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\old\convert_to_woff.fontforge" />
+    <None Include="Tools\Pdf\pdf2htmlEX\test\old\test.py" />
+    <None Include="Tools\Pdf\pdf2htmlEX\test\README.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\start_xvfb.sh">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\test.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\test_local_browser.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\test_output.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Pdf\pdf2htmlEX\test\test_output\1-page.pdf" />
+    <None Include="Tools\Pdf\pdf2htmlEX\test\test_output\2-pages.pdf" />
+    <None Include="Tools\Pdf\pdf2htmlEX\test\test_output\3-pages.pdf" />
+    <None Include="Tools\Pdf\pdf2htmlEX\test\test_output\issue501" />
+    <None Include="Tools\Pdf\pdf2htmlEX\test\test_remote_browser.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tools\Dwg\DwgConverter.exe.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Dwg\DwgConverter.vshost.exe.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\Dwg\DwgConverter.vshost.exe.manifest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Infrastructure\Infrastructure\Infrasturcture.csproj">
+      <Project>{83a6138f-a179-4ca8-bd00-b7e312c0fd45}</Project>
+      <Name>Infrasturcture</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

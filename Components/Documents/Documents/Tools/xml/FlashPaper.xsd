@@ -1,0 +1,507 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- XSD for FlashpPaper XML documents - http://www.macromedia.com/flashpaper/ -->
+<xs:schema targetNamespace="http://www.macromedia.com/FlashPaper" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xl="http://www.w3.org/1999/xlink" xmlns="http://www.macromedia.com/FlashPaper" elementFormDefault="qualified"
+	attributeFormDefault="unqualified" version="1.0" xml:lang="en-US">
+	<xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="FPXlink.xsd" />
+	<xs:element name="FlashPaper">
+		<xs:complexType>
+			<xs:choice minOccurs="1" maxOccurs="unbounded">
+				<xs:element ref="page" minOccurs="1" maxOccurs="unbounded" />
+				<xs:element ref="security" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="output" minOccurs="0" maxOccurs="1" />
+			</xs:choice>
+			<xs:attribute name="version" type="VersionString" use="required" />
+			<xs:attribute name="width" type="UnsignedNonZeroIntType" use="required" />
+			<xs:attribute name="height" type="UnsignedNonZeroIntType" use="required" />
+			<xs:attribute name="dpi" type="xs:unsignedInt" use="required" />
+			<xs:attribute name="sourcedoctitle" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="output">
+		<xs:complexType>
+			<xs:attribute name="saveto" type="xs:string" use="optional" />
+			<xs:attribute name="mailto" type="xs:string" use="optional" />
+			<xs:attribute name="suppress_bookmarks" type="xs:boolean" use="optional" default="false" />
+			<xs:attribute name="view_results" type="xs:boolean" use="optional" default="false" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="security">
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="access" minOccurs="0" />
+				<xs:element ref="restrictions" minOccurs="0" />
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="access">
+		<xs:annotation>
+			<xs:documentation>When present, indicates that a password is required to access the document.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="password" type="NonEmptyString" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="restrictions">
+		<xs:annotation>
+			<xs:documentation>When present, indicates that some operations on the document may be prohibited.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="noprint" minOccurs="0" />
+				<xs:element ref="nomodify" minOccurs="0" />
+				<xs:element ref="nocopy" minOccurs="0" />
+				<xs:element ref="noannotations" minOccurs="0" />
+			</xs:all>
+			<xs:attribute name="password" type="NonEmptyString" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="noprint">
+		<xs:annotation>
+			<xs:documentation>When present as a subelement of restrictions, prevents the document from being printed.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="nomodify">
+		<xs:annotation>
+			<xs:documentation>When present as a subelement of restrictions, prevents the document from being edited.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="nocopy">
+		<xs:annotation>
+			<xs:documentation>When present as a subelement of restrictions, prevents the text and graphics in the document from being copied.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="noannotations">
+		<xs:annotation>
+			<xs:documentation>When present as a subelement of restrictions, prevents the forms and annotations in the document from being changed.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="page">
+		<xs:complexType>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="link" />
+				<xs:element ref="bookmark" />
+				<xs:element ref="mask" />
+				<xs:element ref="shape" />
+				<xs:element ref="font" />
+				<xs:element ref="text" />
+				<xs:element ref="image" />
+				<xs:element ref="anchor" />
+				<xs:element ref="ghostanchor" />
+			</xs:choice>
+			<xs:attribute name="width" type="UnsignedNonZeroIntType" use="optional" />
+			<xs:attribute name="height" type="UnsignedNonZeroIntType" use="optional" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="link">
+		<xs:annotation>
+			<xs:documentation>An XLink compliant link to URL.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="mask" />
+				<xs:element ref="shape" />
+				<xs:element ref="font" />
+				<xs:element ref="text" />
+				<xs:element ref="image" />
+			</xs:choice>
+			<xs:attribute ref="xl:type" use="required" fixed="simple" />
+			<xs:attribute ref="xl:href" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="bookmark">
+		<xs:annotation>
+			<xs:documentation>A block of nested structural elements. Multiple bookmarks can occur at the toplevel in a document. (That is more than one under a page element or under many page elements.) All toplevel bookmarks are merged together into a single bookmark tree ordered by their occurence order in the MFPL document.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="bookmark" />
+			</xs:choice>
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute ref="xl:type" use="required" fixed="simple" />
+			<xs:attribute ref="xl:href" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="anchor">
+		<xs:annotation>
+			<xs:documentation>The bounding box of the children of this node define an anchor.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="font" />
+				<xs:element ref="text" />
+				<xs:element ref="shape" />
+				<xs:element ref="image" />
+				<xs:element ref="mask" />
+				<xs:element ref="anchor" />
+				<xs:element ref="ghostanchor" />
+			</xs:choice>
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="xextent" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="left" />
+						<xs:enumeration value="center" />
+						<xs:enumeration value="right" />
+						<xs:enumeration value="extent" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="yextent" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="top" />
+						<xs:enumeration value="center" />
+						<xs:enumeration value="bottom" />
+						<xs:enumeration value="extent" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ghostanchor">
+		<xs:annotation>
+			<xs:documentation>The bounding box of the children of this node define an anchor. None are actually imaged.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="font" />
+				<xs:element ref="text" />
+				<xs:element ref="shape" />
+				<xs:element ref="image" />
+				<xs:element ref="mask" />
+				<xs:element ref="ghostanchor" />
+			</xs:choice>
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="xextent" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="left" />
+						<xs:enumeration value="center" />
+						<xs:enumeration value="right" />
+						<xs:enumeration value="extent" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="yextent" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="top" />
+						<xs:enumeration value="center" />
+						<xs:enumeration value="bottom" />
+						<xs:enumeration value="extent" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="mask">
+		<xs:annotation>
+			<xs:documentation>The children of this node will be masked by the mask id.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="text" />
+				<xs:element ref="shape" />
+				<xs:element ref="image" />
+				<xs:element ref="mask" />
+				<xs:element ref="font" />
+				<xs:element ref="link" />
+			</xs:choice>
+			<xs:attribute name="id" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="font">
+		<xs:annotation>
+			<xs:documentation>Defines a font for use in text elements. The src attribute names a file containing a FlashPaperFont element.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="src" type="FontFileNameType" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="text">
+		<xs:annotation>
+			<xs:documentation>Images text on a page. Note that an attribute of continuation=true will indicate that the text is a continuation of previous text, and no additional word/line break characters should be inserted.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="matrix" />
+				<xs:element ref="textchars" />
+				<xs:choice minOccurs="0" maxOccurs="1">
+					<xs:element ref="charpos" />
+					<xs:element ref="charoffsets" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="font" type="xs:string" use="required" />
+			<xs:attribute name="size" type="xs:unsignedInt" use="optional" default="16" />
+			<xs:attribute name="color" type="ColorType" use="optional" default="FF000000" />
+			<xs:attribute name="continuation" type="xs:boolean" use="optional" default="false" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="pos">
+		<xs:annotation>
+			<xs:documentation>Specifies position on page of containing image element.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="IntListType">
+				<xs:length value="2" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="matrix">
+		<xs:annotation>
+			<xs:documentation>Specifies transform placement for image or text.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="FloatListType">
+				<xs:length value="6" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="textchars" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Specifies characters of text within text element.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="charpos" type="IntListType">
+		<xs:annotation>
+			<xs:documentation>List of character x,y positions for each character in textchars element (both under text element).</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="charoffsets" type="IntListType">
+		<xs:annotation>
+			<xs:documentation>List of character x offsets for each character in textchars element (both under text element).</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="image">
+		<xs:annotation>
+			<xs:documentation>Renders an image from a file named in src attribute on a page. Positioning and transform come from child elements.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="pos" />
+				<xs:element ref="size" minOccurs="0" />
+				<xs:element ref="matrix" minOccurs="0" />
+			</xs:sequence>
+			<xs:attribute name="src" type="ImageFileNameType" use="required" />
+			<xs:attribute name="alt" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="size">
+		<xs:annotation>
+			<xs:documentation>Sets size of containing image.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="IntListType">
+				<xs:length value="2" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="shape" type="ShapeType">
+		<xs:annotation>
+			<xs:documentation>Container for path commands.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ShapeType">
+		<xs:annotation>
+			<xs:documentation>Type representing array of path components (lines, curves, etc.)</xs:documentation>
+		</xs:annotation>
+		<xs:choice maxOccurs="unbounded">
+			<xs:group ref="ShapePathGroup" />
+		</xs:choice>
+		<xs:attribute name="id" type="xs:string" use="optional" />
+		<xs:attribute name="flags" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="noplace" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:group name="ShapePathGroup">
+		<xs:annotation>
+			<xs:documentation>Typedef for rendered path component (lineto, curveto, rectto, solidfill, etc.)</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:group ref="StraightPathGroup" />
+			<xs:element ref="quadto" />
+			<xs:element ref="curveto" />
+			<xs:element ref="rect" />
+			<xs:element ref="solidstroke" />
+			<xs:element ref="solidfill" />
+			<xs:element ref="clearfill" />
+			<xs:element ref="clearstroke" />
+		</xs:choice>
+	</xs:group>
+	<xs:element name="FlashPaperFont">
+		<xs:annotation>
+			<xs:documentation>
+				A font defined by outlines.
+				Ascent and descent will always be positive values (number of pixels above or below the line).
+				Leading is usually positive, but it is legal to use negative leading to make lines squish lines together and overlap.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded" minOccurs="0">
+				<xs:element ref="glyph" />
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="style" type="FontStyleType" use="optional" default="0" />
+			<xs:attribute name="ascent" type="xs:unsignedInt" use="required" />
+			<xs:attribute name="descent" type="xs:unsignedInt" use="required" />
+			<xs:attribute name="leading" type="xs:int" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="glyph" type="GlyphType">
+		<xs:annotation>
+			<xs:documentation>An outline representation of a character inside a FlashPaperFont element.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="GlyphType">
+		<xs:annotation>
+			<xs:documentation>Type representing glyph outline.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:group ref="FontPathGroup" />
+		</xs:sequence>
+		<xs:attribute name="unicode" type="xs:unsignedShort" use="required" />
+		<xs:attribute name="advance" type="xs:int" use="required" />
+	</xs:complexType>
+	<xs:group name="FontPathGroup">
+		<xs:annotation>
+			<xs:documentation>All components in a font glyph.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:group ref="StraightPathGroup" />
+			<xs:element ref="quadto" />
+			<xs:element ref="curveto" />
+		</xs:choice>
+	</xs:group>
+	<xs:group name="StraightPathGroup">
+		<xs:annotation>
+			<xs:documentation>Straight components of a font glyph.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element ref="moveto" />
+			<xs:element ref="lineto" />
+		</xs:choice>
+	</xs:group>
+	<xs:element name="moveto">
+		<xs:annotation>
+			<xs:documentation>Moves cursor while defining a path to be rendered or inside a font glyph.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="IntListType">
+				<xs:length value="2" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="lineto">
+		<xs:annotation>
+			<xs:documentation>Defines a line to be rendered or inside a font glyph.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="IntListType">
+				<xs:length value="2" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="quadto">
+		<xs:annotation>
+			<xs:documentation>Defines a quadratic curve to be rendered or inside a font glyph.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="IntListType">
+				<xs:length value="4" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="curveto">
+		<xs:annotation>
+			<xs:documentation>Defines a Bezier curve to be rendered or inside a font glyph.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="IntListType">
+				<xs:length value="6" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="rect">
+		<xs:annotation>
+			<xs:documentation>Defines a rectangle to be rendered.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="IntListType">
+				<xs:length value="4" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="solidstroke">
+		<xs:annotation>
+			<xs:documentation>Sets solid stroke to be used in rendering path.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="width" type="xs:unsignedInt" use="required" />
+			<xs:attribute name="color" type="ColorType" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="clearstroke">
+		<xs:annotation>
+			<xs:documentation>Removes any stroke that was previously set.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="solidfill">
+		<xs:annotation>
+			<xs:documentation>Sets solid fill to be used in rendering path.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="color" type="ColorType" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="clearfill">
+		<xs:annotation>
+			<xs:documentation>Removes any fill that was previously set.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:simpleType name="UnsignedNonZeroIntType">
+		<xs:restriction base="xs:unsignedInt">
+			<xs:minInclusive value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FontFileNameType">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+	<xs:simpleType name="ImageFileNameType">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+	<xs:simpleType name="ColorType">
+		<xs:annotation>
+			<xs:documentation>ARGB hexidecimal representation of color</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:hexBinary">
+			<xs:length value="4" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FontStyleType">
+		<xs:restriction base="xs:unsignedByte">
+			<xs:maxInclusive value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IntListType">
+		<xs:list itemType="xs:int" />
+	</xs:simpleType>
+	<xs:simpleType name="FloatListType">
+		<xs:list itemType="xs:float" />
+	</xs:simpleType>
+	<xs:simpleType name="NonEmptyString">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VersionString">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{1,4}\.\d{1,4}\.\d{1,4}(\.\d{1,4})?" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
