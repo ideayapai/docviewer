@@ -1,0 +1,1026 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>Aspose.OMR</name>
+  </assembly>
+  <members>
+    <member name="T:Aspose.OMR.License">
+      <summary>
+            Provides methods to license the component.
+            </summary>
+      <example>
+            In this example, an attempt will be made to find a license file named MyLicense.lic
+            in the folder that contains 
+            
+            
+            the component, in the folder that contains the calling assembly,
+            in the folder of the entry assembly and then in the embedded resources of the calling assembly.
+            <code>
+            [C#]
+            
+            License license = new License();
+            license.SetLicense("MyLicense.lic");
+            
+            
+            [Visual Basic]
+            
+            Dim license As license = New license
+            License.SetLicense("MyLicense.lic")
+            </code></example>
+    </member>
+    <member name="M:Aspose.OMR.License.#ctor">
+      <summary>
+            Initializes a new instance of this class.
+            </summary>
+      <example>
+            In this example, an attempt will be made to find a license file named MyLicense.lic
+            in the folder that contains 
+            
+            
+            the component, in the folder that contains the calling assembly,
+            in the folder of the entry assembly and then in the embedded resources of the calling assembly.
+            <code>
+            [C#]
+            
+            License license = new License();
+            license.SetLicense("MyLicense.lic");
+            
+            
+            [Visual Basic]
+            
+            Dim license As license = New license
+            License.SetLicense("MyLicense.lic")
+            </code></example>
+    </member>
+    <member name="M:Aspose.OMR.License.SetLicense(System.String)">
+      <summary>
+            Licenses the component.
+            </summary>
+      <remarks>
+        <p>Tries to find the license in the following locations:</p>
+        <p>1. Explicit path.</p>
+        <p>2. The folder that contains the Aspose component assembly.</p>
+        <p>3. The folder that contains the client's calling assembly.</p>
+        <p>4. The folder that contains the entry (startup) assembly.</p>
+        <p>5. An embedded resource in the client's calling assembly.</p>
+        <p>
+          <b>Note:</b>On the .NET Compact Framework, tries to find the license only in these locations:</p>
+        <p>1. Explicit path.</p>
+        <p>2. An embedded resource in the client's calling assembly.</p>
+      </remarks>
+      <example>
+            In this example, an attempt will be made to find a license file named MyLicense.lic
+            in the folder that contains 
+            
+            
+            the component, in the folder that contains the calling assembly,
+            in the folder of the entry assembly and then in the embedded resources of the calling assembly.
+            <code>
+            [C#]
+            
+            License license = new License();
+            license.SetLicense("MyLicense.lic");
+            
+            
+            [Visual Basic]
+            
+            Dim license As License = New License
+            license.SetLicense("MyLicense.lic")
+            </code><param name="licenseName">Can be a full or short file name or name of an embedded resource.
+            Use an empty string to switch to evaluation mode.</param></example>
+    </member>
+    <member name="M:Aspose.OMR.License.SetLicense(System.IO.Stream)">
+      <summary>
+            Licenses the component.
+            </summary>
+      <param name="stream">A stream that contains the license.</param>
+      <remarks>
+        <p>Use this method to load a license from a stream.</p>
+      </remarks>
+      <example>
+        <code>
+            [C#]
+            
+            License license = new License();
+            license.SetLicense(myStream);
+            
+            
+            [Visual Basic]
+            
+            Dim license as License = new License
+            license.SetLicense(myStream)
+            </code>
+      </example>
+    </member>
+    <member name="T:Aspose.OMR.Elements.BarcodeElement">
+      <summary>
+            Represent a barcode block.
+            </summary>
+    </member>
+    <member name="T:Aspose.OMR.Elements.BasicElement">
+      <summary>
+            The base class for elements of the OMR template.
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.Elements.BasicElement.#ctor(System.String,System.Drawing.PointF,System.Drawing.SizeF)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.Elements.BasicElement" /> class.
+            </summary>
+      <param name="name">The name of the element.</param>
+      <param name="position">Element position, in millimeters, relative to top left corner of an image</param>
+      <param name="size">Size of the element, in millimeters.</param>
+    </member>
+    <member name="M:Aspose.OMR.Elements.BasicElement.SaveProperties">
+      <summary>
+            Converts values of the properties of an element from their string representation.
+            </summary>
+      <returns>A collection of properties' values.</returns>
+    </member>
+    <member name="M:Aspose.OMR.Elements.BasicElement.LoadProperties(System.Collections.Specialized.StringDictionary)">
+      <summary>
+            Initializes the properties of an element from their string representation.
+            </summary>
+      <param name="properties">A collection of properties' values.</param>
+    </member>
+    <member name="M:Aspose.OMR.Elements.BasicElement.ExtractData(Aspose.OMR.OmrImage,Aspose.OMR.OmrConfig)">
+      <summary>
+            Extracts data from a portion of scanned OMR sheet assigned to this element.
+            </summary>
+      <param name="image">
+            The image to extract data from.
+            </param>
+      <param name="config">Global configuration for OMR extraction algorithm.</param>
+      <returns>
+            A string that contains data extracted from the sheet.
+            </returns>
+    </member>
+    <member name="P:Aspose.OMR.Elements.BasicElement.Position">
+      <summary>
+            Gets or sets position, in millimeters, relative to top left corner of an image
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.Elements.BasicElement.Size">
+      <summary>
+            Gets or sets size of the element, in millimeters.
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.Elements.BasicElement.Name">
+      <summary>
+            Gets or sets the name of the element. Value cannot be null.
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.Elements.BarcodeElement.#ctor(System.String,System.Drawing.PointF,System.Drawing.SizeF)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.Elements.BarcodeElement" /> class.
+            </summary>
+      <param name="name">The name of the element.</param>
+      <param name="position">Element position, in millimeters, relative to top left corner of an image</param>
+      <param name="size">Size of the element, in millimeters.</param>
+    </member>
+    <member name="M:Aspose.OMR.Elements.BarcodeElement.ExtractData(Aspose.OMR.OmrImage,Aspose.OMR.OmrConfig)">
+      <summary>
+            Extracts data from a portion of scanned OMR sheet assigned to this element.
+            </summary>
+      <param name="image">The image to extract data from.</param>
+      <param name="ignored">Configuration for OMR extraction algorithm (ignored.)</param>
+      <returns>A string that contains data extracted from the sheet.</returns>
+    </member>
+    <member name="T:Aspose.OMR.Elements.CustomImageProcessingAttribute">
+      <summary>
+            Specifies that the element does its own image processing and 
+            its area should not be touched by the image processing pipeline. 
+            This class cannot be inherited.
+            </summary>
+    </member>
+    <member name="T:Aspose.OMR.Elements.GridSection">
+      <summary>
+            Section of a <see cref="T:Aspose.OMR.Elements.GridElement" />.
+            </summary>
+    </member>
+    <member name="T:Aspose.OMR.Elements.ISpacedArea">
+      <summary>
+            An area that requires spacing before and after itself.
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.Elements.ISpacedArea.SpaceBefore">
+      <summary>
+            Gets or sets spacing that follows the area, in millimeters.
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.Elements.ISpacedArea.SpaceAfter">
+      <summary>
+            Gets or sets spacing that precedes the area, in millimeters.
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.Elements.GridSection.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.Elements.GridSection" /> class.
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.Elements.GridSection.SpaceBefore">
+      <summary>
+            Gets or sets spacing that precedes the cell, in millimeters. Zero by default.
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.Elements.GridSection.SpaceAfter">
+      <summary>
+            Gets or sets spacing that follows the cell, in millimeters. Zero by default.
+            </summary>
+    </member>
+    <member name="T:Aspose.OMR.Elements.OmrCell">
+      <summary>
+            Represents a cell in an <see cref="T:Aspose.OMR.Elements.OmrElement" />.
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.Elements.OmrCell.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.Elements.OmrCell" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.Elements.OmrCell.#ctor(System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.Elements.OmrCell" /> class.
+            </summary>
+      <param name="value">The value associated with the cell.</param>
+    </member>
+    <member name="P:Aspose.OMR.Elements.OmrCell.Value">
+      <summary>
+            Gets or sets value associated with the cell.
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.Elements.OmrCell.SpaceBefore">
+      <summary>
+            Gets or sets spacing that precedes the cell, in millimeters. Zero by default.
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.Elements.OmrCell.SpaceAfter">
+      <summary>
+            Gets or sets spacing that follows the cell, in millimeters. Zero by default.
+            </summary>
+    </member>
+    <member name="T:Aspose.OMR.Elements.TextOcrElement">
+      <summary>
+            Represent an OCR block.
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.Elements.TextOcrElement.#ctor(System.String,System.Drawing.PointF,System.Drawing.SizeF)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.Elements.TextOcrElement" /> class.
+            </summary>
+      <param name="name">The name of the element.</param>
+      <param name="position">Element position, in millimeters, relative to top left corner of an image</param>
+      <param name="size">Size of the element, in millimeters.</param>
+    </member>
+    <member name="M:Aspose.OMR.Elements.TextOcrElement.ExtractData(Aspose.OMR.OmrImage,Aspose.OMR.OmrConfig)">
+      <summary>
+            Extracts data from a portion of scanned OMR sheet assigned to this element.
+            </summary>
+      <param name="image">The image to extract data from.</param>
+      <param name="ignored">Configuration for OMR extraction algorithm (ignored.)</param>
+      <returns>A string that contains data extracted from the sheet.</returns>
+    </member>
+    <member name="P:Aspose.OMR.Elements.TextOcrElement.Resource">
+      <summary>
+            Gets or sets path to the OCR resources file. This must be set before data extraction.
+            </summary>
+    </member>
+    <member name="T:Aspose.OMR.ImageProcessing.OtsuBinarizationAlgorithm">
+      <summary>
+            Otsu binarization algorithm.
+            </summary>
+    </member>
+    <member name="T:Aspose.OMR.ImageProcessing.IProcessingAlgorithm">
+      <summary>
+            Represents a mechanism for image preprocessing, so that the image can be used for data extraction
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.ImageProcessing.IProcessingAlgorithm.Process(Aspose.OMR.OmrImage,System.Drawing.Rectangle)">
+      <summary>
+            Processes an <see cref="T:Aspose.OMR.OmrImage" /> with an image manipulation algorithm.
+            </summary>
+      <param name="image">An image to process.</param>
+      <param name="area">Area of image to be processed.</param>
+    </member>
+    <member name="M:Aspose.OMR.ImageProcessing.OtsuBinarizationAlgorithm.Process(Aspose.OMR.OmrImage,System.Drawing.Rectangle)">
+      <summary>
+            Processes a grayscale <see cref="T:Aspose.OMR.OmrImage" /> with Otsu binarization algorithm.
+            </summary>
+      <param name="image">An image to process.</param>
+      <param name="area">Area of image to be processed.</param>
+    </member>
+    <member name="T:Aspose.OMR.OmrConfig">
+      <summary>
+            Configuration for OMR extraction algorithm.
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.OmrConfig.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.OmrConfig" /> class with default settings.
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.OmrConfig.TrimWhitePixels">
+      <summary>
+            Gets or sets a value indicating whether the area that contain an OMR mark
+            should be reduced to minimum size that contain all black pixels.
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.OmrConfig.FillThreshold">
+      <summary>
+            Gets or sets the threshold percentage of black pixels in the area to consider it filled.
+            The value is in range [0;1], with 1 corresponding to 100% of pixels in area must be black to consider it filled.
+            </summary>
+    </member>
+    <member name="T:Aspose.OMR.OmrPage">
+      <summary>
+            Represents a page of an OMR document
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.OmrPage.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.OmrPage" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.OmrPage.ExtactData(Aspose.OMR.OmrImage,Aspose.OMR.OmrConfig)">
+      <summary>
+            Extracts data from a scanned OMR sheet.
+            </summary>
+      <param name="documentImage">The document Image.</param>
+      <param name="config">Configuration for OMR extraction algorithm.</param>
+      <returns>
+            A <see cref="T:System.Collections.Hashtable" /> with element names as keys and their respective values as values.
+            </returns>
+    </member>
+    <member name="P:Aspose.OMR.OmrPage.Width">
+      <summary>
+            Gets or sets width of the page, in millimeters.
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.OmrPage.Height">
+      <summary>
+            Gets or sets height of the page, in millimeters.
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.OmrPage.SheetImage">
+      <summary>
+            Gets or sets a sheet image associated with the page. The value can be null.
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.OmrPage.Elements">
+      <summary>
+            Gets the collection of OMR elements of the page.
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.OmrPage.Configuration">
+      <summary>
+            Gets or sets page-level configuration for OMR extraction algorithm. 
+            Overrides global configuration if set.
+            If set to <c>null</c> (by default), global configuration will be used.
+            </summary>
+      <remarks>
+            This settings are used during data extraction only 
+            and are not saved in the template file.
+            </remarks>
+    </member>
+    <member name="T:Aspose.OMR.OmrPagesCollection">
+      <summary>
+            Represent a collection of pages in an OMR template
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.OmrPagesCollection.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.OmrPagesCollection" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.OmrPagesCollection.#ctor(System.Collections.ICollection)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.OmrPagesCollection" /> class.
+            </summary>
+      <param name="pages">The ordered collection of pages.</param>
+    </member>
+    <member name="M:Aspose.OMR.OmrPagesCollection.Add(Aspose.OMR.OmrPage)">
+      <summary>
+            Adds an object to the end of the <see cref="T:Aspose.OMR.OmrPagesCollection" />.
+            </summary>
+      <returns>
+            The <see cref="T:Aspose.OMR.OmrPagesCollection" /> index at which the <paramref name="value" /> has been added.
+            </returns>
+      <param name="value">
+            The <see cref="T:Aspose.OMR.OmrPage" /> to be added to the end of the <see cref="T:Aspose.OMR.OmrPagesCollection" />. 
+            The value cannot be null. 
+            </param>
+    </member>
+    <member name="M:Aspose.OMR.OmrPagesCollection.IndexOf(Aspose.OMR.OmrPage)">
+      <summary>
+            Searches for the specified <see cref="T:Aspose.OMR.OmrPage" /> and returns the zero-based index of 
+            the first occurrence within the entire <see cref="T:Aspose.OMR.OmrPagesCollection" />.
+            </summary>
+      <returns>
+            The zero-based index of the first occurrence of <paramref name="value" /> within the entire 
+            <see cref="T:Aspose.OMR.OmrPagesCollection" />, if found; otherwise, -1.
+            </returns>
+      <param name="value">
+            The <see cref="T:Aspose.OMR.OmrPage" /> to locate in the <see cref="T:Aspose.OMR.OmrPagesCollection" />. The value cannot be null. 
+            </param>
+    </member>
+    <member name="M:Aspose.OMR.OmrPagesCollection.Insert(System.Int32,Aspose.OMR.OmrPage)">
+      <summary>
+            Inserts the elements of a collection into the <see cref="T:Aspose.OMR.OmrPagesCollection" /> at the specified index.
+            </summary>
+      <param name="index">The zero-based index at which the new elements should be inserted. </param>
+      <param name="value">
+            The <see cref="T:Aspose.OMR.OmrPage" /> that should be inserted into the <see cref="T:Aspose.OMR.OmrPage" />. 
+            </param>
+    </member>
+    <member name="M:Aspose.OMR.OmrPagesCollection.Remove(Aspose.OMR.OmrPage)">
+      <summary>
+            Removes the first occurrence of a specific <see cref="T:Aspose.OMR.OmrPage" /> from the <see cref="T:Aspose.OMR.OmrPagesCollection" />.
+            </summary>
+      <param name="value">
+            The <see cref="T:Aspose.OMR.OmrPage" /> to remove from the <see cref="T:Aspose.OMR.OmrPagesCollection" />. 
+            The value cannot be null. 
+            </param>
+    </member>
+    <member name="M:Aspose.OMR.OmrPagesCollection.Contains(Aspose.OMR.OmrPage)">
+      <summary>
+            Determines whether this <see cref="T:Aspose.OMR.OmrPagesCollection" /> contains the specified <see cref="T:Aspose.OMR.OmrPage" />.
+            </summary>
+      <param name="value">
+            The <see cref="T:Aspose.OMR.OmrPage" /> to locate in the <see cref="T:Aspose.OMR.OmrPagesCollection" />.
+            </param>
+      <returns>
+        <c>true</c> if this <see cref="T:Aspose.OMR.OmrPagesCollection" /> contains
+            the specified <see cref="T:Aspose.OMR.OmrPage" />; otherwise, <c>false</c>.
+            </returns>
+    </member>
+    <member name="M:Aspose.OMR.OmrPagesCollection.CopyTo(Aspose.OMR.OmrPage[],System.Int32)">
+      <summary>
+            Copies the elements of the <see cref="T:Aspose.OMR.OmrPagesCollection" /> to an <see cref="T:System.Array" />, 
+            starting at a particular <see cref="T:System.Array" /> index.
+            </summary>
+      <param name="array">
+            The one-dimensional <see cref="T:System.Array" /> that is the destination of the elements copied from 
+            <see cref="T:Aspose.OMR.OmrPagesCollection" />. The <see cref="T:System.Array" /> must have zero-based indexing. 
+            </param>
+      <param name="index">The zero-based index in <paramref name="array" /> at which copying begins.</param>
+    </member>
+    <member name="M:Aspose.OMR.OmrPagesCollection.OnValidate(System.Object)">
+      <summary>
+            Performs additional custom processes when validating a value.
+            </summary>
+      <param name="value">The object to validate.</param>
+    </member>
+    <member name="P:Aspose.OMR.OmrPagesCollection.Item(System.Int32)">
+      <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+      <returns>
+            The element at the specified index.
+            </returns>
+      <param name="index">The zero-based index of the element to get or set. </param>
+    </member>
+    <member name="T:Aspose.OMR.Elements.ChoiceBoxElement">
+      <summary>
+            Represents an OMR choice element
+            </summary>
+    </member>
+    <member name="T:Aspose.OMR.Elements.OmrElement">
+      <summary>
+            Represents an abstract OMR element on a sheet.
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.Elements.OmrElement.#ctor(System.String,System.Drawing.PointF,System.Drawing.SizeF)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.Elements.OmrElement" /> class.
+            </summary>
+      <param name="name">The name of the element.</param>
+      <param name="position">Element position, in millimeters, relative to top left corner of an image</param>
+      <param name="size">Size of the element, in millimeters.</param>
+    </member>
+    <member name="M:Aspose.OMR.Elements.OmrElement.SaveProperties">
+      <summary>
+            Converts values of the properties of an element from their string representation.
+            </summary>
+      <returns>A collection of properties' values.</returns>
+    </member>
+    <member name="M:Aspose.OMR.Elements.OmrElement.LoadProperties(System.Collections.Specialized.StringDictionary)">
+      <summary>
+            Initializes the properties of an element from their string representation.
+            </summary>
+      <param name="properties">A collection of properties' values.</param>
+    </member>
+    <member name="P:Aspose.OMR.Elements.OmrElement.Configuration">
+      <summary>
+            Gets or sets element-level configuration for OMR extraction algorithm. 
+            Overrides page-level configuration if set.
+            If set to <c>null</c> (by default), page-level configuration will be used.
+            </summary>
+      <remarks>
+            This settings are used during data extraction only 
+            and are not saved in the template file.
+            </remarks>
+    </member>
+    <member name="P:Aspose.OMR.Elements.OmrElement.IsHorizontal">
+      <summary>
+            Gets or sets a value indicating whether values of this element are located horizontally.
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.Elements.OmrElement.Cells">
+      <summary>
+            Gets a collection of cells in the element.
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.Elements.ChoiceBoxElement.#ctor(System.String,System.Drawing.PointF,System.Drawing.SizeF)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.Elements.ChoiceBoxElement" /> class.
+            </summary>
+      <param name="name">The name of the element.</param>
+      <param name="position">Element position, in millimeters, relative to top left corner of an image</param>
+      <param name="size">Size of the element, in millimeters.</param>
+    </member>
+    <member name="M:Aspose.OMR.Elements.ChoiceBoxElement.ExtractData(Aspose.OMR.OmrImage,Aspose.OMR.OmrConfig)">
+      <summary>
+            Extracts data from a portion of scanned OMR sheet assigned to this element.
+            </summary>
+      <param name="image">The image to extract data from.</param>
+      <param name="config">Configuration for OMR extraction algorithm.</param>
+      <returns>
+            An string that contains data extracted from the element.
+            </returns>
+    </member>
+    <member name="M:Aspose.OMR.Elements.ChoiceBoxElement.LoadProperties(System.Collections.Specialized.StringDictionary)">
+      <summary>
+            Initializes the properties of an element from their string representation.
+            </summary>
+      <param name="properties">A collection of properties' values.</param>
+    </member>
+    <member name="M:Aspose.OMR.Elements.ChoiceBoxElement.SaveProperties">
+      <summary>
+            Converts values of the properties of an element from their string representation.
+            </summary>
+      <returns>A collection of properties' values.</returns>
+    </member>
+    <member name="P:Aspose.OMR.Elements.ChoiceBoxElement.MultipleSelectionAllowed">
+      <summary>
+            Gets or sets a value indicating whether the choice box can have multiple items selected at once.
+            </summary>
+    </member>
+    <member name="T:Aspose.OMR.Elements.GridElement">
+      <summary>
+            Represents an OMR grid element
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.Elements.GridElement.#ctor(System.String,System.Drawing.PointF,System.Drawing.SizeF)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.Elements.GridElement" /> class.
+            </summary>
+      <param name="name">The name of the element.</param>
+      <param name="position">Element position, in millimeters, relative to top left corner of an image</param>
+      <param name="size">Size of the element, in millimeters.</param>
+    </member>
+    <member name="M:Aspose.OMR.Elements.GridElement.SetSectionsCount(System.Int32)">
+      <summary>
+            A shortcut method for setting the sections count in the grid. Adds and removes elements from <see cref="P:Aspose.OMR.Elements.GridElement.Sections" /> as necessary.
+            </summary>
+      <param name="count">New sections count.</param>
+    </member>
+    <member name="M:Aspose.OMR.Elements.GridElement.ExtractData(Aspose.OMR.OmrImage,Aspose.OMR.OmrConfig)">
+      <summary>
+            Extracts data from a portion of scanned OMR sheet assigned to this element.
+            </summary>
+      <param name="image">The image to extract data from.</param>
+      <param name="config">Configuration for OMR extraction algorithm.</param>
+      <returns>
+            An string that contains data extracted from the sheet.
+            </returns>
+    </member>
+    <member name="P:Aspose.OMR.Elements.GridElement.Sections">
+      <summary>
+            Gets a collection of sections of the grid.
+            </summary>
+    </member>
+    <member name="T:Aspose.OMR.ImageProcessing.AverageThresholdAlgorithm">
+      <summary>
+            Binarization algorithms that uses an average value threshold filter.
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.ImageProcessing.AverageThresholdAlgorithm.Process(Aspose.OMR.OmrImage,System.Drawing.Rectangle)">
+      <summary>
+            Processes a grayscale <see cref="T:Aspose.OMR.OmrImage" /> with average value threshold algorithm.
+            </summary>
+      <param name="image">An image to process.</param>
+      <param name="area">Area of image to be processed.</param>
+    </member>
+    <member name="T:Aspose.OMR.ImageProcessing.GrayscaleAlgorithm">
+      <summary>
+            Represent a grayscale conversion algorithm
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.ImageProcessing.GrayscaleAlgorithm.Process(Aspose.OMR.OmrImage,System.Drawing.Rectangle)">
+      <summary>
+            Processes an <see cref="T:Aspose.OMR.OmrImage" /> with an image manipulation algorithm.
+            </summary>
+      <param name="image">An image to process.</param>
+      <param name="area">Area of image to be processed.</param>
+    </member>
+    <member name="T:Aspose.OMR.ImageProcessing.ProcessingPipeline">
+      <summary>
+            Represents an ordered chain of image processing algorithms.
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.ImageProcessing.ProcessingPipeline.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.ImageProcessing.ProcessingPipeline" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.ImageProcessing.ProcessingPipeline.#ctor(System.Collections.ICollection)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.ImageProcessing.ProcessingPipeline" /> class.
+            </summary>
+      <param name="algorithms">The ordered collection of algorithms.</param>
+    </member>
+    <member name="M:Aspose.OMR.ImageProcessing.ProcessingPipeline.Add(Aspose.OMR.ImageProcessing.IProcessingAlgorithm)">
+      <summary>
+            Adds an object to the end of the <see cref="T:Aspose.OMR.ImageProcessing.ProcessingPipeline" />.
+            </summary>
+      <returns>
+            The <see cref="T:Aspose.OMR.ImageProcessing.ProcessingPipeline" /> index at which the <paramref name="value" /> has been added.
+            </returns>
+      <param name="value">
+            The <see cref="T:Aspose.OMR.ImageProcessing.IProcessingAlgorithm" /> to be added to the end of the <see cref="T:Aspose.OMR.ImageProcessing.ProcessingPipeline" />. 
+            The value cannot be null. 
+            </param>
+    </member>
+    <member name="M:Aspose.OMR.ImageProcessing.ProcessingPipeline.IndexOf(Aspose.OMR.ImageProcessing.IProcessingAlgorithm)">
+      <summary>
+            Searches for the specified <see cref="T:Aspose.OMR.ImageProcessing.IProcessingAlgorithm" /> and returns the zero-based index of 
+            the first occurrence within the entire <see cref="T:Aspose.OMR.ImageProcessing.ProcessingPipeline" />.
+            </summary>
+      <returns>
+            The zero-based index of the first occurrence of <paramref name="value" /> within the entire 
+            <see cref="T:Aspose.OMR.ImageProcessing.ProcessingPipeline" />, if found; otherwise, -1.
+            </returns>
+      <param name="value">
+            The <see cref="T:Aspose.OMR.ImageProcessing.IProcessingAlgorithm" /> to locate in the <see cref="T:Aspose.OMR.ImageProcessing.ProcessingPipeline" />. 
+            The value cannot be null. 
+            </param>
+    </member>
+    <member name="M:Aspose.OMR.ImageProcessing.ProcessingPipeline.Insert(System.Int32,Aspose.OMR.ImageProcessing.IProcessingAlgorithm)">
+      <summary>
+            Inserts the elements of a collection into the <see cref="T:Aspose.OMR.ImageProcessing.ProcessingPipeline" /> at the specified index.
+            </summary>
+      <param name="index">The zero-based index at which the new elements should be inserted. </param>
+      <param name="value">
+            The <see cref="T:Aspose.OMR.ImageProcessing.IProcessingAlgorithm" /> that should be inserted into the <see cref="T:Aspose.OMR.ImageProcessing.ProcessingPipeline" />. 
+            </param>
+    </member>
+    <member name="M:Aspose.OMR.ImageProcessing.ProcessingPipeline.Remove(Aspose.OMR.ImageProcessing.IProcessingAlgorithm)">
+      <summary>
+            Removes the first occurrence of a specific <see cref="T:Aspose.OMR.ImageProcessing.IProcessingAlgorithm" /> from
+             the <see cref="T:Aspose.OMR.ImageProcessing.ProcessingPipeline" />.
+            </summary>
+      <param name="value">
+            The <see cref="T:Aspose.OMR.ImageProcessing.IProcessingAlgorithm" /> to remove from the <see cref="T:Aspose.OMR.ImageProcessing.ProcessingPipeline" />. 
+            The value cannot be null. 
+            </param>
+    </member>
+    <member name="M:Aspose.OMR.ImageProcessing.ProcessingPipeline.Contains(Aspose.OMR.ImageProcessing.IProcessingAlgorithm)">
+      <summary>
+            Determines whether this <see cref="T:Aspose.OMR.ImageProcessing.ProcessingPipeline" /> contains 
+            the specified <see cref="T:Aspose.OMR.ImageProcessing.IProcessingAlgorithm" />.
+            </summary>
+      <param name="value">
+            The <see cref="T:Aspose.OMR.ImageProcessing.IProcessingAlgorithm" /> to locate in the <see cref="T:Aspose.OMR.ImageProcessing.ProcessingPipeline" />.
+            </param>
+      <returns>
+        <c>true</c> if this <see cref="T:Aspose.OMR.ImageProcessing.ProcessingPipeline" /> contains 
+            the specified <see cref="T:Aspose.OMR.ImageProcessing.IProcessingAlgorithm" />; otherwise, <c>false</c>.
+            </returns>
+    </member>
+    <member name="M:Aspose.OMR.ImageProcessing.ProcessingPipeline.CopyTo(Aspose.OMR.ImageProcessing.IProcessingAlgorithm[],System.Int32)">
+      <summary>
+            Copies the elements of the <see cref="T:Aspose.OMR.ImageProcessing.ProcessingPipeline" /> to an <see cref="T:System.Array" />, 
+            starting at a particular <see cref="T:System.Array" /> index.
+            </summary>
+      <param name="array">
+            The one-dimensional <see cref="T:System.Array" /> that is the destination of the elements copied from 
+            <see cref="T:Aspose.OMR.ImageProcessing.ProcessingPipeline" />. The <see cref="T:System.Array" /> must have zero-based indexing. 
+            </param>
+      <param name="index">The zero-based index in <paramref name="array" /> at which copying begins.</param>
+    </member>
+    <member name="M:Aspose.OMR.ImageProcessing.ProcessingPipeline.Process(Aspose.OMR.OmrImage,System.Drawing.Rectangle)">
+      <summary>
+            Processes an image with a chain of image preprocessing algorithms.
+            </summary>
+      <param name="image">An image to process.</param>
+      <param name="area">Area of image to be processed.</param>
+    </member>
+    <member name="M:Aspose.OMR.ImageProcessing.ProcessingPipeline.OnValidate(System.Object)">
+      <summary>
+            Performs additional custom processes when validating a value.
+            </summary>
+      <param name="value">The object to validate.</param>
+    </member>
+    <member name="P:Aspose.OMR.ImageProcessing.ProcessingPipeline.Default">
+      <summary>
+            Gets a default pipeline of image preprocessing algorithms
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.ImageProcessing.ProcessingPipeline.Item(System.Int32)">
+      <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+      <returns>
+            The element at the specified index.
+            </returns>
+      <param name="index">The zero-based index of the element to get or set. </param>
+    </member>
+    <member name="T:Aspose.OMR.OmrElementsCollection">
+      <summary>
+            Represents a collection of elements on a page.
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.OmrElementsCollection.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.OmrElementsCollection" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.OmrElementsCollection.#ctor(System.Collections.ICollection)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.OmrElementsCollection" /> class.
+            </summary>
+      <param name="elements">The ordered collection of elements.</param>
+    </member>
+    <member name="M:Aspose.OMR.OmrElementsCollection.Add(Aspose.OMR.Elements.BasicElement)">
+      <summary>
+            Adds an object to the end of the <see cref="T:Aspose.OMR.OmrElementsCollection" />.
+            </summary>
+      <returns>
+            The <see cref="T:Aspose.OMR.OmrElementsCollection" /> index at which the <paramref name="value" /> has been added.
+            </returns>
+      <param name="value">
+            The element to be added to the end of the <see cref="T:Aspose.OMR.OmrElementsCollection" />. 
+            The value cannot be null. 
+            </param>
+    </member>
+    <member name="M:Aspose.OMR.OmrElementsCollection.IndexOf(Aspose.OMR.Elements.BasicElement)">
+      <summary>
+            Searches for the specified element and returns the zero-based index of 
+            the first occurrence within the entire <see cref="T:Aspose.OMR.OmrElementsCollection" />.
+            </summary>
+      <returns>
+            The zero-based index of the first occurrence of <paramref name="value" /> within the entire 
+            <see cref="T:Aspose.OMR.OmrElementsCollection" />, if found; otherwise, -1.
+            </returns>
+      <param name="value">
+            The element to locate in the <see cref="T:Aspose.OMR.OmrElementsCollection" />. 
+            The value cannot be null. 
+            </param>
+    </member>
+    <member name="M:Aspose.OMR.OmrElementsCollection.Insert(System.Int32,Aspose.OMR.Elements.BasicElement)">
+      <summary>
+            Inserts the elements of a collection into the <see cref="T:Aspose.OMR.OmrElementsCollection" /> at the specified index.
+            </summary>
+      <param name="index">The zero-based index at which the new elements should be inserted. </param>
+      <param name="value">
+            The element that should be inserted into the <see cref="T:Aspose.OMR.OmrElementsCollection" />. 
+            </param>
+    </member>
+    <member name="M:Aspose.OMR.OmrElementsCollection.Remove(Aspose.OMR.Elements.BasicElement)">
+      <summary>
+            Removes the first occurrence of a specific <see cref="T:Aspose.OMR.Elements.OmrElement" /> from
+             the <see cref="T:Aspose.OMR.OmrElementsCollection" />.
+            </summary>
+      <param name="value">
+            The element to remove from the <see cref="T:Aspose.OMR.OmrElementsCollection" />. 
+            The value cannot be null. 
+            </param>
+    </member>
+    <member name="M:Aspose.OMR.OmrElementsCollection.Contains(Aspose.OMR.Elements.BasicElement)">
+      <summary>
+            Determines whether this <see cref="T:Aspose.OMR.OmrElementsCollection" /> contains 
+            the specified element.
+            </summary>
+      <param name="value">
+            The <see cref="T:Aspose.OMR.Elements.OmrElement" /> to locate in the <see cref="T:Aspose.OMR.OmrElementsCollection" />.
+            </param>
+      <returns>
+        <c>true</c> if this <see cref="T:Aspose.OMR.OmrElementsCollection" /> contains 
+            the specified element; otherwise, <c>false</c>.
+            </returns>
+    </member>
+    <member name="M:Aspose.OMR.OmrElementsCollection.CopyTo(Aspose.OMR.Elements.BasicElement[],System.Int32)">
+      <summary>
+            Copies the elements of the <see cref="T:Aspose.OMR.OmrElementsCollection" /> to an <see cref="T:System.Array" />, 
+            starting at a particular <see cref="T:System.Array" /> index.
+            </summary>
+      <param name="array">
+            The one-dimensional <see cref="T:System.Array" /> that is the destination of the elements copied from 
+            <see cref="T:Aspose.OMR.OmrElementsCollection" />. The <see cref="T:System.Array" /> must have zero-based indexing. 
+            </param>
+      <param name="index">The zero-based index in <paramref name="array" /> at which copying begins.</param>
+    </member>
+    <member name="M:Aspose.OMR.OmrElementsCollection.OnValidate(System.Object)">
+      <summary>
+            Performs additional custom processes when validating a value.
+            </summary>
+      <param name="value">The object to validate.</param>
+    </member>
+    <member name="P:Aspose.OMR.OmrElementsCollection.Item(System.Int32)">
+      <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+      <returns>
+            The element at the specified index.
+            </returns>
+      <param name="index">The zero-based index of the element to get or set. </param>
+    </member>
+    <member name="T:Aspose.OMR.OmrEngine">
+      <summary>
+            The main entry point for the users of the library. It collects all data necessary for data extractions.
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.OmrEngine.#ctor(Aspose.OMR.OmrTemplate)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.OmrEngine" /> class.
+            </summary>
+      <param name="template">
+            An instance of <see cref="T:Aspose.OMR.OmrTemplate" /> to be used for data extraction.
+            </param>
+    </member>
+    <member name="M:Aspose.OMR.OmrEngine.#ctor(Aspose.OMR.OmrTemplate,Aspose.OMR.ImageProcessing.ProcessingPipeline)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.OmrEngine" /> class.
+            </summary>
+      <param name="template">
+            An instance of <see cref="T:Aspose.OMR.OmrTemplate" /> to be used for data extraction.
+            </param>
+      <param name="pipeline">
+            An instance of <see cref="P:Aspose.OMR.OmrEngine.ProcessingPipeline" /> that contains image processing algorithms 
+            used for preprocessing of a scanned image before data extraction.
+            </param>
+    </member>
+    <member name="M:Aspose.OMR.OmrEngine.ChangeProcessingPipeline(Aspose.OMR.ImageProcessing.ProcessingPipeline)">
+      <summary>
+            Replaces the image processing pipeline with a new one.
+            </summary>
+      <param name="newPipeline">The new pipeline.</param>
+    </member>
+    <member name="M:Aspose.OMR.OmrEngine.ExtractData(Aspose.OMR.OmrImage[])">
+      <summary>
+            Extracts data from a scanned OMR sheets.
+            </summary>
+      <param name="documentImages">Collection of scanned pages, according to the template.</param>
+      <returns>
+            An instance of <see cref="T:Aspose.OMR.OmrProcessingResult" /> that contains data extracted from the sheet.
+            </returns>
+    </member>
+    <member name="P:Aspose.OMR.OmrEngine.Template">
+      <summary>
+            Gets or sets a data template that describes data structure of an OMR sheet.
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.OmrEngine.ProcessingPipeline">
+      <summary>
+            Gets an instance of <see cref="P:Aspose.OMR.OmrEngine.ProcessingPipeline" /> that contains image processing algorithms 
+            used for preprocessing of a scanned image before data extraction.
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.OmrEngine.Configuration">
+      <summary>
+            Gets or sets global configuration for OMR extraction algorithm.
+            </summary>
+    </member>
+    <member name="T:Aspose.OMR.OmrImage">
+      <summary>
+            Represents an image in a way that is suitable for marks recognition.
+            </summary>
+    </member>
+    <member name="F:Aspose.OMR.OmrImage.BufferPixelFormat">
+      <summary>
+            Pixel format of image data in the buffer 
+            </summary>
+    </member>
+    <member name="F:Aspose.OMR.OmrImage.BytesPerPixel">
+      <summary>
+            Number of bytes per pixel
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.OmrImage.#ctor(System.Int32,System.Int32,System.Double,System.Byte[])">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.OmrImage" /> class.
+            </summary>
+      <param name="width">The width, in pixels</param>
+      <param name="height">The height, in pixels.</param>
+      <param name="dpi">The resolution of the image, dots per inch.</param>
+      <param name="pixelData">The pixel data of the image.</param>
+    </member>
+    <member name="M:Aspose.OMR.OmrImage.Load(System.IO.Stream)">
+      <summary>
+            Loads an image from a stream.
+            </summary>
+      <param name="stream">The stream to load from</param>
+      <returns>An instance of <see cref="T:Aspose.OMR.OmrImage" /> that represents the image.</returns>
+    </member>
+    <member name="M:Aspose.OMR.OmrImage.Load(System.String)">
+      <summary>
+            Loads an image from the specified file name.
+            </summary>
+      <param name="fileName">The file name.</param>
+      <returns>An instance of <see cref="T:Aspose.OMR.OmrImage" /> that represents the image.</returns>
+    </member>
+    <member name="M:Aspose.OMR.OmrImage.AsBitmap">
+      <summary>
+            Copies pixel data into a GDI bitmap format
+            </summary>
+      <returns>A GDI bitmap</returns>
+    </member>
+    <member name="M:Aspose.OMR.OmrImage.Copy">
+      <summary>
+            Creates a deep copy of the <see cref="T:Aspose.OMR.OmrImage" />.
+            </summary>
+      <returns>A new instance of <see cref="T:Aspose.OMR.OmrImage" />.</returns>
+    </member>
+    <member name="P:Aspose.OMR.OmrImage.Buffer">
+      <summary>
+            Gets the pixel data of the <see cref="T:Aspose.OMR.OmrImage" /> object.
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.OmrImage.Width">
+      <summary>
+            Gets the width, in pixels, of this <see cref="T:Aspose.OMR.OmrImage" />.
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.OmrImage.Height">
+      <summary>
+            Gets the height, in pixels, of this <see cref="T:Aspose.OMR.OmrImage" />.
+            </summary>
+    </member>
+    <member name="P:Aspose.OMR.OmrImage.Resolution">
+      <summary>
+            Gets image DPI resolution
+            </summary>
+    </member>
+    <member name="T:Aspose.OMR.OmrProcessingResult">
+      <summary>
+            Represent a result of data extraction from an OMR sheet
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.OmrProcessingResult.#ctor(System.Collections.Hashtable[])">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.OmrProcessingResult" /> class.
+            </summary>
+      <param name="pageData">The page data.</param>
+    </member>
+    <member name="P:Aspose.OMR.OmrProcessingResult.PageData">
+      <summary>
+            Gets the page data collection of the processed document
+            </summary>
+    </member>
+    <member name="T:Aspose.OMR.OmrTemplate">
+      <summary>
+            Represents an OMR document template
+            </summary>
+      <summary>
+            Represents an OMR document template
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.OmrTemplate.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.OMR.OmrTemplate" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.OMR.OmrTemplate.Load(System.String)">
+      <summary>
+            Loads the template.
+            </summary>
+      <param name="fileName">
+            Name of the file to load the template from.
+            </param>
+      <returns>The freshly loaded <see cref="T:Aspose.OMR.OmrTemplate" />.</returns>
+    </member>
+    <member name="M:Aspose.OMR.OmrTemplate.Load(System.IO.Stream)">
+      <summary>
+            Loads the template.
+            </summary>
+      <param name="stream">Stream to load the template from.</param>
+      <returns>The freshly loaded <see cref="T:Aspose.OMR.OmrTemplate" />.</returns>
+    </member>
+    <member name="M:Aspose.OMR.OmrTemplate.Save(System.String)">
+      <summary>
+            Saves the template.
+            </summary>
+      <param name="fileName">Name of the file to save the template to.</param>
+    </member>
+    <member name="M:Aspose.OMR.OmrTemplate.Save(System.IO.Stream)">
+      <summary>
+            Saves the template.
+            </summary>
+      <param name="stream">Stream to save the template to.</param>
+    </member>
+    <member name="P:Aspose.OMR.OmrTemplate.Pages">
+      <summary>
+            Gets the collection of pages within the template
+            </summary>
+    </member>
+  </members>
+</doc>
